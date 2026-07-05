@@ -1,8 +1,22 @@
 <!doctype html>
 <html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Browser Use CLI 3.0</title>
+
+<style id="myhermes-reader-controls-style">
+:root{--reader-font-scale:1em}.reader-controls{position:fixed;top:1em;left:1em;z-index:9999;font-size:1em}.reader-menu-button{width:2.75em;height:2.75em;border-radius:999px;border:1px solid rgba(80,55,35,.22);background:rgba(255,253,248,.94);box-shadow:0 .35em 1.2em rgba(70,44,22,.16);color:#6f3e20;font-size:1em;font-weight:800;cursor:pointer}.reader-menu-panel{display:none;position:absolute;top:3.25em;left:0;min-width:13.5em;padding:.75em;border:1px solid rgba(80,55,35,.18);border-radius:1em;background:rgba(255,253,248,.98);box-shadow:0 .5em 1.5em rgba(70,44,22,.18)}.reader-controls.open .reader-menu-panel{display:block}.reader-menu-panel a,.reader-menu-panel button{display:block;width:100%;margin:.25em 0;padding:.65em .8em;border:1px solid #e8ded1;border-radius:.75em;background:#fffaf2;color:#6f3e20;text-align:left;text-decoration:none;font:inherit;font-weight:800;cursor:pointer}.reader-menu-panel button:hover,.reader-menu-panel a:hover{background:#f4e5d2}.reader-font-target{font-size:var(--reader-font-scale)}@media(max-width:640px){.reader-controls{top:.75em;left:.75em}.reader-menu-panel{min-width:12.5em}}
+</style>
 <style>
 :root{--bg:#f7f3ec;--card:#fffdf8;--ink:#2f2923;--muted:#756b60;--accent:#9a5a2e;--line:#e8ded1;--shadow:rgba(70,44,22,.12)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Source Han Sans TC","Microsoft JhengHei",sans-serif;line-height:1.75}.wrap{max-width:920px;margin:0 auto;padding:28px 18px 56px}header{background:linear-gradient(135deg,#fff7ea,#f1dfc7);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 8px 24px var(--shadow)}.kicker{color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:.92rem}h1{margin:.2em 0 .35em;font-size:clamp(1.8rem,4vw,3rem);line-height:1.2;font-family:"Noto Serif TC","Source Han Serif TC",serif}.meta{color:var(--muted);font-size:.95rem;display:flex;flex-wrap:wrap;gap:.7em}section{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}h2{margin:0 0 12px;color:#6f3e20;font-family:"Noto Serif TC","Source Han Serif TC",serif}ul{padding-left:1.35em}li{margin:.35em 0}.article p{margin:0 0 1em}a{color:#8b4b24;word-break:break-word}.notice{color:var(--muted);font-size:.92rem}code{background:#f1e8dc;border:1px solid #e4d5c4;border-radius:6px;padding:.08em .35em}
-</style></head><body><main class="wrap">
+</style></head><body>
+<div class="reader-controls" id="readerControls">
+  <button class="reader-menu-button" type="button" aria-label="開啟選單" onclick="toggleReaderMenu()">☰</button>
+  <div class="reader-menu-panel" role="menu">
+    <a href="https://share.beartolove.com/share.html">回分享目錄</a>
+    <button type="button" onclick="adjustReaderFont(0.1)">放大字體 ＋</button>
+    <button type="button" onclick="adjustReaderFont(-0.1)">縮小字體 －</button>
+    <button type="button" onclick="resetReaderFont()">恢復預設</button>
+  </div>
+</div>
+<div class="reader-font-target"><main class="wrap">
 <header><div class="kicker">SHARED MEMO</div><h1>Browser Use CLI 3.0</h1><div class="meta"><span>建立時間：2026-07-05 17:32:16（Asia/Taipei）</span><span>引用來源：<a href="https://www.facebook.com/share/1EMoaKg2qe/" target="_blank" rel="noopener">https://www.facebook.com/share/1EMoaKg2qe/</a></span></div></header>
 <section><h2>重點摘要</h2><ul><li>Browser Use CLI 3.0 主打透過 Chrome DevTools Protocol 操控瀏覽器，減少傳統 click/type/screenshot 猜測式操作。</li>
 <li>貼文指出它具備「網域技能」設計，可保存特定網站的登入流程、選擇器與特殊情境處理方式，方便下次自動套用。</li>
@@ -20,4 +34,17 @@
 <p>它支援三種環境：本機 Chrome、雲端、自訂端點。安裝也簡單，在 Claude Code 或 Codex 裡貼一段指令就搞定，API Key 免費申請。</p>
 <p>一個人就是一間公司，能自動化的就不要手動。Browser Use 把瀏覽器操作這塊的門檻砍到很低，值得裝起來試。</p>
 <p>#一人公司 #AI #BrowserUse #自動化 #開源 #效率工具</p></section>
-</main></body></html>
+</main></div>
+<script id="myhermes-reader-controls-script">
+(function(){
+  const key='myhermes-reader-font-scale';
+  const root=document.documentElement;
+  function apply(v){root.style.setProperty('--reader-font-scale', v.toFixed(2)+'em');}
+  window.toggleReaderMenu=function(){document.getElementById('readerControls')?.classList.toggle('open');};
+  window.adjustReaderFont=function(delta){let v=parseFloat(localStorage.getItem(key)||'1');v=Math.max(0.8,Math.min(1.6,v+delta));localStorage.setItem(key,String(v));apply(v);};
+  window.resetReaderFont=function(){localStorage.removeItem(key);apply(1);};
+  document.addEventListener('click',function(e){const c=document.getElementById('readerControls');if(c && !c.contains(e.target)) c.classList.remove('open');});
+  apply(parseFloat(localStorage.getItem(key)||'1'));
+})();
+</script>
+</body></html>
