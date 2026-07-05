@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>S-Team 簡報工作室</title>
+<style>
+:root{--bg:#f7f3ec;--card:#fffdf8;--ink:#2f2923;--muted:#756b60;--accent:#9a5a2e;--line:#e8ded1;--shadow:rgba(70,44,22,.12);--reader-font-scale:1em}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Source Han Sans TC","Microsoft JhengHei",sans-serif;line-height:1.75}.wrap{max-width:57.5em;margin:0 auto;padding:4.5em 1.125em 3.5em}header{background:linear-gradient(135deg,#fff7ea,#f1dfc7);border:.0625em solid var(--line);border-radius:1.375em;padding:1.75em;box-shadow:0 .5em 1.5em var(--shadow)}.kicker{color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:.92em}h1{margin:.2em 0 .35em;font-size:2.4em;line-height:1.2;font-family:"Noto Serif TC","Source Han Serif TC",serif}.meta{color:var(--muted);font-size:.95em;display:flex;flex-wrap:wrap;gap:.7em}section{margin-top:1.375em;background:var(--card);border:.0625em solid var(--line);border-radius:1.125em;padding:1.375em}h2{margin:0 0 .75em;color:#6f3e20;font-family:"Noto Serif TC","Source Han Serif TC",serif}ul{padding-left:1.35em}li{margin:.35em 0}.article p{margin:0 0 1em}a{color:#8b4b24;word-break:break-word}.notice{color:var(--muted);font-size:.92em}.image-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(12em,1fr));gap:.9em}.image-card{border:0;background:transparent;padding:0;cursor:pointer;border-radius:1em;overflow:hidden;box-shadow:0 .35em 1.2em rgba(70,44,22,.14)}.image-card img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}.lightbox{position:fixed;inset:0;z-index:10000;background:rgba(12,10,8,.86);display:none;align-items:center;justify-content:center;padding:2em}.lightbox.open{display:flex}.lightbox img{max-width:92vw;max-height:86vh;border-radius:.75em;box-shadow:0 1em 3em rgba(0,0,0,.45)}.lb-btn{position:absolute;border:0;border-radius:999px;background:rgba(255,253,248,.92);color:#2f2923;width:2.8em;height:2.8em;font-size:1.2em;font-weight:900;cursor:pointer}.lb-close{top:1em;right:1em}.lb-prev{left:1em}.lb-next{right:1em}.reader-controls{position:fixed;top:1em;left:1em;z-index:9999;font-size:1em}.reader-menu-button{width:2.75em;height:2.75em;border-radius:999px;border:.0625em solid rgba(80,55,35,.22);background:rgba(255,253,248,.94);box-shadow:0 .35em 1.2em rgba(70,44,22,.16);color:#6f3e20;font-size:1em;font-weight:800;cursor:pointer}.reader-menu-panel{display:none;position:absolute;top:3.25em;left:0;min-width:13.5em;padding:.75em;border:.0625em solid rgba(80,55,35,.18);border-radius:1em;background:rgba(255,253,248,.98);box-shadow:0 .5em 1.5em rgba(70,44,22,.18)}.reader-controls.open .reader-menu-panel{display:block}.reader-menu-panel a,.reader-menu-panel button{display:block;width:100%;margin:.25em 0;padding:.65em .8em;border:.0625em solid #e8ded1;border-radius:.75em;background:#fffaf2;color:#6f3e20;text-align:left;text-decoration:none;font:inherit;font-weight:800;cursor:pointer}.reader-font-target{font-size:var(--reader-font-scale)}@media(max-width:40em){h1{font-size:2em}.wrap{padding:4.2em .9em 3em}}
+</style></head><body><div class="reader-controls" id="readerControls"><button class="reader-menu-button" type="button" aria-label="開啟選單" onclick="toggleReaderMenu()">☰</button><div class="reader-menu-panel" role="menu"><a href="https://share.beartolove.com/share.html">回分享目錄</a><button type="button" onclick="adjustReaderFont(0.1)">放大字體 ＋</button><button type="button" onclick="adjustReaderFont(-0.1)">縮小字體 －</button><button type="button" onclick="resetReaderFont()">恢復預設</button></div></div><div class="reader-font-target"><main class="wrap">
+<header><div class="kicker">SHARED MEMO</div><h1>S-Team 簡報工作室</h1><div class="meta"><span>建立時間：2026-07-06 00:21:10（Asia/Taipei）</span><span>引用來源：<a href="https://www.facebook.com/share/p/1EfDjWEK9f/" target="_blank" rel="noopener">https://www.facebook.com/share/p/1EfDjWEK9f/</a></span></div></header>
+<section><h2>重點摘要</h2><ul><li>貼文分享 S-Team 簡報工作室這套 AI 簡報製作流程，可依需求產出簡報與講稿。</li>
+<li>常用輸出格式包含簡報 HTML / PPTX，以及講稿 HTML / PDF / DOCX；作者偏好 HTML 簡報，方便跨裝置開啟。</li>
+<li>製作方式可從零訪談、依既有規劃製作，或由使用者直接規劃每頁內容後交給簡報團視覺化。</li>
+<li>目前內建 tech-mystery、minimal-modern、editorial、bauhaus 四種風格，也可用 /style-create 新增 design token。</li>
+<li>作者提醒內容仍建議自行檢查，但製作團隊可先協助完成初步考證與整理。</li></ul><p class="notice">提醒：本文為分享內容整理，涉及開源工具、工作流程與個人使用經驗，實際使用仍建議以原始 repo 與自身需求驗證。</p></section>
+<section class="article"><h2>原文</h2><p><a href="https://www.facebook.com/share/p/1EfDjWEK9f/" target="_blank" rel="noopener">https://www.facebook.com/share/p/1EfDjWEK9f/</a></p>
+<p>常常看很很多人分享自己用AI做Slide
+原本以為這是很基礎的用法</p>
+<p>但後來還是經常看到許多人在詢問相關的實際製程
+讓我覺得AI簡報製作 這件事
+似乎還是有一段GAP
+所以心血來潮分想一下自己常常使用的製程團隊</p>
+<p>S-Team 簡報工作室
+<a href="https://github.com/chemistrywow31/S-Team" target="_blank" rel="noopener">https://github.com/chemistrywow31/S-Team</a></p>
+<p>可依照需求製作完整的簡報以及講稿
+看實際跟工作室提出的需求是什麼</p>
+<p>簡報常用格式 HTML, PPTX
+講稿常用格式 HTML, PDF, DOCX
+(但我自己用其實講稿我都掃過去而已不會完全照著說)</p>
+<p>目前簡報我個人比較偏愛使用HTML
+簡單起個web server
+到哪都能開 不用綁定windows office</p>
+<p>現在基本上我有公司內部sharing, 專案提案, 面試自我介紹
+跟其他所有需要簡報的場合
+我都是用這個製程去產出簡報了
+最後再依照自己的實際需求去微調</p>
+<p>製作團隊也會去考證內容的正確性
+建議最後自己還是要看過
+能夠省去初步繁雜的考證已經幫助很大</p>
+<p>簡報可以由幾種方式製作
+1. 空手而來 從零開始訪談
+2. 已經由其他地方產生簡報規劃需求
+3. 直接規劃好每一頁的內容 簡報團負責視覺化</p>
+<p>按照自己的需求彈性使用</p>
+<p>簡報目前內建四種風格
+1. tech-mystery ・ 科技神秘風
+2. minimal-modern ・ 簡約現代風
+3. editorial ・ 編輯風
+4. bauhaus ・ 包浩斯風
+風格不是固定
+可使用 /style-create 自己新增喜歡的design token</p>
+<p>另外因為claude code內建的system prompt有很多軟體工程用語
+實際製作簡報建議使用cowork</p>
+<p>這幾份就是利用S-Team readme.md
+請簡報製作團
+用口語化方式製作一份自我介紹簡報
+人類0介入</p>
+<p>科技神秘
+<a href="https://www.chemistry-wow.com/chemistry-times/embed/standalone/s-team-intro-v3-tech-mystery/" target="_blank" rel="noopener">https://www.chemistry-wow.com/chemistry-times/embed/standalone/s-team-intro-v3-tech-mystery/</a></p>
+<p>編輯風
+<a href="https://www.chemistry-wow.com/chemistry-times/static/articles/standalone/s-team-intro-v3-editorial/" target="_blank" rel="noopener">https://www.chemistry-wow.com/chemistry-times/static/articles/standalone/s-team-intro-v3-editorial/</a></p>
+<p>包浩斯風
+<a href="https://www.chemistry-wow.com/chemistry-times/static/articles/standalone/s-team-intro-v3-bauhaus/" target="_blank" rel="noopener">https://www.chemistry-wow.com/chemistry-times/static/articles/standalone/s-team-intro-v3-bauhaus/</a></p>
+<p>以上分享
+有需求的歡迎用用看</p>
+<p>簡報工作室由A-Team製作
+<a href="https://github.com/chemistrywow31/A-Team" target="_blank" rel="noopener">https://github.com/chemistrywow31/A-Team</a></p></section>
+<section><h2>圖片</h2><div class="image-grid"><button class="image-card" type="button" onclick="openLightbox(0)"><img src="https://drive.google.com/thumbnail?id=1lw_C0e-nOWhJaIvYTwRC1ltHDLGhzLc2&amp;sz=w1600" alt="分享圖片 1" loading="lazy"></button><button class="image-card" type="button" onclick="openLightbox(1)"><img src="https://drive.google.com/thumbnail?id=1K9YOXzqRZjp-iHqaVR2ot7pbkpx049_U&amp;sz=w1600" alt="分享圖片 2" loading="lazy"></button><button class="image-card" type="button" onclick="openLightbox(2)"><img src="https://drive.google.com/thumbnail?id=1S4VpxDeWjRt0ca0I1iDvYyQkC4gzZeM7&amp;sz=w1600" alt="分享圖片 3" loading="lazy"></button></div></section>
+</main></div><div class="lightbox" id="lightbox" aria-modal="true" role="dialog"><button class="lb-btn lb-close" onclick="closeLightbox()">×</button><button class="lb-btn lb-prev" onclick="moveLightbox(-1)">‹</button><img id="lightboxImage" alt="放大圖片"><button class="lb-btn lb-next" onclick="moveLightbox(1)">›</button></div>
+<script>(function(){const key='myhermes-reader-font-scale';const root=document.documentElement;function apply(v){root.style.setProperty('--reader-font-scale',v.toFixed(2)+'em');}window.toggleReaderMenu=function(){document.getElementById('readerControls')?.classList.toggle('open');};window.adjustReaderFont=function(delta){let v=parseFloat(localStorage.getItem(key)||'1');v=Math.max(0.8,Math.min(1.6,v+delta));localStorage.setItem(key,String(v));apply(v);};window.resetReaderFont=function(){localStorage.removeItem(key);apply(1);};document.addEventListener('click',e=>{const c=document.getElementById('readerControls');if(c&&!c.contains(e.target))c.classList.remove('open');});apply(parseFloat(localStorage.getItem(key)||'1'));})();
+const lightboxImages = ["https://drive.google.com/thumbnail?id=1lw_C0e-nOWhJaIvYTwRC1ltHDLGhzLc2&sz=w1600", "https://drive.google.com/thumbnail?id=1K9YOXzqRZjp-iHqaVR2ot7pbkpx049_U&sz=w1600", "https://drive.google.com/thumbnail?id=1S4VpxDeWjRt0ca0I1iDvYyQkC4gzZeM7&sz=w1600"];let lightboxIndex=0;function openLightbox(i){lightboxIndex=i;document.getElementById('lightboxImage').src=lightboxImages[i];document.getElementById('lightbox').classList.add('open');}function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}function moveLightbox(delta){lightboxIndex=(lightboxIndex+delta+lightboxImages.length)%lightboxImages.length;document.getElementById('lightboxImage').src=lightboxImages[lightboxIndex];}document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')moveLightbox(-1);if(e.key==='ArrowRight')moveLightbox(1);});document.getElementById('lightbox').addEventListener('click',e=>{if(e.target.id==='lightbox')closeLightbox();});
+</script></body></html>
