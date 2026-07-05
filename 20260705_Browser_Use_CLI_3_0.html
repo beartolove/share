@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Browser Use CLI 3.0</title>
+<style>
+:root{--bg:#f7f3ec;--card:#fffdf8;--ink:#2f2923;--muted:#756b60;--accent:#9a5a2e;--line:#e8ded1;--shadow:rgba(70,44,22,.12)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Source Han Sans TC","Microsoft JhengHei",sans-serif;line-height:1.75}.wrap{max-width:920px;margin:0 auto;padding:28px 18px 56px}header{background:linear-gradient(135deg,#fff7ea,#f1dfc7);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 8px 24px var(--shadow)}.kicker{color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:.92rem}h1{margin:.2em 0 .35em;font-size:clamp(1.8rem,4vw,3rem);line-height:1.2;font-family:"Noto Serif TC","Source Han Serif TC",serif}.meta{color:var(--muted);font-size:.95rem;display:flex;flex-wrap:wrap;gap:.7em}section{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}h2{margin:0 0 12px;color:#6f3e20;font-family:"Noto Serif TC","Source Han Serif TC",serif}ul{padding-left:1.35em}li{margin:.35em 0}.article p{margin:0 0 1em}a{color:#8b4b24;word-break:break-word}.notice{color:var(--muted);font-size:.92rem}code{background:#f1e8dc;border:1px solid #e4d5c4;border-radius:6px;padding:.08em .35em}
+</style></head><body><main class="wrap">
+<header><div class="kicker">SHARED MEMO</div><h1>Browser Use CLI 3.0</h1><div class="meta"><span>建立時間：2026-07-05 17:32:16（Asia/Taipei）</span><span>引用來源：<a href="https://www.facebook.com/share/1EMoaKg2qe/" target="_blank" rel="noopener">https://www.facebook.com/share/1EMoaKg2qe/</a></span></div></header>
+<section><h2>重點摘要</h2><ul><li>Browser Use CLI 3.0 主打透過 Chrome DevTools Protocol 操控瀏覽器，減少傳統 click/type/screenshot 猜測式操作。</li>
+<li>貼文指出它具備「網域技能」設計，可保存特定網站的登入流程、選擇器與特殊情境處理方式，方便下次自動套用。</li>
+<li>若操作過程缺少指令，Agent 可自行補寫所需程式碼接續執行，降低流程卡住的機率。</li>
+<li>支援本機 Chrome、雲端與自訂端點三種環境；安裝建議用 Python 3.12 搭配 uv 升級 browser-use。</li></ul><p class="notice">提醒：本文為分享內容整理，涉及工具功能、安裝方式與使用體驗，實際設定仍建議以官方文件與原始 repo 為準。</p></section>
+<section class="article"><h2>原文</h2><p><a href="https://www.facebook.com/share/1EMoaKg2qe/" target="_blank" rel="noopener">https://www.facebook.com/share/1EMoaKg2qe/</a></p>
+<p>想裝 Browser Use CLI 3.0？在你的 AI Agent裡貼這段：</p>
+<p>用 Python 3.12，透過 uv 安裝或升級 browser-use 到最新穩定版。安裝完成後，從 browser-use skill 註冊這個 skill，然後連接到我的瀏覽器。如果設定或連線有問題，照這個 repo 的說明處理：<a href="https://github.com/browser-use/browser-use" target="_blank" rel="noopener">https://github.com/browser-use/browser-use</a></p>
+<p>最後去官網申請一組免費 API Key 就能開始用了。</p>
+<p>Browser Use CLI 3.0，103k star 的瀏覽器自動化神器。</p>
+<p>之前用 Coding Agent 操控瀏覽器，大多是靠 click()、type() 和 screenshot 在「猜」。每次操作都要把整個 DOM 樹塞進上下文，又慢又吃 token。</p>
+<p>Browser Use CLI 3.0 換了一個思路。它直接走 Chrome DevTools Protocol，繞過那些猜測式的操作，讓 Agent 跟瀏覽器之間的溝通變得直接很多。</p>
+<p>最讓我驚豔的是「網域技能」這個設計。你在某個網站摸索出來的登入流程、元素選擇器、特殊狀況的處理方式，全部會被存成技能。下次碰到類似的網站，Agent 自動套用，不用從頭學。</p>
+<p>另一個細節是：如果執行中碰到缺指令的情況——比如要上傳檔案卻沒有現成函式——Agent 會自己寫出需要的程式碼接著跑，不會卡死在那邊。</p>
+<p>它支援三種環境：本機 Chrome、雲端、自訂端點。安裝也簡單，在 Claude Code 或 Codex 裡貼一段指令就搞定，API Key 免費申請。</p>
+<p>一個人就是一間公司，能自動化的就不要手動。Browser Use 把瀏覽器操作這塊的門檻砍到很低，值得裝起來試。</p>
+<p>#一人公司 #AI #BrowserUse #自動化 #開源 #效率工具</p></section>
+</main></body></html>
