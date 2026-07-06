@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep Memory 記憶儀表板</title>
+<style>
+:root { --scale: 1; --bg:#f7f3ec; --ink:#1f2d49; --muted:#655d54; --card:#fffdf8; --accent:#b55b3d; --sage:#748f84; --line:#e2d6c6; }
+* { box-sizing: border-box; }
+html { font-size: calc(16px * var(--scale)); }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif; line-height:1.75; }
+a { color:#8a3f2b; }
+.wrap { max-width: 58em; margin: 0 auto; padding: 3.2em 1.2em 4em; }
+.hero { background:linear-gradient(135deg,#1f2d49,#30466d); color:white; border-radius:1.2em; padding:2.2em; box-shadow:0 1em 2.5em rgba(31,45,73,.16); }
+.badge { display:inline-block; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.28); border-radius:999px; padding:.28em .8em; font-size:.9em; }
+h1 { margin:.45em 0 .2em; font-size:2.15em; line-height:1.2; }
+.source { margin-top:1em; color:#f6e7d7; font-size:.96em; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:1.1em; padding:1.4em; margin-top:1.2em; box-shadow:0 .35em 1.4em rgba(31,45,73,.06); }
+h2 { margin:.1em 0 .75em; font-size:1.35em; }
+ul.summary { padding-left:1.25em; }
+ul.summary li { margin:.45em 0; }
+.original { white-space:normal; overflow-wrap:anywhere; }
+.gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(14em,1fr)); gap:1em; }
+.thumb { border:0; padding:0; background:transparent; cursor:pointer; border-radius:1em; overflow:hidden; box-shadow:0 .4em 1.2em rgba(0,0,0,.12); }
+.thumb img { width:100%; height:auto; display:block; }
+.reader-menu { position:fixed; left:1em; top:1em; z-index:50; }
+.menu-btn, .reader-controls button, .reader-controls a { font:inherit; }
+.menu-btn { width:2.4em; height:2.4em; border:0; border-radius:999px; background:var(--ink); color:white; box-shadow:0 .3em 1em rgba(0,0,0,.2); cursor:pointer; }
+.reader-controls { margin-top:.45em; background:white; border:1px solid var(--line); border-radius:.8em; padding:.55em; box-shadow:0 .8em 2em rgba(0,0,0,.16); min-width:10em; }
+.reader-controls a, .reader-controls button { display:block; width:100%; text-align:left; padding:.55em .7em; border:0; background:white; color:var(--ink); text-decoration:none; border-radius:.45em; cursor:pointer; }
+.reader-controls a:hover, .reader-controls button:hover { background:#f3eadf; }
+.lightbox { position:fixed; inset:0; z-index:100; background:rgba(5,8,14,.86); display:none; align-items:center; justify-content:center; padding:2em; }
+.lightbox.open { display:flex; }
+.lightbox img { max-width:92vw; max-height:86vh; border-radius:.6em; box-shadow:0 1em 3em rgba(0,0,0,.45); }
+.lb-btn { position:absolute; border:0; background:rgba(255,255,255,.16); color:white; border-radius:999px; width:2.8em; height:2.8em; font-size:1.4em; cursor:pointer; }
+.lb-close { top:1em; right:1em; } .lb-prev { left:1em; } .lb-next { right:1em; }
+.foot { color:var(--muted); font-size:.9em; margin-top:1.2em; }
+</style>
+</head>
+<body>
+
+<div class="reader-menu">
+  <button class="menu-btn" onclick="toggleReaderMenu()" aria-label="開啟閱讀選單">☰</button>
+  <div id="readerControls" class="reader-controls" hidden>
+    <a href="https://share.beartolove.com/share.html" target="_self">回分享目錄</a>
+    <button onclick="adjustReaderFont(0.08)">放大字體</button>
+    <button onclick="adjustReaderFont(-0.08)">縮小字體</button>
+    <button onclick="resetReaderFont()">恢復預設</button>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="badge">#科技及AI新知</span>
+    <h1>Deep Memory 記憶儀表板</h1>
+    <div>Deep Memory 新增「產生記憶儀表板」：把知識庫轉成關聯圖表與關鍵字排名。</div>
+    <div class="source">引用來源：<a href="https://www.facebook.com/share/1FAorXvaAp/" target="_blank" rel="noopener">Facebook 貼文</a>　｜　<a href="https://kevintsai1202.github.io/deep-memory/" target="_blank" rel="noopener">Deep Memory 說明網頁</a></div>
+  </section>
+  <section class="card"><h2>重點摘要</h2><ul class="summary"><li>Deep Memory 新增「記憶儀表板」功能，可把知識庫內容視覺化。</li><li>使用者之後只要說「產生記憶儀表板」，就能生成關聯圖表與關鍵字排名。</li><li>這個功能延伸自作者先前把法律判決做成關聯圖表的經驗，讓記憶管理更有儀式感。</li><li>已安裝 Deep Memory 的使用者可更新試用；尚未安裝者可讓 AI Agent 協助安裝。</li></ul></section>
+  <section class="card"><h2>原文</h2><div class="original"><a href="https://www.facebook.com/share/1FAorXvaAp/" target="_blank" rel="noopener">https://www.facebook.com/share/1FAorXvaAp/</a><br>
+<br>
+前幾天把法律相關判決做成關聯圖表, 覺得還蠻有儀式感的<br>
+於是把之前開源的 Deep Memory 也加上儀表板<br>
+之後只要說&quot;產生記憶儀表板&quot;<br>
+就能幫你產生知識庫的關聯圖表還有關鍵字排名<br>
+有安裝的可以更新來玩玩, 沒安裝的趕快讓你的AI Agent安裝<br>
+<br>
+說明網頁: <a href="https://kevintsai1202.github.io/deep-memory/" target="_blank" rel="noopener">https://kevintsai1202.github.io/deep-memory/</a></div></section>
+  <section class="card"><h2>圖片</h2><div class="gallery"><button class="thumb" type="button" onclick="openLightbox(0)" aria-label="開啟圖片 1"><img src="https://drive.google.com/thumbnail?id=1xjn9v6fKdm3ODFr9WbOOl8axNCAROrZg&sz=w1600" alt="Deep Memory 記憶儀表板 圖片 1" loading="lazy"></button></div><div class="foot">點選圖片可在頁內開啟燈箱瀏覽。</div></section>
+</main>
+<div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+  <button class="lb-btn lb-close" onclick="forceCloseLightbox()">×</button>
+  <button class="lb-btn lb-prev" onclick="moveLightbox(-1); event.stopPropagation();">‹</button>
+  <img id="lightboxImg" alt="圖片預覽">
+  <button class="lb-btn lb-next" onclick="moveLightbox(1); event.stopPropagation();">›</button>
+</div>
+<script>
+const lightboxImages = ["https://drive.google.com/thumbnail?id=1xjn9v6fKdm3ODFr9WbOOl8axNCAROrZg&sz=w1600"];
+let lightboxIndex = 0;
+function applyScale() { const s = localStorage.getItem('shareFontScale') || '1'; document.documentElement.style.setProperty('--scale', s); }
+function adjustReaderFont(delta) { const cur = parseFloat(localStorage.getItem('shareFontScale') || '1'); const next = Math.min(1.45, Math.max(0.82, cur + delta)); localStorage.setItem('shareFontScale', next.toFixed(2)); applyScale(); }
+function resetReaderFont() { localStorage.setItem('shareFontScale','1'); applyScale(); }
+function toggleReaderMenu() { const el=document.getElementById('readerControls'); el.hidden=!el.hidden; }
+function openLightbox(i) { lightboxIndex=i; document.getElementById('lightboxImg').src=lightboxImages[i]; document.getElementById('lightbox').classList.add('open'); }
+function forceCloseLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+function closeLightbox(e) { if(e.target.id==='lightbox') forceCloseLightbox(); }
+function moveLightbox(step) { lightboxIndex=(lightboxIndex+step+lightboxImages.length)%lightboxImages.length; document.getElementById('lightboxImg').src=lightboxImages[lightboxIndex]; }
+document.addEventListener('keydown', e => { if(e.key==='Escape') forceCloseLightbox(); if(e.key==='ArrowLeft') moveLightbox(-1); if(e.key==='ArrowRight') moveLightbox(1); });
+applyScale();
+</script>
+</body></html>
