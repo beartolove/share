@@ -1,0 +1,69 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI 角色一致性：Character Sheet Prompt</title><style>
+:root{--bg:#fff8ec;--card:#fffdf7;--ink:#4b2f24;--muted:#7d6559;--accent:#8b5e34;--accent2:#b08968;--line:#eadcca;--shadow:0 1em 2.5em rgba(86,55,32,.10);--fs:1}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff8ec,#f7ead8);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:calc(17px * var(--fs));line-height:1.78}a{color:#7a4f2d;text-underline-offset:.18em}.wrap{max-width:72em;margin:auto;padding:4.5em 1.2em 3em}.hero,.section{background:var(--card);border:1px solid var(--line);border-radius:1.25em;padding:1.5em;margin:1em 0;box-shadow:var(--shadow)}.hero{padding:2.3em}.kicker{color:#8b5e34;font-weight:900;letter-spacing:.08em}h1{font-family:Georgia,"Noto Serif TC",serif;font-size:clamp(2em,5vw,3.7em);line-height:1.12;margin:.2em 0 .35em;color:#543325}h2{font-size:1.45em;color:#5d4037;margin:.1em 0 .6em}h3{color:#7a4f2d;margin:.2em 0 .35em}.source{background:#fbf1e4;border-left:.35em solid var(--accent2);padding:.8em 1em;border-radius:.6em;color:var(--muted);word-break:break-all}.chips{display:flex;flex-wrap:wrap;gap:.5em;margin-top:1em}.chip{background:#f4e5d2;color:#6b442b;border:1px solid #e7d0b9;border-radius:999px;padding:.3em .75em;font-size:.9em}.summary li{margin:.55em 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(14em,1fr));gap:1em}.key{background:#fff8ee;border:1px solid var(--line);border-radius:1em;padding:1em}.code-card{background:#35251e;color:#fff7ed;border-radius:1em;overflow:hidden;border:1px solid #5a3c2e}.code-head{display:flex;justify-content:space-between;gap:1em;align-items:center;padding:.75em 1em;background:#4a3025}.code-head button{border:1px solid #d8b999;background:#fff8ec;color:#4b2f24;border-radius:999px;padding:.3em .7em;cursor:pointer}pre{margin:0;padding:1em;overflow:auto;white-space:pre-wrap}code{background:#f7ead8;border-radius:.25em;padding:.05em .25em}.code-card code,.code-card pre code,pre code{background:transparent;border:0;padding:0;color:inherit}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(16em,1fr));gap:1em}.shot img{width:100%;display:block;border-radius:1em;border:1px solid var(--line);box-shadow:0 .7em 1.6em rgba(86,55,32,.10)}.imgBtn{display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer}.lightbox{position:fixed;inset:0;background:rgba(30,20,12,.86);z-index:50;display:none;align-items:center;justify-content:center;padding:2em}.lightbox.open{display:flex}.lightbox img{max-width:94vw;max-height:88vh;border-radius:.8em;background:white}.lbBtn{position:fixed;border:0;border-radius:999px;background:#fffdf7;color:#4b2f24;padding:.75em 1em;cursor:pointer}.close{top:1em;right:1em}.prev{left:1em}.next{right:1em}.menuBtn{position:fixed;top:1em;left:1em;z-index:20;border:1px solid var(--line);background:#fffdf7;border-radius:999px;padding:.65em .85em;box-shadow:var(--shadow);cursor:pointer;color:var(--ink)}.panel{position:fixed;top:4em;left:1em;z-index:21;background:#fffdf7;border:1px solid var(--line);border-radius:1em;padding:.7em;box-shadow:var(--shadow);display:none;min-width:12em}.panel.open{display:block}.panel a,.panel button{display:block;width:100%;text-align:left;background:transparent;border:0;color:var(--ink);padding:.65em .75em;border-radius:.6em;text-decoration:none;font-size:1em;cursor:pointer}.panel a:hover,.panel button:hover{background:#f5eadb}footer{color:var(--muted);text-align:center;margin-top:2em;font-size:.9em}
+</style></head><body><button class="menuBtn" onclick="toggleMenu()">☰</button><nav id="panel" class="panel"><a href="https://share.beartolove.com/share.html">回目錄</a><button onclick="fontSize(.08)">放大字體</button><button onclick="fontSize(-.08)">縮小字體</button><button onclick="resetFont()">恢復預設</button></nav><main class="wrap"><section class="hero"><div class="kicker">#科技及AI新知 · Character Consistency · AI Image · AI Video</div><h1>AI 角色一致性：Character Sheet Prompt</h1><div class="source">引用來源：<a href="https://www.facebook.com/share/p/1HGwd1xvxe/" target="_blank" rel="noopener">Facebook 貼文</a><br>建議工具：ChatGPT Image 2 或 Nano Banana Pro</div><div class="chips"><span class="chip">Character Sheet</span><span class="chip">Orthographic Views</span><span class="chip">Reference Image</span><span class="chip">AI Video</span><span class="chip">可複製 Prompt</span></div></section><section class="section"><h2>重點摘要</h2><ul class="summary"><li>這則貼文分享一個「角色設定表」prompt，用來幫 AI 圖像與 AI 影片建立同一角色的視覺一致性。</li><li>Prompt 要求輸出多角度角色 sheet：頭部正側面、全身正側背面、俯視／仰視、半身側面與材質細節。</li><li>關鍵不是只生成漂亮角色，而是把臉部特徵、膚色、身高、體型、服裝、配件、光線與材質全部鎖定一致。</li><li>全身區塊特別要求 orthographic projection 與 no perspective distortion，適合做成後續 AI 影片或多張圖的 reference。</li><li>可用在 ChatGPT Image 2 或 Nano Banana Pro；同一結構也能換成寫實、3D Pixar 等不同風格。</li></ul></section><section class="section"><h2>Prompt 結構拆解</h2><div class="grid"><article class="key"><h3>Head Details</h3><p>頭部正面／側面、無配件與完整穿搭版本，用來鎖定臉部特徵。</p></article><article class="key"><h3>Full Body Orthographic</h3><p>5 個全身角度水平排列，確保身高、比例、服裝與背面資訊一致。</p></article><article class="key"><h3>Supplementary Views</h3><p>半身側面、俯視、仰視，補足一般 turnaround sheet 缺少的角度。</p></article><article class="key"><h3>Material Detail</h3><p>布料、鞋靴與材質特寫，保留後續生成時容易漂移的紋理細節。</p></article><article class="key"><h3>Consistency Requirements</h3><p>明確要求同一角色、同一光線、同一材質、無裁切、無重疊、標準化網格。</p></article></div></section><section class="section"><h2>可複製 Prompt</h2><article class="code-card"><div class="code-head"><strong>Character Sheet Prompt</strong><button onclick="copyCode(this)">複製</button></div><pre><code>Professional character design sheet with realistic photography style, pure white background, 4K resolution. The character the following features:
+
+HEAD DETAILS SECTION:
+
+Front view of head without accessories
+
+Right side view of head without accessories
+
+Front view of head with full outfit and accessories
+
+Right side view of head with full outfit and accessories
+All head views must have identical facial features, skin tone, proportions, and no perspective distortion.
+
+FULL BODY ORTHOGRAPHIC SECTION:
+5 full body views arranged horizontally:
+
+Front view
+
+Left 45-degree side view
+
+Right side view
+
+Right 45-degree side view
+
+Back view
+All views must be equal width and height, orthographic projection with no perspective distortion.
+
+SUPPLEMENTARY VIEWS SECTION:
+
+Half-body side view
+
+Top-down overhead view
+
+Bottom-up under view
+Character, outfit, and proportions must match main views exactly
+
+MATERIAL DETAIL SECTION:
+Extreme close-up shots of:
+
+Fabric texture of clothing
+
+Shoe and boot details
+Clear display of material patterns, textures, and details
+
+OVERALL CONSISTENCY REQUIREMENTS:
+
+All modules show the same character with identical facial features, height, body type, outfit, accessories, lighting, and materials
+
+High precision, maximum detail, cinematic animation character design standard
+
+Professional photography lighting with soft shadows
+
+Clean white background
+
+No overlapping or cropping of modules
+
+Clear and standardized layout
+
+The design sheet should be organized in a grid layout with clear spacing between sections, professional character design sheet format.</code></pre></article></section><section class="section"><h2>示意圖片</h2><div class="gallery"><figure class="shot"><button class="imgBtn" onclick="openLightbox(0)" aria-label="開啟角色一致性示意圖 1"><img src="https://drive.google.com/thumbnail?id=1Bn232BusrvnFLLJXHLKqrpFkU-MD9nU7&sz=w1800" alt="角色一致性示意圖 1" loading="lazy"></button></figure><figure class="shot"><button class="imgBtn" onclick="openLightbox(1)" aria-label="開啟角色一致性示意圖 2"><img src="https://drive.google.com/thumbnail?id=13NUa_Odx1Y4mi4eMhQG6Zy44zofyJLnG&sz=w1800" alt="角色一致性示意圖 2" loading="lazy"></button></figure><figure class="shot"><button class="imgBtn" onclick="openLightbox(2)" aria-label="開啟角色一致性示意圖 3"><img src="https://drive.google.com/thumbnail?id=1jOefQVZ2pKIOTyAbsJLVEdhei87O0FK1&sz=w1800" alt="角色一致性示意圖 3" loading="lazy"></button></figure></div></section><section class="section"><h2>原文</h2><p><a href="https://www.facebook.com/share/p/1HGwd1xvxe/" target="_blank" rel="noopener">https://www.facebook.com/share/p/1HGwd1xvxe/</a></p><p>Create character consistency for AI video and AI images with this character sheet prompt👇</p><p>Image: Chatgpt image 2 or Nano Banana pro</p><p>---</p><p>Prompt</p><p>Professional character design sheet with realistic photography style, pure white background, 4K resolution. The character the following features:</p><p>HEAD DETAILS SECTION:</p><p>Front view of head without accessories</p><p>Right side view of head without accessories</p><p>Front view of head with full outfit and accessories</p><p>Right side view of head with full outfit and accessories
+All head views must have identical facial features, skin tone, proportions, and no perspective distortion.</p><p>FULL BODY ORTHOGRAPHIC SECTION:
+5 full body views arranged horizontally:</p><p>Front view</p><p>Left 45-degree side view</p><p>Right side view</p><p>Right 45-degree side view</p><p>Back view
+All views must be equal width and height, orthographic projection with no perspective distortion.</p><p>SUPPLEMENTARY VIEWS SECTION:</p><p>Half-body side view</p><p>Top-down overhead view</p><p>Bottom-up under view
+Character, outfit, and proportions must match main views exactly</p><p>MATERIAL DETAIL SECTION:
+Extreme close-up shots of:</p><p>Fabric texture of clothing</p><p>Shoe and boot details
+Clear display of material patterns, textures, and details</p><p>OVERALL CONSISTENCY REQUIREMENTS:</p><p>All modules show the same character with identical facial features, height, body type, outfit, accessories, lighting, and materials</p><p>High precision, maximum detail, cinematic animation character design standard</p><p>Professional photography lighting with soft shadows</p><p>Clean white background</p><p>No overlapping or cropping of modules</p><p>Clear and standardized layout</p><p>The design sheet should be organized in a grid layout with clear spacing between sections, professional character design sheet format.</p></section><footer>分享頁由 myHermes 產生</footer></main><div id="lb" class="lightbox" onclick="if(event.target.id==='lb')closeLightbox()"><button class="lbBtn close" onclick="closeLightbox()">關閉</button><button class="lbBtn prev" onclick="move(-1)">上一張</button><button class="lbBtn next" onclick="move(1)">下一張</button><img id="lbImg" alt="圖片預覽"></div><script>
+const slides=["https://drive.google.com/thumbnail?id=1Bn232BusrvnFLLJXHLKqrpFkU-MD9nU7&sz=w1800", "https://drive.google.com/thumbnail?id=13NUa_Odx1Y4mi4eMhQG6Zy44zofyJLnG&sz=w1800", "https://drive.google.com/thumbnail?id=1jOefQVZ2pKIOTyAbsJLVEdhei87O0FK1&sz=w1800"];let cur=0;function openLightbox(i){cur=i;document.getElementById('lbImg').src=slides[cur];document.getElementById('lb').classList.add('open')}function closeLightbox(){document.getElementById('lb').classList.remove('open')}function move(d){cur=(cur+d+slides.length)%slides.length;document.getElementById('lbImg').src=slides[cur]}async function copyCode(btn){const text=btn.closest('.code-card').querySelector('code').innerText;try{await navigator.clipboard.writeText(text)}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove()}btn.textContent='已複製';setTimeout(()=>btn.textContent='複製',1200)}function applyFont(){document.documentElement.style.setProperty('--fs',localStorage.getItem('shareFont')||'1')}applyFont();function fontSize(d){let v=parseFloat(localStorage.getItem('shareFont')||'1');v=Math.min(1.6,Math.max(.8,v+d));localStorage.setItem('shareFont',v.toFixed(2));applyFont()}function resetFont(){localStorage.setItem('shareFont','1');applyFont()}function toggleMenu(){document.getElementById('panel').classList.toggle('open')}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')move(-1);if(e.key==='ArrowRight')move(1)})
+</script></body></html>
