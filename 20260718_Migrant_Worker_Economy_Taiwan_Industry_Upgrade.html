@@ -29,6 +29,15 @@ li { margin:.45em 0; }
 .links a { display:block; margin:.45em 0; color:#7c4a25; overflow-wrap:anywhere; }
 .quote { border-left:.3em solid var(--accent2); padding-left:1em; color:#4b382d; background:#fff5e8; border-radius:.4em; }
 .footer { color:var(--muted); text-align:center; font-size:.85em; margin:2em 0 0; }
+
+.summary-visual{margin:0 0 1.1em}
+.summary-visual .imgBtn{display:block;width:100%;padding:0;border:0;background:transparent;cursor:zoom-in}
+.summary-visual img{width:100%;display:block;border-radius:1em;border:1px solid var(--line);box-shadow:0 .7em 1.6em rgba(86,55,32,.10)}
+.summary-visual figcaption{text-align:center;color:var(--muted);font-size:.86em;margin-top:.45em}
+.lightbox{position:fixed;inset:0;background:rgba(34,22,14,.82);display:none;align-items:center;justify-content:center;z-index:50;padding:2em}
+.lightbox.open{display:flex}.lightbox img{max-width:94vw;max-height:86vh;border-radius:1em;box-shadow:0 1em 3em rgba(0,0,0,.35)}
+.lightbox button{position:absolute;border:0;border-radius:999px;background:#fff8ed;color:var(--ink);font-size:1.1em;padding:.6em .9em;cursor:pointer}.lightbox .close{top:1em;right:1em}.lightbox .prev{left:1em}.lightbox .next{right:1em}
+
 </style>
 </head>
 <body>
@@ -50,6 +59,12 @@ li { margin:.45em 0; }
 </section>
 <section class="card">
 <h2>重點摘要</h2>
+<figure class="summary-visual">
+  <button class="imgBtn" onclick="openLightbox(0)" aria-label="開啟移工經濟重點圖">
+    <img src="https://drive.google.com/thumbnail?id=1qK6iGvpGga8HcFvSM7J3u9tkqDbGrQzM&sz=w2000" alt="移工引爆台灣千億商機重點圖" loading="lazy">
+  </button>
+  <figcaption>移工經濟重點圖：市場規模、商機案例與台日韓比較</figcaption>
+</figure>
 <ul>
 <li>台灣移工已從補足基層缺工的勞動力，逐漸成為具有消費力、可培育為管理人才，甚至能協助台灣品牌出海的重要族群。</li>
 <li>合法在台工作生活的移工接近 78 萬人；即使多數薪資匯回母國，在台生活消費仍形成一年超過 300 億元的市場。</li>
@@ -84,6 +99,13 @@ li { margin:.45em 0; }
 </section>
 <div class="footer">分享頁由 myHermes 整理，內容以原影片與逐字稿摘要為基礎。</div>
 </main>
+<div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+  <button class="close" onclick="closeLightbox(event)" aria-label="關閉">✕</button>
+  <button class="prev" onclick="moveLightbox(-1,event)" aria-label="上一張">‹</button>
+  <img id="lightboxImg" src="" alt="分享頁圖片預覽">
+  <button class="next" onclick="moveLightbox(1,event)" aria-label="下一張">›</button>
+</div>
+
 <script>
 function applyScale(v) { document.documentElement.style.setProperty('--scale', v); localStorage.setItem('readerScale', v); }
 function adjustReaderFont(delta) { const cur=parseFloat(localStorage.getItem('readerScale')||'1'); applyScale(Math.min(1.6, Math.max(.8, +(cur+delta).toFixed(2)))); }
@@ -91,6 +113,14 @@ function resetReaderFont() { applyScale(1); }
 function toggleMenu() { document.getElementById('menuPanel').classList.toggle('open'); }
 applyScale(parseFloat(localStorage.getItem('readerScale')||'1'));
 document.addEventListener('click', e => { if (!e.target.closest('.reader-menu')) document.getElementById('menuPanel').classList.remove('open'); });
+
+const lightboxImages=["https://drive.google.com/thumbnail?id=1qK6iGvpGga8HcFvSM7J3u9tkqDbGrQzM&sz=w2000"];
+let lightboxIndex=0;
+function openLightbox(i){ lightboxIndex=i; document.getElementById('lightboxImg').src=lightboxImages[lightboxIndex]; document.getElementById('lightbox').classList.add('open'); }
+function closeLightbox(e){ if(e) e.stopPropagation(); document.getElementById('lightbox').classList.remove('open'); }
+function moveLightbox(delta,e){ if(e) e.stopPropagation(); lightboxIndex=(lightboxIndex+delta+lightboxImages.length)%lightboxImages.length; document.getElementById('lightboxImg').src=lightboxImages[lightboxIndex]; }
+document.addEventListener('keydown', e=>{ if(!document.getElementById('lightbox').classList.contains('open')) return; if(e.key==='Escape') closeLightbox(e); if(e.key==='ArrowLeft') moveLightbox(-1,e); if(e.key==='ArrowRight') moveLightbox(1,e); });
+
 </script>
 </body>
 </html>
