@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自動剪片開源工具 video-autopilot-kit：CapCut 與 ffmpeg 兩種路徑</title>
+<meta name="description" content="自動剪片開源工具 video-autopilot-kit：CapCut 與 ffmpeg 兩種剪輯路徑、動態字卡補素材，以及 GitHub 專案重點整理。">
+<style>
+:root{--bg:#f7efe3;--card:#fffaf1;--ink:#3f2b1f;--muted:#7a6657;--accent:#9b663e;--accent2:#c58b58;--line:#ead8c1;--scale:1;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Source Han Sans TC","PingFang TC",sans-serif;font-size:calc(18px * var(--scale));line-height:1.85;}
+a{color:#7b4b2c;font-weight:700;text-decoration-thickness:.08em;text-underline-offset:.18em} .wrap{max-width:56em;margin:0 auto;padding:4.2em 1.2em 3em} .hero,.card{background:rgba(255,250,241,.94);border:1px solid var(--line);border-radius:1.3em;box-shadow:0 .8em 2em rgba(88,54,27,.08);padding:1.4em;margin-bottom:1.1em} h1{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:2em;line-height:1.25;margin:.1em 0 .35em;color:#2e1d15} h2{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:1.35em;margin:.2em 0 .6em;color:#4b2f20} .meta{color:var(--muted);font-size:.92em} .badge{display:inline-block;background:#f1ddc3;color:#5f3923;border-radius:99em;padding:.18em .7em;margin:.15em .25em .15em 0;font-size:.88em} .source{padding:.8em 1em;background:#f5e7d4;border-left:.32em solid var(--accent2);border-radius:.7em;margin-top:1em} ul{padding-left:1.25em} li{margin:.45em 0} .repo{display:grid;grid-template-columns:1fr;gap:.7em} .repo-row{border-top:1px solid var(--line);padding-top:.7em} .label{font-weight:800;color:#5e3b29} .original p{margin:.55em 0} .menu{position:fixed;left:.85em;top:.85em;z-index:20} .menu button{border:1px solid var(--line);background:#fff8ed;color:var(--ink);border-radius:.7em;padding:.55em .72em;font-size:1em;box-shadow:0 .3em 1em rgba(70,42,20,.12)} .panel{display:none;position:absolute;left:0;top:2.8em;min-width:11em;background:#fff8ed;border:1px solid var(--line);border-radius:.8em;padding:.4em;box-shadow:0 .6em 1.6em rgba(70,42,20,.18)} .panel a,.panel button{display:block;width:100%;text-align:left;background:transparent;border:0;box-shadow:none;padding:.55em .65em;color:var(--ink);text-decoration:none;font-size:.95em;border-radius:.45em} .panel a:hover,.panel button:hover{background:#f0dfc8} .menu.open .panel{display:block} footer{color:var(--muted);font-size:.86em;text-align:center;margin-top:1.5em}
+</style>
+</head>
+<body>
+<nav class="menu" id="readerControls"><button onclick="toggleMenu()">☰</button><div class="panel"><a href="https://share.beartolove.com/share.html" target="_self">回分享目錄</a><button onclick="adjustReaderFont(.08)">放大字體</button><button onclick="adjustReaderFont(-.08)">縮小字體</button><button onclick="resetReaderFont()">恢復預設</button></div></nav>
+<main class="wrap">
+<section class="hero">
+<div class="meta">建立時間：2026-07-20 17:48:15（Asia/Taipei）</div>
+<h1>自動剪片開源工具 video-autopilot-kit：CapCut 與 ffmpeg 兩種路徑</h1>
+<div><span class="badge">#科技及AI新知</span><span class="badge">#自動化</span><span class="badge">#開源工具</span><span class="badge">#短影音</span></div>
+<div class="source">引用來源：<a href="https://www.facebook.com/share/1dC9rkRMZX/" target="_blank" rel="noopener">Facebook 貼文</a>　｜　GitHub：<a href="https://github.com/Hao0321/video-autopilot-kit" target="_blank" rel="noopener">Hao0321/video-autopilot-kit</a></div>
+</section>
+<section class="card"><h2>重點摘要</h2><ul><li>這是一套已開源的自動剪片 skill／工具包，目標是把素材交給系統後，由系統自動分析與剪輯，減少手動進剪輯軟體逐格調整的時間。</li>
+<li>專案提供兩條剪輯路徑：一條直接操作 CapCut／CapCut draft JSON，另一條走純程式化 ffmpeg pipeline，可依使用習慣與平台需求選擇。</li>
+<li>若素材不足，作者提到可用新訓練好的動態字卡能力補足畫面，讓短影音或教學內容不會因素材少而卡住。</li>
+<li>GitHub repo「video-autopilot-kit」採 MIT 授權，描述為 YouTube／短影音自動化框架，包含 CapCut JSON、ffmpeg tooling 與 onboarding questionnaire。</li>
+<li>作者表示安裝方式可直接把 GitHub 網址交給 Claude 或 Codex，請 AI 協助一步步設定。</li></ul></section>
+<section class="card repo"><h2>GitHub 專案資訊</h2><div class="repo-row"><span class="label">專案：</span><a href="https://github.com/Hao0321/video-autopilot-kit" target="_blank" rel="noopener">Hao0321/video-autopilot-kit</a></div><div class="repo-row"><span class="label">描述：</span>Fill-in-your-own-data framework for YouTube / short-form video automation: CapCut JSON + ffmpeg tooling + onboarding questionnaire. MIT license, Python, 約 1.3k stars。</div><div class="repo-row"><span class="label">適合誰：</span>想嘗試 AI 自動剪片、YouTube／短影音自動化，或想用 Claude／Codex 輔助安裝與客製化剪輯流程的人。</div></section>
+<section class="card original"><h2>原文</h2><p><a href="https://www.facebook.com/share/1dC9rkRMZX/" target="_blank" rel="noopener">https://www.facebook.com/share/1dC9rkRMZX/</a></p>
+
+<p>最近看到越來越多人在製作自動剪輯，我的自動剪片 skill 已經開源了，這邊講清楚它到底能幫你做什麼</p>
+
+<p>你把素材準備好丟給它，它會自己分析、自己剪，剪完直接可以用，中間你不用再進剪輯軟體一格一格拉</p>
+
+<p>──</p>
+
+<p>安裝其實不難，你只要把 GitHub 網址丟給 Claude 或 CodeX，跟他說要安裝，他就會一步一步帶你設定完</p>
+
+<p>目前有兩種剪輯方式，一種是直接操作 CapCut，一種是走 ffmpeg，這兩種我自己都實際跑過，效果都還不錯，看你習慣哪一種就用哪一種</p>
+
+<p>──</p>
+
+<p>還有一個是我最近才訓練好的，如果你手上的素材不夠，它可以自己做動態字卡補上去</p>
+
+<p>等於就算素材很少，你也不會卡在那裡剪不出東西</p>
+
+<p>──</p>
+
+<p>最近看到滿多人都在開發 AI 自動剪片，我這套已經放上去了，目前在 GitHub 累積到 1300 顆星</p>
+
+<p>連結放留言區，不用留言跟我要，直接拿去用就好，覺得順手的話，幫我點顆星就夠了</p>
+
+<p>GitHub</p>
+
+<p><a href="https://github.com/Hao0321/video-autopilot-kit" target="_blank" rel="noopener">https://github.com/Hao0321/video-autopilot-kit</a></p>
+</section>
+<footer>本頁為轉貼內容整理，請以原貼文與 GitHub repo 最新內容為準。</footer>
+</main>
+<script>
+const root=document.documentElement; let scale=parseFloat(localStorage.getItem('readerScale')||'1'); root.style.setProperty('--scale',scale);
+function toggleMenu(){document.querySelector('.menu').classList.toggle('open')}
+function adjustReaderFont(d){scale=Math.max(.78,Math.min(1.45,scale+d));localStorage.setItem('readerScale',scale.toFixed(2));root.style.setProperty('--scale',scale)}
+function resetReaderFont(){scale=1;localStorage.setItem('readerScale','1');root.style.setProperty('--scale',1)}
+document.addEventListener('click',e=>{if(!e.target.closest('.menu'))document.querySelector('.menu').classList.remove('open')});
+</script>
+</body></html>
