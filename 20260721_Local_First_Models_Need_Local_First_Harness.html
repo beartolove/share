@@ -1,0 +1,91 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Local-first 模型也需要 local-first harness</title><meta name="description" content="Maka 案例提醒：local-first 模型選型不是單選模型，而是模型 × harness 的配對題。"><style>
+:root{--bg:#f7efe3;--card:#fffaf1;--ink:#3f2b1f;--muted:#786353;--accent:#9a6238;--line:#ead8c1;--deep:#2f2018;--scale:1}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#fff7ea 0,#f7efe3 42%,#efdfca 100%);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Source Han Sans TC",sans-serif;font-size:calc(18px * var(--scale));line-height:1.85}.wrap{max-width:62em;margin:auto;padding:4.4em 1.05em 3em}a{color:#7b4b2c;font-weight:800}.hero,.card{background:rgba(255,250,241,.95);border:1px solid var(--line);border-radius:1.25em;box-shadow:0 .8em 2.2em rgba(88,54,27,.09);padding:1.35em;margin-bottom:1em}h1,h2,h3{font-family:"Noto Serif TC","Source Han Serif TC",serif;color:#3e281b}h1{font-size:2.05em;line-height:1.22;margin:.1em 0 .45em}h2{font-size:1.34em;margin:.2em 0 .65em}.meta{color:var(--muted);font-size:.92em}.badge{display:inline-block;background:#f1ddc3;border-radius:99em;padding:.16em .68em;margin:.15em .18em;color:#5f3923;font-size:.88em}.source{background:#f5e7d4;border-left:.34em solid #c58b58;border-radius:.75em;padding:.75em .9em;margin-top:.95em}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(12em,1fr));gap:.75em}.stat{background:#fff5e8;border:1px solid var(--line);border-radius:.95em;padding:.9em}.stat-label{color:var(--muted);font-size:.88em}.stat-value{font-size:1.55em;font-weight:900;color:#6e3f24;line-height:1.25}.stat p{margin:.35em 0 0;color:#5d493b}.summary-visual{margin:0 0 1.1em}.summary-visual img,.gallery img{width:100%;display:block;border-radius:1em;border:1px solid var(--line);box-shadow:0 .7em 1.6em rgba(86,55,32,.12)}.summary-visual figcaption,.gallery figcaption{text-align:center;color:var(--muted);font-size:.86em;margin-top:.45em}.imgBtn{display:block;width:100%;padding:0;border:0;background:transparent;cursor:zoom-in}.note{background:#fff2de;border-left:.35em solid #b56f3f;border-radius:.75em;padding:.75em .9em;color:#5b3a25}table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:.9em;background:#fff7ec}th,td{border:1px solid var(--line);padding:.72em;vertical-align:top}th{width:9em;text-align:left;background:#f1ddc3;color:#4b2f20}.original{max-height:36em;overflow:auto}.original h3{margin-top:1.2em;border-top:1px solid var(--line);padding-top:.8em}.original p{margin:.45em 0}.bullet{padding-left:1em}.menu{position:fixed;left:.85em;top:.85em;z-index:20}.menu button{border:1px solid var(--line);background:#fff8ed;color:var(--ink);border-radius:.7em;padding:.55em .72em;font-size:1em;box-shadow:0 .3em 1em rgba(70,42,20,.12)}.panel{display:none;position:absolute;left:0;top:2.8em;min-width:11em;background:#fff8ed;border:1px solid var(--line);border-radius:.8em;padding:.4em;box-shadow:0 .6em 1.6em rgba(70,42,20,.18)}.panel a,.panel button{display:block;width:100%;text-align:left;background:transparent;border:0;box-shadow:none;padding:.55em .65em;color:var(--ink);text-decoration:none;font-size:.95em;border-radius:.45em}.panel a:hover,.panel button:hover{background:#f0dfc8}.menu.open .panel{display:block}.lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(25,16,10,.82);z-index:50;padding:1em}.lightbox.open{display:flex}.lightbox img{max-width:min(96vw,72em);max-height:88vh;border-radius:1em;box-shadow:0 1em 3em rgba(0,0,0,.42);background:#fffaf1}.lightbox button{position:absolute;border:1px solid rgba(255,255,255,.4);background:rgba(255,250,241,.92);color:var(--ink);border-radius:999em;padding:.55em .8em;font-size:1em}.close{right:1em;top:1em}.prev{left:1em}.next{right:1em}footer{color:var(--muted);font-size:.86em;text-align:center;margin-top:1.5em}@media(max-width:620px){body{font-size:calc(17px * var(--scale))}.wrap{padding-left:.75em;padding-right:.75em}h1{font-size:1.72em}th,td{display:block;width:100%}tr{display:block;margin-bottom:.7em;border:1px solid var(--line)}}
+</style></head><body><nav class="menu" id="readerControls"><button onclick="toggleMenu()" aria-label="開啟選單">☰</button><div class="panel"><a href="https://share.beartolove.com/share.html">回分享目錄</a><button onclick="adjustReaderFont(.08)">放大字體</button><button onclick="adjustReaderFont(-.08)">縮小字體</button><button onclick="resetReaderFont()">恢復預設</button></div></nav><main class="wrap"><section class="hero"><div class="meta">建立時間：2026-07-21 13:47:25（Asia/Taipei）</div><h1>Local-first 模型也需要 local-first harness</h1><div><span class="badge">#科技及AI新知</span><span class="badge">#AI Agent</span><span class="badge">#LocalFirst</span><span class="badge">#Harness</span><span class="badge">#開源</span></div><div class="source">引用來源：<a href="https://www.facebook.com/share/p/19JRivpLYK/" target="_blank" rel="noopener">Facebook 貼文</a>｜<a href="https://ai-coding.wiselychen.com/local-first-model-needs-local-first-harness/" target="_blank" rel="noopener">Full Detail</a></div></section><section class="card"><h2>關鍵數字</h2><div class="stats"><article class="stat"><div class="stat-label">Kimi Code</div><div class="stat-value">59.6%</div><p>官方 harness 在 Terminal-Bench 2.1 的自報對照成績</p></article><article class="stat"><div class="stat-label">Maka</div><div class="stat-value">69.7%</div><p>同模型同任務，只換 harness 的自報成績</p></article><article class="stat"><div class="stat-label">困難題差距</div><div class="stat-value">43.3% → 63.3%</div><p>困難子集差距更明顯</p></article><article class="stat"><div class="stat-label">Token 節省</div><div class="stat-value">約 187 萬</div><p>89 個任務 prune 過期 tool result 的節省量</p></article><article class="stat"><div class="stat-label">Token 消耗下降</div><div class="stat-value">41.7%</div><p>121 組 A/B 中 context prune 的效果</p></article><article class="stat"><div class="stat-label">通過率變化</div><div class="stat-value">+2.48 個百分點</div><p>不是只省 token，通過率還略升</p></article></div></section><section class="card"><h2>重點摘要</h2><figure class="summary-visual"><button class="imgBtn" onclick="openLightbox(0)" aria-label="開啟 Maka 截圖"><img src="https://drive.google.com/thumbnail?id=1wRyp7G_2BfoFYF2qyGI7umdTxA2y8UEH&sz=w2000" alt="Maka local-first agent workspace 截圖" loading="lazy"></button><figcaption>Maka：local-first Agent workspace 截圖</figcaption></figure><ul><li>這篇文挑戰「原廠 harness 最懂自家模型」的直覺：同一顆 Kimi K3、同一套 Terminal-Bench 2.1，Maka 自報分數高於官方 Kimi Code。</li><li>差距不是神祕技巧，而是 harness 工程：刪除過期 tool result、精簡 prompt 與工具面、用 benchmark / trace / CI 紀律持續迭代。</li><li>local-first 模型不能只看權重與量化；真正能做事的是「模型 × harness」配對，harness 本身會消耗 token、注意力、時間與資安信任。</li><li>地端場景尤其需要做減法：更薄的 prompt、更少工具、更好的 context prune、timeout 策略與本機 session 控制。</li><li>Maka 數據仍屬自報、尚待第三方復現；但它已提醒：開源、可控、輕量化 harness 可能比多買一張顯卡更划算。</li></ul><p class="note">提醒：Maka 分數為團隊自報，目前尚無第三方復現；分享時建議把它視為「值得追蹤的工程訊號」，而不是已定論的 benchmark 事實。</p></section><section class="card"><h2>Harness 做減法的四個工程重點</h2><table><thead><tr><th>做法</th><th>具體內容</th><th>為什麼重要</th></tr></thead><tbody><tr><th>Context prune</th><td>把過期 tool result 從 context 砍掉</td><td>減少雜訊，讓模型不要在舊結果中迷路</td></tr><tr><th>薄 prompt / 少工具</th><td>避免 20KB 產品 prompt 與全量工具面</td><td>地端模型 attention 與速度都更吃緊，必須做減法</td></tr><tr><th>Benchmark-driven CI</th><td>跑分 → 看 trace → 改進 → 重跑 → 分數不掉才合併</td><td>把 harness 當成可測、可回歸、可治理的工程產品</td></tr><tr><th>Local-first trust</th><td>session / workspace / 設定盡量留在本機</td><td>避免把 local model 的私密 codebase 又交回雲端 harness</td></tr></tbody></table></section><section class="card"><h2>為什麼 local-first 時代更重要</h2><p>地端模型的瓶頸不只在模型權重、量化與 GPU，而在整個 agent stack。雲端 frontier model 能承受厚 prompt、全量工具與高 token 消耗；地端模型則會把每個多餘工具、每 KB prompt、每段過期 context 都放大成速度、成本與成功率問題。</p><p>因此，local-first 的真正選型不是「哪一顆模型最強」，而是「模型 × harness」能不能在本機限制下穩定完成任務，並保住資料邊界。</p></section><section class="card gallery"><h2>圖片</h2><figure><button class="imgBtn" onclick="openLightbox(0)"><img src="https://drive.google.com/thumbnail?id=1wRyp7G_2BfoFYF2qyGI7umdTxA2y8UEH&sz=w2000" alt="Maka local-first agent workspace 截圖" loading="lazy"></button><figcaption>Maka README 截圖</figcaption></figure></section><section class="card original"><h2>原文整理</h2><p><a href="https://www.facebook.com/share/p/19JRivpLYK/" target="_blank" rel="noopener">https://www.facebook.com/share/p/19JRivpLYK/</a></p>
+<p>原廠 harness 最懂自家模型</p>
+<p>這句話剛被一個開源專案打臉了</p>
+<p>用 Claude 就配 Claude Code , 用 GPT 就配 Codex</p>
+<p>用 GLM-5.2 就配 ZCode , 用 Kimi 就配 Kimi Code</p>
+<p>大家的預設邏輯都一樣：原廠最懂自家模型 harness 當然用原廠的</p>
+<p>然後一個叫 Maka 的開源專案</p>
+<p>拿現在最紅的 Kimi K3 跑 Terminal-Bench 2.1</p>
+<p>官方 Kimi Code：59.6% Maka：69.7%</p>
+<p>困難題子集差距更大——43.3% 對 63.3%</p>
+<p>模型沒變，任務沒變 變的只有 harness 而且輸的是原廠</p>
+<h3>差距從哪來</h3>
+<p>Maka 自己分析原因</p>
+<p>第一，context prune  :</p>
+<p>把過期的 tool result 從 context 裡砍掉</p>
+<p> 89 個任務省了約 187 萬 token</p>
+<p>他們做過 121 組 A/B：通過率反而升了 2.48 個百分點</p>
+<p>token 消耗降 41.7%</p>
+<p>第二，精簡 prompt 和工具面 :</p>
+<p>因為要產品化 , Kimi Code 帶著 20KB 的產品 prompt 加全量工具上場</p>
+<p>Maka 用精簡版</p>
+<p>原話：「prompt 越厚、工具越多，模型要在噪音里找信号的成本就越高」</p>
+<p>第三，不斷嘗試迭代:</p>
+<p>「跑分-看 trace-改進-重跑，分數不掉才合併」</p>
+<p>攢了兩個多月，才攒出這個差距</p>
+<p>這不是孤立的案例</p>
+<p>把 CI 的紀律用在 harness 上</p>
+<p>之前 LangChain 只改 harness 不動模型</p>
+<p>agent 從 Terminal-Bench 30 名外拉進前 5</p>
+<p>Maka 等於在另一個模型上又演了一遍</p>
+<h3>這個在地端開源模型的時代更重要</h3>
+<p>第一，原廠 Harness 不一定最輕，而且有商業化的包袱</p>
+<p>Moonshot 自己都說 K3 對 harness 敏感</p>
+<p>而且從內容來看, 其實 KCode  原生就被迫要支援一些工具(商業化需求)</p>
+<p>雲端 frontier model 跑得快 20KB prompt 加幾十個工具</p>
+<p>雲端模型消化得了  , 地端不行</p>
+<p>這時候一個輕量化 Promt , 開源可控制 Harness 就很重要</p>
+<p>harness 每多一 KB 的 prompt、每多一個工具</p>
+<p>都在消耗模型不夠用的注意力</p>
+<p>和你不夠用的時間</p>
+<p>雲端可以追求功能完整</p>
+<p>地端必須追求極簡 Prompt</p>
+<p>雲端的 harness 做加法，地端的 harness 做減法</p>
+<p>第二，地端算力有限， Harness設定需要優化</p>
+<p>Maka 測試裡約 1/3 任務死在推理超時</p>
+<p>那還是 Moonshot 的雲端推理</p>
+<p>換到地端？可能更久</p>
+<p>但是從我那個 GLM 5.2 的經驗 , 我知道就算慢 , 不一定跑不完</p>
+<p>我們需要對 Harness 進行設定微調</p>
+<p>第三，原廠 Harness 可能偷傳資料</p>
+<p>跟你走 local-first 的初衷完全背道而馳</p>
+<p>7 月 15 號 xAI 把 Grok Build 整個開源</p>
+<p>但這不是Elon 大方，是止血</p>
+<p>安全研究者拿出證據：</p>
+<p>Grok CLI 一直在悄悄上傳使用者完整目錄到自家雲端 (包括 SSH 金鑰)</p>
+<p>Elon 一氣之下就直接開源, 這樣大家沒話說</p>
+<p>想像一下 你花了大功夫把模型搬到地端 GPU 買了、量化調了、推理跑起來了</p>
+<p>結果 harness 把你的整個 codebase 傳回原廠</p>
+<p>你以為你在做 local-first</p>
+<p>其實你只是幫 harness 供應商做了免費的資料收集</p>
+<h3>現在能走的路</h3>
+<p>好消息是，開放配對的選擇比半年前多太多了</p>
+<p class="bullet">- Grok Build：開源社群因禍得福獲得的生產級別開源 Harness</p>
+<p>84 萬行生產級 harness，Apache 2.0 等你 fork</p>
+<p class="bullet">- Pi：只有 read/write/edit/bash 四個工具，其餘靠 extension</p>
+<p class="bullet">- Maka：local-first workspace，session 存本機</p>
+<p>當然</p>
+<p class="bullet">- Codex CLI：原生terminal 可以接</p>
+<p class="bullet">- Claude Code：靠 cc-switch 導向本地端點</p>
+<p>也都是可以用的</p>
+<p>我自己已經在做了 本地 GLM 5.2 接 Codex 當 harness</p>
+<p>跑完寫程式、數據分析、上網寫文章的完整 agentic 任務 Fable 5 打分 98</p>
+<p>Deepseek V4 Flash 目前看起來效果更好(還沒跑完)</p>
+<h3>不是結論的結論</h3>
+<p>Maka 的數據是自報，沒有第三方復現</p>
+<p>我明白他們需要宣傳</p>
+<p>但是代表這個證據要打折</p>
+<p>不過這也是第一槍</p>
+<p>我們慢慢走向 local first 的模式後</p>
+<p>local opensource harness 就變成重中之重</p>
+<p>地端選型不是模型單選題 是「模型 x harness」的配對題</p>
+<p>想想我這幾天 local model微調</p>
+<p>已經要一點點 VRAM 斤斤計較, 只為了炸出一點點性能</p>
+<p>但是一點點性能差距就是幾十萬的差別 XD</p>
+<p>Opensource Harness 輕量化</p>
+<p>是比多買一張顯卡更划算的投資</p>
+<p>Full Detail is here <a href="https://ai-coding.wiselychen.com/local-first-model-needs-local-first-harness/" target="_blank" rel="noopener">https://ai-coding.wiselychen.com/local-first-model-needs-local-first-harness/</a></p></section><footer>本頁依熊熊提供的貼文與 Full Detail 連結整理；benchmark 數據請以原文與後續第三方復現為準。</footer></main><div class="lightbox" id="lightbox" onclick="closeLightbox()"><button class="close" onclick="event.stopPropagation();closeLightbox()">關閉 ✕</button><button class="prev" onclick="event.stopPropagation();moveLightbox(-1)">‹</button><img id="lightboxImg" alt=""><button class="next" onclick="event.stopPropagation();moveLightbox(1)">›</button></div><script>
+const root=document.documentElement;let scale=parseFloat(localStorage.getItem('readerScale')||'1');root.style.setProperty('--scale',scale);function toggleMenu(){document.querySelector('.menu').classList.toggle('open')}function adjustReaderFont(d){scale=Math.max(.78,Math.min(1.45,scale+d));localStorage.setItem('readerScale',scale.toFixed(2));root.style.setProperty('--scale',scale)}function resetReaderFont(){scale=1;localStorage.setItem('readerScale','1');root.style.setProperty('--scale',1)}document.addEventListener('click',e=>{if(!e.target.closest('.menu'))document.querySelector('.menu').classList.remove('open')});const lightboxImages=[{src:'https://drive.google.com/thumbnail?id=1wRyp7G_2BfoFYF2qyGI7umdTxA2y8UEH&sz=w2000',alt:'Maka local-first agent workspace 截圖'}];let lightboxIndex=0;function openLightbox(i){lightboxIndex=i;renderLightbox()}function renderLightbox(){const lb=document.getElementById('lightbox'),img=document.getElementById('lightboxImg');img.src=lightboxImages[lightboxIndex].src;img.alt=lightboxImages[lightboxIndex].alt;lb.classList.add('open')}function closeLightbox(){document.getElementById('lightbox').classList.remove('open')}function moveLightbox(d){lightboxIndex=(lightboxIndex+d+lightboxImages.length)%lightboxImages.length;renderLightbox()}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')moveLightbox(-1);if(e.key==='ArrowRight')moveLightbox(1)});
+</script></body></html>
