@@ -1,0 +1,133 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>為 ADHD 設計的 LLM Wiki：接住斷點的閉環知識系統</title><meta name="description" content="ADHD、LLM Wiki 與閉環知識系統設計：用低摩擦捕捉、缺口回寫、AI 規則沉澱與行動閉環接住斷點。"><style>:root{--bg:#f6efe3;--card:#fffaf1;--ink:#3f2b1f;--muted:#776252;--accent:#9a6238;--green:#789f63;--line:#ead8c1;--scale:1}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#fff8ed,#f6efe3 45%,#efdec7);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Source Han Sans TC",sans-serif;font-size:calc(18px * var(--scale));line-height:1.82}.wrap{max-width:68em;margin:auto;padding:4.2em 1em 3em}a{color:#7b4b2c;font-weight:800}.hero,.card{background:rgba(255,250,241,.96);border:1px solid var(--line);border-radius:1.25em;box-shadow:0 .8em 2.2em rgba(88,54,27,.09);padding:1.35em;margin-bottom:1em}h1,h2,h3{font-family:"Noto Serif TC","Source Han Serif TC",serif;color:#3e281b}h1{font-size:2.08em;line-height:1.22;margin:.15em 0 .45em}h2{font-size:1.35em;margin:.15em 0 .65em}.meta{color:var(--muted);font-size:.92em}.badge{display:inline-block;background:#f1ddc3;border-radius:99em;padding:.16em .68em;margin:.15em .18em;color:#5f3923;font-size:.88em}.source{background:#f5e7d4;border-left:.34em solid #c58b58;border-radius:.75em;padding:.75em .9em;margin-top:.95em}.lede{font-size:1.08em;color:#4c3426}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(12em,1fr));gap:.75em}.stat{background:#fff5e8;border:1px solid var(--line);border-radius:.95em;padding:.9em}.stat-value{font-size:1.55em;font-weight:900;color:#6e3f24;line-height:1.25}.stat-label{color:#4c2f20;font-weight:800}.stat p{margin:.35em 0 0;color:#5d493b}.summary-visual{margin:0 0 1.1em}.summary-visual img,.shot img{width:100%;display:block;border-radius:1em;border:1px solid var(--line);box-shadow:0 .7em 1.6em rgba(86,55,32,.10)}.summary-visual figcaption,.shot figcaption{text-align:center;color:var(--muted);font-size:.86em;margin-top:.45em}.shot figcaption span{display:block;font-size:.78em;color:#988271}.note{background:#fff2de;border-left:.35em solid #b56f3f;border-radius:.75em;padding:.75em .9em;color:#5b3a25}table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:.9em;background:#fff7ec}th,td{border:1px solid var(--line);padding:.75em;vertical-align:top}th{width:9em;text-align:left;background:#f1ddc3;color:#4b2f20}.loops{display:grid;grid-template-columns:repeat(auto-fit,minmax(17em,1fr));gap:.75em}.loop{background:#fff6e8;border:1px solid var(--line);border-radius:.95em;padding:.95em}.loop h3{margin:.1em 0 .35em;font-size:1.08em}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(17em,1fr));gap:.85em}.imgBtn{display:block;width:100%;padding:0;border:0;background:transparent;cursor:zoom-in}.original{max-height:45em;overflow:auto}.original p{margin:.45em 0}.original h3{margin-top:1.15em;border-top:1px solid var(--line);padding-top:.8em}.loopline{color:#5b3a25;font-weight:700}.hashtags{color:#6f8e5d;font-weight:800}.menu{position:fixed;left:.85em;top:.85em;z-index:20}.menu button{border:1px solid var(--line);background:#fff8ed;color:var(--ink);border-radius:.7em;padding:.55em .72em;font-size:1em;box-shadow:0 .3em 1em rgba(70,42,20,.12)}.panel{display:none;position:absolute;left:0;top:2.8em;min-width:11em;background:#fff8ed;border:1px solid var(--line);border-radius:.8em;padding:.4em;box-shadow:0 .6em 1.6em rgba(70,42,20,.18)}.panel a,.panel button{display:block;width:100%;text-align:left;background:transparent;border:0;box-shadow:none;padding:.55em .65em;color:var(--ink);text-decoration:none;font-size:.95em;border-radius:.45em}.panel a:hover,.panel button:hover{background:#f0dfc8}.menu.open .panel{display:block}.lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(25,16,10,.86);z-index:50;padding:1em}.lightbox.open{display:flex}.lightbox img{max-width:min(96vw,76em);max-height:86vh;border-radius:1em;box-shadow:0 1em 3em rgba(0,0,0,.42);background:#fffaf1}.lightbox button{position:absolute;border:1px solid rgba(255,255,255,.4);background:rgba(255,250,241,.92);color:var(--ink);border-radius:999em;padding:.55em .8em;font-size:1em}.close{right:1em;top:1em}.prev{left:1em}.next{right:1em}footer{color:var(--muted);font-size:.86em;text-align:center;margin-top:1.5em}@media(max-width:700px){body{font-size:calc(17px * var(--scale))}.wrap{padding-left:.75em;padding-right:.75em}h1{font-size:1.72em}th,td{display:block;width:100%}tr{display:block;margin-bottom:.7em;border:1px solid var(--line)}}</style></head><body><nav class="menu" id="readerControls"><button onclick="toggleMenu()" aria-label="開啟選單">☰</button><div class="panel"><a href="https://share.beartolove.com/share.html">回分享目錄</a><button onclick="adjustReaderFont(.08)">放大字體</button><button onclick="adjustReaderFont(-.08)">縮小字體</button><button onclick="resetReaderFont()">恢復預設</button></div></nav><main class="wrap"><section class="hero"><div class="meta">建立時間：2026-07-22 09:27:18（Asia/Taipei）</div><h1>為 ADHD 設計的 LLM Wiki：接住斷點的閉環知識系統</h1><p class="lede">這不是一套要求 ADHD 更自律的工具，而是一套讓念頭、知識、行動、搜尋失敗與 AI 修正都能「回來」的閉環系統。</p><div><span class="badge">#ADHD</span><span class="badge">#wiki</span><span class="badge">#LLM Wiki</span><span class="badge">#AI工作流</span><span class="badge">#閉環系統</span></div><div class="source">引用來源：<a href="https://www.facebook.com/share/1D6GwifrxZ/" target="_blank" rel="noopener">Facebook 貼文</a></div></section><section class="card"><h2>關鍵數字</h2><div class="stats"><article class="stat"><div class="stat-value">213 次</div><div class="stat-label">本週 AI 引用知識</div><p>衡量知識是否真的在工作中被用到</p></article><article class="stat"><div class="stat-value">11 次</div><div class="stat-label">撈不到東西</div><p>搜尋失敗被回寫成知識缺口，而不是死路</p></article><article class="stat"><div class="stat-value">37 條</div><div class="stat-label">規則累積</div><p>AI 退回理由沉澱成下一次工作的規則</p></article><article class="stat"><div class="stat-value">25 分鐘</div><div class="stat-label">優先專案單位</div><p>把大任務切成今天能推進的動作</p></article><article class="stat"><div class="stat-value">10 分鐘</div><div class="stat-label">雜事單位</div><p>避免小事和大任務在同一清單上混戰</p></article></div></section><section class="card"><h2>重點摘要</h2><figure class="summary-visual"><button class="imgBtn" onclick="openLightbox(0)"><img src="https://drive.google.com/thumbnail?id=1jC1tkw1yZ33BWCeP1aQN8AsFCvTlq_l5&amp;sz=w2200" alt="首頁儀表板：AI 引用次數、撈不到東西、規則累積與寵物狀態" loading="lazy"></button><figcaption>首頁儀表板：AI 引用次數、撈不到東西、規則累積與寵物狀態</figcaption></figure><ul><li>這篇提出一種專為 ADHD 使用情境設計的 LLM Wiki：不是要求人更自律，而是讓系統接住「念頭、任務、知識、搜尋失敗、AI 修正」之間容易斷掉的地方。</li><li>核心不是漂亮分類或第二大腦，而是閉環：記下的念頭要回來、搜尋失敗要變成缺口、AI 被退回要沉澱成規則、完成一小步要能推進專案。</li><li>設計原則強調低摩擦與低罪惡感：按 C 直接丟 inbox、不同腦內物件分流、XP 只加不減、寵物不會死、斷掉後可以無壓力回來。</li><li>知識系統的價值不以「文件數」衡量，而是看 AI 在真實工作中引用知識幾次；找不到資料也不該結束，而應變成高頻知識缺口清單。</li><li>這套想法也適合一般知識工作者：好的 AI Wiki 不只是存東西，而是讓每次使用、失敗、修正與完成，都能回到下一次工作流程裡。</li></ul><p class="note">核心句：不是把自己變成不會分心的人，而是設計一套讓分心不等於失去、忘記不等於重做、中斷不等於失敗的系統。</p></section><section class="card"><h2>五個設計規則</h2><table><tbody><tr><th>Rule 1</th><td><b>禁止要求我先整理才能開始</b><br>先捕捉，再整理。任何頁面按 C 就能把念頭丟進 inbox，避免分類、標籤、期限等決策讓念頭消失。</td></tr><tr><th>Rule 2</th><td><b>不要把所有腦內物件都叫做待辦</b><br>25 分鐘專案、10 分鐘雜事、搜尋念頭、Brain Dump、焦慮澄清、未來事件、今日回顧要分流。</td></tr><tr><th>Rule 3</th><td><b>不要用懲罰製造持續性</b><br>XP 只加不減、等級只升不降、寵物不會死；真正的持續性是斷掉後還願意回來。</td></tr><tr><th>Rule 4</th><td><b>不要只告訴我做了多少，要知道它有沒有用</b><br>首頁顯示 AI 引用了你的知識幾次，讓知識從「被保存」變成「真的在工作」。</td></tr><tr><th>Rule 5</th><td><b>找不到，不應該是一條死路</b><br>查無結果要回寫成知識缺口；高頻缺口才是真正從工作場景長出來的待辦清單。</td></tr></tbody></table></section><section class="card"><h2>四個閉環</h2><div class="loops"><article class="loop"><h3>念頭閉環</h3><p>想到事情 → 先記下來 → 進 inbox → 之後整理或轉任務 → 在正確時間再次出現</p></article><article class="loop"><h3>知識閉環</h3><p>正常工作 → 搜尋或詢問 → 找到並使用 → 找不到形成缺口 → 補進知識庫 → 下一次得到答案</p></article><article class="loop"><h3>AI 校正閉環</h3><p>AI 產出 → 人工審核 → 退回理由 → 寫入規則庫 → 下一次 AI 先讀規則 → 產出更接近標準</p></article><article class="loop"><h3>行動閉環</h3><p>大專案 → 拆成 25 分鐘工作 → 今天選一件 → 完成得到回饋 → 進度回到專案與知識系統</p></article></div></section><section class="card"><h2>圖集</h2><div class="gallery"><figure class="shot"><button class="imgBtn" onclick="openLightbox(0)"><img src="https://drive.google.com/thumbnail?id=1jC1tkw1yZ33BWCeP1aQN8AsFCvTlq_l5&amp;sz=w2200" alt="首頁儀表板：AI 引用次數、撈不到東西、規則累積與寵物狀態" loading="lazy"></button><figcaption>首頁儀表板：AI 引用次數、撈不到東西、規則累積與寵物狀態<span>1280×1039</span></figcaption></figure><figure class="shot"><button class="imgBtn" onclick="openLightbox(1)"><img src="https://drive.google.com/thumbnail?id=1aEeIl5JpuUIpAJuYPmO7nH5Fz7W_a8iR&amp;sz=w2200" alt="數位化 Daily Planner：25 分鐘專案、10 分鐘雜事、搜尋念頭與 Brain Dump" loading="lazy"></button><figcaption>數位化 Daily Planner：25 分鐘專案、10 分鐘雜事、搜尋念頭與 Brain Dump<span>1280×969</span></figcaption></figure><figure class="shot"><button class="imgBtn" onclick="openLightbox(2)"><img src="https://drive.google.com/thumbnail?id=16fZTJbTpXyePpF-5F-6G3a8SnJp3y1F1&amp;sz=w2200" alt="原始手帳模板說明：不同腦內內容要有不同出口" loading="lazy"></button><figcaption>原始手帳模板說明：不同腦內內容要有不同出口<span>800×1280</span></figcaption></figure><figure class="shot"><button class="imgBtn" onclick="openLightbox(3)"><img src="https://drive.google.com/thumbnail?id=18y75E0uo947Z5srjGxNIQvSNg1pSOC1T&amp;sz=w2200" alt="原始 Daily Planner 實例：把工作、雜事、搜尋與焦慮分流" loading="lazy"></button><figcaption>原始 Daily Planner 實例：把工作、雜事、搜尋與焦慮分流<span>800×1280</span></figcaption></figure><figure class="shot"><button class="imgBtn" onclick="openLightbox(4)"><img src="https://drive.google.com/thumbnail?id=1QMMY7nc1O0FWzroyZn4lSrAGZ0_BHzWn&amp;sz=w2200" alt="首頁今日任務：把高頻知識缺口轉成可執行的一件事" loading="lazy"></button><figcaption>首頁今日任務：把高頻知識缺口轉成可執行的一件事<span>1280×961</span></figcaption></figure></div></section><section class="card original"><h2>原文整理</h2><p><a href="https://www.facebook.com/share/1D6GwifrxZ/" target="_blank" rel="noopener">https://www.facebook.com/share/1D6GwifrxZ/</a></p>
+<p>我不太看別人的 LLM Wiki 怎麼設計，因為最適合自己的才是最佳的 Wiki。我有 ADHD，所以我沒有再做一套逼自己自律的工具，我做了一個專屬於自己的 Wiki，但它不是一般人想像中的 Wiki。不是把文件分門別類放好，不是把筆記整理得很漂亮，也不是每天逼自己維護第二大腦。因為我有 ADHD，而 ADHD 最不缺的就是一套設計精美、功能完整，最後被我遺忘的生產力工具😅😅</p>
+<p>我們不是不知道該怎麼做，我們甚至可能比大部分人更會設計流程、更懂工具，也能在一個晚上蓋出一套極為完整的系統。</p>
+<p>問題是我們在設計工具的時候，經常假設未來的自己會穩定、理性、有耐心，而且每天擁有差不多的執行力。😅😅 假設！這是假設！</p>
+<p>但真正使用工具的時候就偏偏不是那樣，我有時候能一口氣完成三天的工作，有時候光是只想到要打開檔案這件事，就覺得腦袋裡彷彿多了十八道門。不是不想做喔！只是 ADHD 很難每次都靠意志力，完成「想起來、找到地方、判斷分類、拆解任務、開始執行、持續追蹤」這整串動作。</p>
+<p>所以我沒有再做一套要求 ADHD 配合的系統，反過來，我把以前印了 2000 張專門針對我這種 ADHD 的手帳工作表（圖三＆四）拿來改造，然後反過來問一套真的為 ADHD 設計的知識系統，應該替人接住哪些東西？</p>
+<h3>ADHD 的問題不只是容易分心</h3>
+<p>大家講到 ADHD 最常說的是專注力不足，但這個說法太簡化了，你要是看過過度專注型的 ADHD 就知道我在說什麼，我就是那個 #專注力不足型 + #過度專注型 的縱合體，所以有時候我的思緒會分心到天涯海角流浪去，有時候會過度專注到不吃不睡，冷卻之後才發現已經是兩三天後了。對，沒錯，就是這樣，我曾經七天只喝水不睡覺，就為了搞完一個專案，然後手抖到不得已去急診弄了鎮定劑＋肌肉鬆弛劑來強迫自己關機。</p>
+<p>ADHD 真正遇到的困境常常是整條行動鏈不穩定，隨時都可能斷掉，比如想到一件事情沒有立刻記下來，三十秒後就消失得無影無蹤了，或是記下來了但不知道放在哪裡，或是收進去了之後又忘記曾經寫過，或是搜尋時找不到一言不合就再做一次，這不是健忘，只是 ADHD 的本質使然。</p>
+<p>又或者事情太大的壓力會讓自己不知道該從哪裡開始，又或者事情太小，不值得打開一套專案管理工具。</p>
+<p>正在工作時突然想到另一件事，怕忘記，只好立刻跳出去處理，一跳出去，原本的工作就不見了。</p>
+<p>以上說的這些都不是單點問題，而一連串的認知切換過於頻繁導致的失衡，所以，ADHD 的解決方案不能只是一個待辦清單，也不能只是多幾個提醒，它至少要處理五件事：</p>
+<p>1. 念頭冒出來時，能不能先接住？</p>
+<p>2. 接住之後，能不能不用立刻整理？</p>
+<p>3. 真正工作時，能不能找到需要的東西？</p>
+<p>4. 找不到時，系統能不能告訴我缺了什麼？</p>
+<p>5. 補完之後，這份知識能不能真的在下一次工作中派上用場？</p>
+<p>第五點最重要，因為很多系統做到「收集」，卻沒有做到「回來」，資料進去了</p>
+<p>然後就沒有然後了。</p>
+<p>這樣不是知識系統，只不過是數位倉庫而已。</p>
+<p>講完了一堆廢話，來說說我怎麼做！</p>
+<h3>Rule 1：禁止要求我先整理才能開始</h3>
+<p>我的系統裡藏了一個很小的功能，在任何頁面，只要按下 C，就會跳出一個輸入框，上面寫著「想到什麼寫什麼，自動存進 inbox，寫下來就翻篇」。它不會先問我這是任務嗎？這是靈感嗎？這屬於哪一個專案？要加什麼標籤？截止日期是什麼？優先順序是什麼？</p>
+<p>因為每一個問題都會增加一次決策被使用的機會，而對 ADHD 來說，任何多出來的決策，都可能讓「記下一個念頭」變成另一項需要完成的工作。</p>
+<p>所以第一步不是整理，第一步只有「先不要讓它消失」。</p>
+<p>這跟一般知識管理的邏輯不一樣，一般系統會要求輸入品質，但我要求的是捕捉成功率，因為一個被粗糙記下來的念頭，事後還可以被整理，但一個已經消失的念頭，沒有任何系統可以救得回來。</p>
+<p>這個按下 C 就能輸入的機制，在程式裡會直接把文字送進收件匣，而且不要求先做分類。等我要整理時，這些 inbox 的念頭才會開始要求被分類。</p>
+<p>這其實就是 GTD 的 Capture 精神，Capture first! Clarify later! 就是先接住，之後再決定它是什麼，只是我把它做到幾乎沒有任何摩擦。</p>
+<h3>Rule 2：不要把所有腦內物件都叫做「待辦」</h3>
+<p>Daily Planner 就是圖三圖四，這個我已經使用多年的待辦清單，但我沒有把所有東西混在同一張清單上。</p>
+<p>因為 ADHD 腦中同時出現的內容，常常根本不是同一種類型，有些是真正的工作，有些是十分鐘內可以解決的雜事，有些只是突然想查的問題，有些是奇怪念頭，有些是沒緣由的擔心，有些是未來要做，但今天不用碰的事。</p>
+<p>如果全部都放在同一條待辦清單裡，最後會怎樣？會變成每一件事看起來都一樣重要，因為每一個清單上的文字權重都是一樣的。</p>
+<p>「完成課程架構」和「查一下那家餐廳幾點關門」會並排出現在眼前，然後大腦很自然地先去查餐廳，不是因為餐廳比較重要，單純只是因為它比較容易完成。</p>
+<p>所以我的手帳把它們拆開了：</p>
+<p class="loopline">① 25 分鐘內能推進的優先專案</p>
+<p class="loopline">② 10 分鐘內能做完的雜事</p>
+<p class="loopline">③ 想查但現在不要查的內容</p>
+<p class="loopline">④ 腦中突然冒出的東西</p>
+<p class="loopline">⑤ 需要被理性回答的焦慮</p>
+<p class="loopline">⑥ 未來事件與專案</p>
+<p class="loopline">⑦ 今天完成了什麼</p>
+<p>其中我最需要的是「想查但現在不要查」，因為搜尋對 ADHD 來說根本就是一個巨大的黑洞，本來只是想查一個資料，二小時後，我可能正在看一個完全不相關的網頁，還忘記了一開始到底為什麼會打開瀏覽器。</p>
+<p>所以我沒有要求自己「不要分心」，這種要求沒有意義，真的沒有意義，分心本來就是人性，我們的大腦百萬年來都長得差不多，分心是為了避免獅子老虎突然跳出來吃掉你，所以對抗分心這件事本來就很違反天性。</p>
+<p>但我可以把搜尋衝動先安排一個暫存區：現在不要查，先寫下來，等一下集中查。這樣手帳/待辦清單就能依照不同的認知用途切割開來，包括 25 分鐘工作、10 分鐘雜事、搜尋念頭、Brain Dump、焦慮與理性回答、每日回顧等區塊。</p>
+<p>版面設計？不，我們需要的是替不同種類的腦內內容，安排不同出口。</p>
+<h3>Rule 3：不要用懲罰製造持續性</h3>
+<p>很多生產力工具喜歡做連續紀錄，連續七天、連續三十天、連續一百天。看起來很激勵對吧！</p>
+<p>直到你漏掉一天，前面九十九天瞬間歸零，這種設計對一般人來說可能有用，但對 ADHD 來說，它很容易變成一個放棄機制。</p>
+<p>因為我們不是看到明天重新開始，我們看到的是既然都斷了，那那算了。</p>
+<p>所以我在系統裡 XP 只加不減，等級只升不降，連續餵養中斷時，也有補牌的機制。</p>
+<p>我知道這樣看起來好像在為 ADHD 作弊，但其實是在承認一個能長期使用的系統，本來就必須容納失誤，更何況使用的人本身就有 ADHD。</p>
+<p>真正的持續性不是一天都不能斷，而是斷掉以後，自己還願意回來繼續使用。</p>
+<p>這是兩種完全不同的開發哲學，前者在訓練服從性，後者在保護自己，我不是要跟自己的知識系統比賽，我是要讓它成為一個即使我消失幾天，回來時也不會責怪我的地方。所以豚豚不會死，永遠不會！也不會生病！（其實有六種動物，這樣我可以換動物養著玩）</p>
+<h3>Rule 4：不要只告訴我做了多少，要讓我知道它有沒有用</h3>
+<p>我不想看到自己存了幾千篇文件，因為文件數量不代表知識正在工作，資料很多，也可能只是囤積癖作祟，所以首頁最上方顯示的不是你有幾篇筆記？你今天新增幾個檔案？你的資料庫有多大？</p>
+<p>而是本週 AI 引用了你的知識幾次！</p>
+<p>這個指標很重要，因為它衡量的不是「我有沒有整理」，而是我的知識有沒有在真實工作中被用到。</p>
+<p>這是一個完全不同的回饋機制。</p>
+<p>當 AI 回答問題、產生內容、協助決策時，它不是只靠模型本身的常識，而是開始使用我過去寫下的內容、規則、案例與判斷。知識不再只是被保存，它開始替我工作。</p>
+<p>對 ADHD 而言，回饋必須夠近夠明確才能產生正迴圈，如果我今天整理一份資料，三個月後也不知道它有沒有產生價值，那這件事就很難持續，可是如果系統讓我看到本週被引用了 213 次、上週是 147 次，甚至我剛補的內容已經被 AI 用到了，那麼大腦就會理解為我剛剛做的事情，不只是整理，它真的讓後面的工作變容易了！</p>
+<h3>Rule 5：找不到，不應該是一條死路</h3>
+<p>一般搜尋系統找不到資料時，只會告訴你查無結果，然後結束。但對我的系統來說，「找不到」不是錯誤，它可以是一條訊號，如果我連續幾次搜尋某個問題都找不到，這表示那不是一次性的失敗，而是一個真實的知識缺口，系統會把它記下來，首頁甚至會直接顯示「撈不到東西：11 次 這才是你的待辦清單」。（圖五）</p>
+<p>我很滿意這樣的設計方式，因為它把知識管理從「我應該整理什麼」改成了我的工作實際上需要什麼？</p>
+<p>我不必坐在那裡想我的 Wiki 還缺哪些分類？我要不要建立一個新資料夾？還有哪些知識應該整理？</p>
+<p>我只要正常工作，系統就會從真實使用過程中發現哪些問題常被問？哪些資料一直找不到？哪一塊知識補完後最有價值？</p>
+<p>這才是我的待辦清單，不是我憑空想像出來的知識工程，而是由工作場景實際產生的缺口，搜尋沒有結果時，程式會明確提示它已記入缺口清單；首頁也會列出高頻缺口與被搜尋的次數。</p>
+<h3>這就是我在意的「閉環原則」</h3>
+<p>很多工具功能很多，但功能多不等於系統成立，真正的系統都必須有閉環。</p>
+<p>所謂的閉環不是畫一張箭頭繞回起點的圖，而是一個動作產生的結果，會成為下一個動作的輸入；最後產生的改善，又會回到原本的工作流程裡，如果沒有回來，就不算閉環。</p>
+<p class="loopline">① 第一個閉環：念頭閉環</p>
+<p>想到事情</p>
+<p>→ 先記下來</p>
+<p>→ 進入收件匣</p>
+<p>→ 之後整理或轉成任務</p>
+<p>→ 在正確時間再次出現</p>
+<p>大部分工具只做到前兩步：記下來，然後就不見了。那真正的閉環必須回答它什麼時候會回來？如果一份筆記永遠不再出現，那就只是成功保存，不是成功的被使用。</p>
+<p class="loopline">② 第二個閉環：知識閉環</p>
+<p>正常工作</p>
+<p>→ 搜尋或詢問</p>
+<p>→ 找到知識並使用</p>
+<p>→ 找不到的部分形成缺口</p>
+<p>→ 補進知識庫</p>
+<p>→ 下一次搜尋得到答案</p>
+<p>這個閉環最重要的地方是「缺口」不再需要另外做一份人工盤點，是使用系統時自然產生的，這樣我就不必維護兩套東西：一套知識庫＋另一套「知識庫還缺什麼」的清單。</p>
+<p>搜尋失敗本身就會回寫成缺口，然後缺口補完之後，會直接改善下一次搜尋與問答，這才叫閉環。</p>
+<p class="loopline">③ 第三個閉環：AI 校正閉環</p>
+<p>我的系統裡，AI 不會產出一份內容之後就直接寫進知識庫，它會先提出提案，這樣我就可以看到它改了什麼？為什麼這樣改？哪些句子可能有 AI 味？新增與刪除了哪些內容？</p>
+<p>我可以核准也可以退回，但退回不能只是按一個「不喜歡」，我得寫下原因，例如不要用「不是 A，而是 B」這種句型、不要把案例寫得比原始資料更確定、這種標題不像我的語氣，或是這裡混用了兩個不同客戶的規則。</p>
+<p>這個退回理由不會只停留在這一次，它會被寫進規則庫，下一次 AI 再工作時，就會先讀這些規則。</p>
+<p>就是說整個流程是：</p>
+<p>AI 產出</p>
+<p>→ 人工審核</p>
+<p>→ 發現偏差</p>
+<p>→ 寫下退回原因</p>
+<p>→ 退回原因成為新規則</p>
+<p>→ 下一次 AI 先讀規則</p>
+<p>→ 產出逐漸接近我的標準</p>
+<p>這才是真正的 AI 個人化，不是說在提示詞最前面寫寫請模仿我的風格，鬼知道你的風格是啥，套 API 的 AI 哪裡記得你的風格是啥，所以我用規則庫來 loop，讓每一次「這不是我要的」都能留下可以累積的結果。</p>
+<p>喔對，審核頁會顯示差異、AI 說明與 lint 警告，退回理由則會寫入規則資料夾，成為後續工作的規則。</p>
+<p class="loopline">④ 第四個閉環：行動閉環</p>
+<p>專案太大</p>
+<p>→ 拆成 25 分鐘工作</p>
+<p>→ 今天選一件</p>
+<p>→ 完成並得到立即回饋</p>
+<p>→ 進度回到專案與知識系統</p>
+<p>ADHD 通常不是做不到，而是任務在腦海中還沒變成可執行的形狀，「完成課程」不是一個動作，「整理第一單元的三個核心問題」才是一個動作。</p>
+<p>所以手帳不是另外一套漂亮版面，它必須能接住專案，能拆成今天能做的單位，再把完成狀態回傳回去，如果手帳、專案與知識庫彼此分離，就會出現三個版本的我：Wiki 裡的我知道很多＋專案管理裡的我排了很多＋今天實際工作的我不知道先做什麼。</p>
+<p>閉環的目的，就是不要讓這三個我各過各的。</p>
+<h3>ADHD 真正需要的不是更多提醒，而是更少斷點</h3>
+<p>這幾年大家很喜歡教 ADHD 使用工具，番茄鐘啊、待辦清單啊、日曆啊、子彈筆記啊，還有時間區塊、提醒通知......等 800 種工具，這些工具都可能有用，但它們都沒有自動組成解決方案。</p>
+<p>因為我們真正的問題不是缺少某一項功能，而是每兩個功能之間都可能存在一個斷點，我記下來了但沒有轉成任務，我轉成任務了但沒有排進今天，我排進今天了但缺少需要的資料，我去找資料了但搜尋不到，我搜尋不到卻沒有留下缺口紀錄，我請 AI 幫忙了，但 AI 做錯後，我只是自己改掉，然後下一次它再錯一次。</p>
+<p>每一個「然後呢」，都是系統可能失效的地方，所以我做這套 Wiki 時，真正想解決的不是怎麼讓自己更自律，而是怎麼讓一個動作不要白做？</p>
+<p>懶，是我做工具的最高原則，我討厭白做！</p>
+<p>記下的念頭要能回來，搜尋失敗要能變成缺口紀錄，退回 AI 時要變成規則，補一份知識得真的可以在下次工作時被引用，完成一小步要能推進專案，而不是只換來一個打勾。</p>
+<p>這就是閉環。</p>
+<h3>寵物、XP 和成就，不是重點，但它們有作用</h3>
+<p>我的首頁有等級、有職業、有連續餵養，也有一隻叫豚豚的夥伴，牠會根據知識庫的餵養狀態變化，狀態好的時候會發光，但我刻意沒有把牠設計成會死、會哭、會責怪我，最糟最糟也只是想睡而已。</p>
+<p>因為我不需要再多一個東西讓我內疚，我們需要的是一個低壓力的重新回來的入口，遊戲化最危險的地方是它很容易把動機建立在懲罰上，不連續就歸零，不完成就失去獎勵，不回來就讓角色受苦，這種設計短期有效，但長期卻可能讓工具本身變成壓力來源。</p>
+<p>所以我的 XP 只會增加，成就不會被收回，寵物長命百歲，中斷也不會讓我產生背叛了小寵物的罪惡感，這些設計不是為了讓系統看起來可愛，雖然真的很可愛，但主要我是在傳達一件事：你不需要先成為一個穩定的人，才配擁有一套能持續成長的系統！</p>
+<h3>它不是第二大腦</h3>
+<p>我其實不太喜歡「第二大腦」這個詞，因為它聽起來像是：我有一顆腦不夠好，所以需要再裝一顆 🤔</p>
+<p>但我做的比較像是替原本這顆腦，把容易斷掉的地方接起來。</p>
+<p>它不替我思考，只替我保存脈絡。</p>
+<p>它不要求我永遠專注，只替我接住跳出去的念頭。</p>
+<p>它不假設我會記得所有事，它負責讓重要內容在需要時重新出現。</p>
+<p>它不要求 AI 一開始就完全懂我，它得讓每次修正都成為下一次工作的規則。</p>
+<p>所以這不是一個「把所有東西放進去」的 Wiki，它是一套讓知識、行動、錯誤與修正都能回來的系統。</p>
+<h3>我做的不是一套更有效率的工具</h3>
+<p>我做的是一套比較不會因為我某天狀態不好就整個失效的系統，這件事對 ADHD 很重要，因為大部分生產力工具都是按照理想狀態設計的，但可靠的系統不應該只在你精神好、時間夠、動機高的時候有效。</p>
+<p>它必須在你突然跳題時接住念頭，不知道怎麼分類時允許先放著，看見大任務時幫你縮小切成小任務，忘記曾經做過什麼時主動替你找回，找不到答案時留下缺口紀錄，AI 做錯時把修正都變成規則，然後就算中斷了幾天，不會有一個病殃殃的寵物用罪惡感逼你回來。</p>
+<p>這才是我認為的 ADHD 解決方案，不是把自己變成一個不會分心的人，這不實際，也辦不到，而是蓋一套系統，讓分心不再等於失去，忘記不再等於重做，中斷也不再等於失敗。</p>
+<p>好的工具，不需要一直提醒你哪裡做不好，它只是在你容易斷線的地方，默默的多放一張網來接住你的一切需要。</p>
+<p class="hashtags">#ADHD #wiki</p></section><footer>本頁依熊熊提供的貼文與圖片整理；請以原貼文脈絡為準。</footer></main><div class="lightbox" id="lightbox" onclick="closeLightbox()"><button class="close" onclick="event.stopPropagation();closeLightbox()">關閉 ✕</button><button class="prev" onclick="event.stopPropagation();moveLightbox(-1)">‹</button><img id="lightboxImg" alt=""><button class="next" onclick="event.stopPropagation();moveLightbox(1)">›</button></div><script>const root=document.documentElement;let scale=parseFloat(localStorage.getItem('readerScale')||'1');root.style.setProperty('--scale',scale);function toggleMenu(){document.querySelector('.menu').classList.toggle('open')}function adjustReaderFont(d){scale=Math.max(.78,Math.min(1.45,scale+d));localStorage.setItem('readerScale',scale.toFixed(2));root.style.setProperty('--scale',scale)}function resetReaderFont(){scale=1;localStorage.setItem('readerScale','1');root.style.setProperty('--scale',1)}document.addEventListener('click',e=>{if(!e.target.closest('.menu'))document.querySelector('.menu').classList.remove('open')});const lightboxImages=[{src:"https://drive.google.com/thumbnail?id=1jC1tkw1yZ33BWCeP1aQN8AsFCvTlq_l5&sz=w2200",alt:"首頁儀表板：AI 引用次數、撈不到東西、規則累積與寵物狀態"},{src:"https://drive.google.com/thumbnail?id=1aEeIl5JpuUIpAJuYPmO7nH5Fz7W_a8iR&sz=w2200",alt:"數位化 Daily Planner：25 分鐘專案、10 分鐘雜事、搜尋念頭與 Brain Dump"},{src:"https://drive.google.com/thumbnail?id=16fZTJbTpXyePpF-5F-6G3a8SnJp3y1F1&sz=w2200",alt:"原始手帳模板說明：不同腦內內容要有不同出口"},{src:"https://drive.google.com/thumbnail?id=18y75E0uo947Z5srjGxNIQvSNg1pSOC1T&sz=w2200",alt:"原始 Daily Planner 實例：把工作、雜事、搜尋與焦慮分流"},{src:"https://drive.google.com/thumbnail?id=1QMMY7nc1O0FWzroyZn4lSrAGZ0_BHzWn&sz=w2200",alt:"首頁今日任務：把高頻知識缺口轉成可執行的一件事"}];let lightboxIndex=0;function openLightbox(i){lightboxIndex=i;renderLightbox()}function renderLightbox(){const lb=document.getElementById('lightbox'),img=document.getElementById('lightboxImg');img.src=lightboxImages[lightboxIndex].src;img.alt=lightboxImages[lightboxIndex].alt;lb.classList.add('open')}function closeLightbox(){document.getElementById('lightbox').classList.remove('open')}function moveLightbox(d){lightboxIndex=(lightboxIndex+d+lightboxImages.length)%lightboxImages.length;renderLightbox()}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')moveLightbox(-1);if(e.key==='ArrowRight')moveLightbox(1)});</script></body></html>
