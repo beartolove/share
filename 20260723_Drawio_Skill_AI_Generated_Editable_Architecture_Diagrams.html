@@ -1,0 +1,56 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>drawio-skill：讓 AI 一句話畫好可編輯架構圖</title><style>
+:root{--bg:#f7efe3;--card:#fffaf1;--ink:#3f2a1d;--muted:#7d6758;--accent:#8b5a2b;--accent2:#d7904c;--line:#ead9c4;font-size:18px}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f7efe3,#fbf6ed);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Source Han Sans TC","Segoe UI",sans-serif;line-height:1.78}a{color:#8b5a2b;text-decoration-thickness:.08em;text-underline-offset:.18em}.reader-menu{position:fixed;top:1em;left:1em;z-index:20}.reader-menu details{background:rgba(255,250,241,.96);border:1px solid var(--line);border-radius:.9em;box-shadow:0 .4em 1.2em rgba(80,52,25,.12)}.reader-menu summary{cursor:pointer;padding:.55em .75em;font-weight:800}.reader-menu .panel{padding:.4em .8em .8em;display:grid;gap:.45em;min-width:10em}.reader-menu button,.reader-menu a{border:1px solid var(--line);background:#fff7ea;color:var(--ink);border-radius:.6em;padding:.45em .6em;text-align:left;font:inherit;cursor:pointer;text-decoration:none}.wrap{width:min(58em,calc(100% - 2em));margin:0 auto;padding:4.5em 0 3em}.hero,.card{background:var(--card);border:1px solid var(--line);border-radius:1.2em;box-shadow:0 1em 2.5em rgba(87,57,30,.08)}.hero{padding:2em}.card{margin-top:1.1em;padding:1.35em 1.5em}h1{font-family:"Noto Serif TC","Source Han Serif TC",serif;line-height:1.2;margin:.1em 0 .4em;font-size:2.05em;color:#4c2f1d}h2{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:1.35em;margin:.1em 0 .6em;color:#4c2f1d}.meta{color:var(--muted);font-size:.95em}.badges{display:flex;flex-wrap:wrap;gap:.45em;margin-top:1em}.badge{background:#f2dfc6;border:1px solid #e1c49b;color:#6b421f;border-radius:99em;padding:.25em .7em;font-size:.9em;font-weight:700}ul{padding-left:1.25em}li{margin:.45em 0}.summary-visual{margin:.5em 0 1em;background:#fff6e8;border:1px solid var(--line);border-radius:1em;padding:.75em;text-align:center}.summary-visual img{max-width:100%;border-radius:.75em;cursor:pointer;box-shadow:0 .5em 1.5em rgba(87,57,30,.15)}.caption{color:var(--muted);font-size:.9em;margin-top:.4em}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(13em,1fr));gap:.8em}.mini{background:#fff6e8;border:1px solid var(--line);border-radius:.85em;padding:1em}.mini strong{display:block;color:#7a4d25;margin-bottom:.25em}table{width:100%;border-collapse:collapse;margin:.8em 0;overflow:hidden;border-radius:.8em}th,td{border:1px solid var(--line);padding:.7em .8em;vertical-align:top}th{background:#f2dfc6;text-align:left}.notice{background:#fff6e8;border-left:.35em solid var(--accent);padding:.8em 1em;border-radius:.6em}.original{white-space:pre-wrap;background:#2f2118;color:#fff7ea;border-radius:.9em;padding:1em;overflow:auto}.code-card{position:relative;background:#2f2118;color:#fff7ea;border-radius:.8em;padding:1em;margin:.7em 0}.code-card code,.code-card pre code,pre code{background:transparent;border:0;padding:0;color:inherit}.copy{position:absolute;right:.7em;top:.7em;border:1px solid #c8a77b;background:#fff7ea;color:#3f2a1d;border-radius:.5em;padding:.25em .55em;cursor:pointer}.lightbox{display:none;position:fixed;inset:0;background:rgba(20,18,16,.86);z-index:50;align-items:center;justify-content:center;padding:2em}.lightbox.open{display:flex}.lightbox img{max-width:94vw;max-height:88vh;border-radius:.6em}.close{position:absolute;top:1em;right:1em;background:#fff;border:0;border-radius:99em;padding:.5em .8em;font-size:1.2em;cursor:pointer}footer{color:var(--muted);font-size:.9em;margin:1.2em 0 0;text-align:center}
+</style><script>function adjustReaderFont(delta){const r=document.documentElement,c=parseFloat(localStorage.getItem('readerFont')||'18'),n=Math.max(14,Math.min(26,c+delta));localStorage.setItem('readerFont',n);r.style.fontSize=n+'px'}function resetReaderFont(){localStorage.removeItem('readerFont');document.documentElement.style.fontSize='18px'}const lightboxImages=[{src:'https://drive.google.com/thumbnail?id=1T4FbWV2UgEO3YE7PK6ZL3nGHGQfPIMEU&sz=w2000',alt:'drawio-skill README 範例截圖'}];function openLightbox(i=0){const lb=document.getElementById('lb'),img=document.getElementById('lbImg');const item=lightboxImages[i]||lightboxImages[0];img.src=item.src;img.alt=item.alt;lb.classList.add('open')}function closeLightbox(){document.getElementById('lb').classList.remove('open')}async function copyCode(id){const el=document.getElementById(id);const text=el?el.innerText:'';try{await navigator.clipboard.writeText(text)}catch(e){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove()}}document.addEventListener('DOMContentLoaded',()=>{const s=localStorage.getItem('readerFont');if(s)document.documentElement.style.fontSize=s+'px';document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()})});</script></head><body>
+<nav class="reader-menu"><details><summary>☰</summary><div class="panel"><a href="https://share.beartolove.com/share.html">回分享目錄</a><button onclick="adjustReaderFont(1)">放大字體</button><button onclick="adjustReaderFont(-1)">縮小字體</button><button onclick="resetReaderFont()">恢復預設</button></div></details></nav>
+<main class="wrap"><section class="hero"><div class="meta">引用來源：<a href="https://www.facebook.com/share/p/1JWCfeMTXu/" target="_blank" rel="noopener">Facebook 貼文</a> ｜ 專案：<a href="https://github.com/Agents365-ai/drawio-skill" target="_blank" rel="noopener">Agents365-ai/drawio-skill</a> ｜ 建立時間：2026-07-23 18:53:57（Asia/Taipei）</div><h1>drawio-skill：讓 AI 一句話畫好可編輯架構圖</h1><p>把自然語言、程式碼、Docker Compose、Terraform、SQL schema 等輸入交給 AI，產生可編輯的 draw.io 圖表，並匯出 PNG／SVG／PDF／JPG。</p><div class="badges"><span class="badge">#科技及AI新知</span><span class="badge">#開源工具</span><span class="badge">#drawio</span><span class="badge">#AI架構圖</span><span class="badge">#AgentSkills</span></div></section>
+<section class="card"><h2>重點摘要</h2><figure class="summary-visual"><img src="https://drive.google.com/thumbnail?id=1T4FbWV2UgEO3YE7PK6ZL3nGHGQfPIMEU&sz=w2000" alt="drawio-skill README 範例截圖" onclick="openLightbox(0)" loading="lazy"><figcaption class="caption">截圖展示 drawio-skill 的中文 README 範例：同一段電商系統提示詞，可生成星形、分層、環形等多種圖表樣式，也可產出可編輯的 .drawio 任務板。</figcaption></figure><ul><li><strong>一句話產圖：</strong>用大白話描述系統架構，AI 會產生對應的 <code>.drawio</code> XML，再透過本地 draw.io CLI 匯出圖片或向量圖。</li><li><strong>不只畫圖，也能讀專案：</strong>可解析 Python／TypeScript 程式碼、Docker Compose、Terraform、SQL schema，把依賴關係轉成可視化架構圖。</li><li><strong>重點是可編輯：</strong>輸出不是靜態截圖，而是 draw.io 原生格式，方便後續人工微調、補標註與納入文件。</li><li><strong>內建素材庫：</strong>GitHub repo 說明支援 10,000+ draw.io shapes／官方圖示，涵蓋雲端、Kubernetes、UML、BPMN、ER 等常見圖形。</li><li><strong>安裝門檻：</strong>本機需先安裝 draw.io 桌面版，再將技能包加到 Claude Code、Cursor 或其他 Agent Skills 相容助理。</li></ul></section>
+<section class="card"><h2>適合拿來做什麼？</h2><div class="grid"><div class="mini"><strong>架構說明</strong>Web 服務、API Gateway、資料庫、快取、佇列與外部 API 的系統圖。</div><div class="mini"><strong>專案盤點</strong>讀程式碼與配置，自動整理模組、服務與依賴關係。</div><div class="mini"><strong>DevOps 文件</strong>Docker Compose、Terraform、Kubernetes、CI/CD pipeline 視覺化。</div><div class="mini"><strong>教學簡報</strong>將抽象架構轉成圖，協助團隊討論與新人理解。</div></div></section>
+<section class="card"><h2>功能對照</h2><table><thead><tr><th>輸入</th><th>可產出</th><th>價值</th></tr></thead><tbody><tr><td>自然語言提示詞</td><td>.drawio XML、PNG、SVG、PDF、JPG</td><td>快速把架構想法變成可討論圖稿。</td></tr><tr><td>Python／TS／Go／Rust 程式碼</td><td>模組圖、類別階層、依賴圖</td><td>降低人工讀 code 後再畫圖的成本。</td></tr><tr><td>Docker／Terraform／Kubernetes</td><td>基礎設施與服務關係圖</td><td>讓 IaC 配置變成文件與溝通素材。</td></tr><tr><td>SQL schema</td><td>ER diagram</td><td>讓資料表、PK／FK 與關聯更容易檢視。</td></tr></tbody></table></section>
+<section class="card"><h2>快速安裝</h2><p>貼文提到 macOS 可先安裝 draw.io 桌面版：</p><div class="code-card"><button class="copy" onclick="copyCode('code1')">複製</button><pre><code id="code1">brew install --cask drawio</code></pre></div><p>再將技能加入 AI 助理：</p><div class="code-card"><button class="copy" onclick="copyCode('code2')">複製</button><pre><code id="code2">npx skills add Agents365-ai/365-skills -g</code></pre></div></section>
+<section class="card"><h2>小提醒</h2><div class="notice">這類工具最適合作為「第一版架構圖草稿產生器」：讓 AI 先幫你排版與抽依賴，再由人確認命名、邊界、資安敏感資訊與最終文件品質。若要放進正式文件，建議仍要人工 review 圖中的服務關係與資料流。</div></section>
+<section class="card"><h2>原文整理</h2><div class="original"><a href="https://www.facebook.com/share/p/1JWCfeMTXu/" target="_blank" rel="noopener">https://www.facebook.com/share/p/1JWCfeMTXu/</a>
+
+【開源 drawio-skill 讓 AI 一句話直接畫好架構圖】
+它還能把程式碼或 Docker 配置自動一鍵轉成流程圖。
+上網搜 Agents365-ai/drawio-skill 就行，連結也會放留言處。
+
+▋告別手動拉線：讓 AI 一口氣生成帶對齊的專業圖表
+在 draw.io 手動調整組件、
+微調線條對齊和排版，
+是許多開發者與架構師的噩夢。
+
+現在你只需要用大白話告訴 AI：
+「幫我畫一個 Web 服務與數據庫的架構圖」。
+
+AI 會有邏輯地產出對應的 .drawio XML，
+並利用本地 CLI 導出成 PNG 或 SVG，
+甚至會自動計算佈局以防止組件重疊。
+
+▋代碼與配置一鍵轉圖：AI 幫你自動理清專案架構
+這套技能包最實用的地方，
+在於它能直接解析現有專案的代碼（如 Python/TS）、
+Docker compose 或是 Terraform 的配置文件，
+甚至包括你的 SQL 數據庫 schema。
+
+AI 讀取後會自動分析依賴關係，
+將抽象的代碼一秒變成可視化的系統架構圖。
+
+而且內建超過 10,000+ 的大廠 logo 預設，
+免除你手動尋找圖表素材的麻煩。
+
+▋專案連結
+<a href="https://github.com/Agents365-ai/drawio-skill" target="_blank" rel="noopener">https://github.com/Agents365-ai/drawio-skill</a>
+
+▋只需兩步加載技能：把畫圖大師裝進你的 AI 助理
+安裝這個技能包非常簡單，
+前置條件是本地需要有 draw.io 桌面版。
+macOS 讀者只需在終端機輸入：
+brew install --cask drawio
+
+接著你可以直接將技能，
+一鍵加載進你的 Claude Code 或是 Cursor 助理：
+npx skills add Agents365-ai/365-skills -g
+
+AI 助理便會學會這個技能，
+接管並搞定你所有的畫圖工作。</div></section><footer>myHermes shared memo</footer></main>
+<div id="lb" class="lightbox" onclick="closeLightbox()"><button class="close" onclick="event.stopPropagation();closeLightbox()">×</button><img id="lbImg" src="https://drive.google.com/thumbnail?id=1T4FbWV2UgEO3YE7PK6ZL3nGHGQfPIMEU&sz=w2000" alt="drawio-skill README 範例截圖"></div></body></html>
