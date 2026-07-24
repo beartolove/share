@@ -1,0 +1,52 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>萬物皆可早安 Prompt：一本正經胡說八道的 AI 早安貼圖公式</title><style>
+:root{--bg:#fff3d1;--card:#fffaf0;--ink:#3b2418;--muted:#7d5d48;--line:#efd1a1;--red:#d23b2d;--gold:#f5b43b;--pink:#df4d92;font-size:18px}*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Source Han Sans TC","Segoe UI",sans-serif;line-height:1.75;background:radial-gradient(circle at 20% 0%,rgba(255,216,75,.55),transparent 28em),radial-gradient(circle at 85% 10%,rgba(255,94,155,.25),transparent 24em),linear-gradient(180deg,#fff1c4,#fff9ee)}a{color:#a73522;text-underline-offset:.18em}.reader-menu{position:fixed;top:1em;left:1em;z-index:30}.reader-menu details{background:rgba(255,250,240,.96);border:1px solid var(--line);border-radius:.9em;box-shadow:0 .5em 1.5em rgba(91,45,16,.16)}.reader-menu summary{cursor:pointer;padding:.55em .75em;font-weight:900}.reader-menu .panel{display:grid;gap:.45em;padding:.45em .8em .8em;min-width:10em}.reader-menu a,.reader-menu button{font:inherit;text-align:left;border:1px solid var(--line);background:#fff7df;color:var(--ink);border-radius:.65em;padding:.45em .65em;text-decoration:none;cursor:pointer}.wrap{width:min(62em,calc(100% - 2em));margin:0 auto;padding:4.5em 0 3em}.hero,.card{background:rgba(255,250,240,.94);border:1px solid var(--line);border-radius:1.2em;box-shadow:0 1em 2.5em rgba(107,52,18,.10)}.hero{padding:2.1em;position:relative;overflow:hidden}.hero:after{content:"早安";position:absolute;right:-.2em;top:-.45em;font-weight:1000;font-size:8em;color:rgba(210,59,45,.08);transform:rotate(-8deg)}h1{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:2.05em;line-height:1.22;margin:.2em 0 .5em;color:#b52b24;text-shadow:0 .08em 0 #ffe08a}h2{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:1.35em;margin:.1em 0 .7em;color:#8c2b20}.meta{color:var(--muted);font-size:.95em}.badges{display:flex;flex-wrap:wrap;gap:.45em;margin-top:1em}.badge{border:1px solid #f0bf67;background:#fff0bd;border-radius:99em;padding:.24em .7em;font-size:.88em;font-weight:800;color:#8c2b20}.card{margin-top:1.1em;padding:1.4em 1.5em}.summary-visual{margin:.2em 0 1em;border-radius:1em;overflow:hidden;border:1px solid var(--line);background:#fff}.summary-visual img{width:100%;display:block;cursor:pointer}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(13.5em,1fr));gap:.8em}.mini{background:#fff5df;border:1px solid var(--line);border-radius:.9em;padding:1em}.mini strong{display:block;color:#c23d2c;margin-bottom:.25em}.prompt{position:relative;background:#2f201b;color:#fff2d4;border-radius:.9em;padding:1em;overflow:auto}.copy{position:absolute;right:.8em;top:.8em;border:1px solid rgba(255,255,255,.3);background:#fff2d4;color:#3b2418;border-radius:.55em;padding:.35em .6em;cursor:pointer}.prompt code{white-space:pre-wrap;background:transparent;border:0;color:inherit;padding:0}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(13em,1fr));gap:1em}.fig{margin:0;background:#fff6df;border:1px solid var(--line);border-radius:1em;overflow:hidden}.fig img{width:100%;display:block;cursor:pointer}.fig figcaption{padding:.85em;font-size:.92em;color:#684937}.original{white-space:pre-wrap;background:#fff6df;border:1px solid var(--line);border-radius:.9em;padding:1em;overflow:auto}.lightbox{position:fixed;inset:0;background:rgba(20,10,5,.86);display:none;align-items:center;justify-content:center;z-index:50;padding:1.5em}.lightbox.open{display:flex}.lightbox img{max-width:92vw;max-height:82vh;border-radius:.8em;box-shadow:0 1em 3em rgba(0,0,0,.4)}.lb-btn{position:absolute;border:0;background:rgba(255,246,223,.92);border-radius:99em;padding:.6em .85em;cursor:pointer;font-size:1.1em}.close{top:1em;right:1em}.prev{left:1em}.next{right:1em}footer{text-align:center;color:var(--muted);font-size:.9em;margin-top:1.2em}
+</style><script>
+function adjustReaderFont(delta){const r=document.documentElement,c=parseFloat(localStorage.getItem('readerFont')||'18'),n=Math.max(14,Math.min(26,c+delta));localStorage.setItem('readerFont',n);r.style.fontSize=n+'px'}function resetReaderFont(){localStorage.removeItem('readerFont');document.documentElement.style.fontSize='18px'}document.addEventListener('DOMContentLoaded',()=>{const s=localStorage.getItem('readerFont');if(s)document.documentElement.style.fontSize=s+'px'});
+const lightboxImages = [];
+function openLightbox(i){window.lbIndex=i;document.getElementById('lbImg').src=lightboxImages[i].src;document.getElementById('lb').classList.add('open')}
+function closeLightbox(){document.getElementById('lb').classList.remove('open')}
+function moveLightbox(d){window.lbIndex=(window.lbIndex+d+lightboxImages.length)%lightboxImages.length;openLightbox(window.lbIndex)}
+document.addEventListener('keydown',e=>{if(!document.getElementById('lb'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')moveLightbox(-1);if(e.key==='ArrowRight')moveLightbox(1)});
+async function copyPrompt(){const txt=document.getElementById('promptText').innerText;try{await navigator.clipboard.writeText(txt)}catch(e){const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove()}const b=document.getElementById('copyBtn');b.textContent='已複製';setTimeout(()=>b.textContent='複製',1200)}
+
+lightboxImages.push({"src": "https://drive.google.com/thumbnail?id=1Za16nfi59wr9xNGZdippDw29818j3Cr5&sz=w1400", "caption": "拳法僧人風早安圖：彩虹佛光、山景晨光與「遇到困難不要怕」等熱血雞湯文字，主角一手合十、一手出拳。"},{"src": "https://drive.google.com/thumbnail?id=103-WuK1QH4ThdE9YoIFEtSvU35i3WKnk&sz=w1400", "caption": "哥吉拉早安圖：哥吉拉拿著寫有早安的馬克杯，搭配富士山與城市背景，標語是「遇到問題別怕，用咆哮解決它」。"},{"src": "https://drive.google.com/thumbnail?id=1vBWHA3QvU3Z0A_Zov6qTZxkQhRO-mxXC&sz=w1400", "caption": "大白鯊早安圖：戴心形墨鏡的大白鯊比讚、拿粉紅杯子，搭配海面夕陽與愛心特效，文字祝福今天順利、平安、發大財。"});
+</script></head><body>
+<nav class="reader-menu"><details><summary>☰</summary><div class="panel"><a href="https://share.beartolove.com/share.html">回分享目錄</a><button onclick="adjustReaderFont(1)">放大字體</button><button onclick="adjustReaderFont(-1)">縮小字體</button><button onclick="resetReaderFont()">恢復預設</button></div></details></nav>
+<main class="wrap"><section class="hero"><div class="meta">引用來源：<a href="https://www.facebook.com/share/p/19USEbHNyo/" target="_blank" rel="noopener">Facebook 原貼</a>｜建立時間：2026-07-24 23:53:12（Asia/Taipei）</div><h1>萬物皆可早安 Prompt：一本正經胡說八道的 AI 早安貼圖公式</h1><p>把任何角色、動物、怪獸或物體放進「早安長輩圖 × 寫實雜誌封面 × 一本正經胡說八道」的框架，就會產生一種荒謬但很有記憶點的 AI 圖像玩法。</p><div class="badges"><span class="badge">#GPT</span><span class="badge">#AI生圖</span><span class="badge">#早安Prompt</span><span class="badge">#大乘蕉宗影像</span><span class="badge">#科技及AI新知</span></div></section>
+<section class="card"><h2>重點摘要</h2><div class="summary-visual"><img src="https://drive.google.com/thumbnail?id=103-WuK1QH4ThdE9YoIFEtSvU35i3WKnk&sz=w1400" alt="哥吉拉早安圖" onclick="openLightbox(1)"></div><ul><li>這組 Prompt 的核心是把任何人物、角色、怪獸或物體，轉換成「超認真但很荒謬」的早安貼圖主角。</li><li>視覺語言混合長輩圖、英雄主視覺、寫實雜誌封面與 AI 生成圖的高質感攝影感。</li><li>關鍵元素包括：彩虹光芒、巨大「早安」字樣、誇張中文標題、祝福語、梗圖式人生建議，以及一個代表性道具或陪襯事件。</li><li>這種格式好玩的地方在於反差：角色越不適合講早安，做出來越有戲。</li><li>可延伸成社群互動玩法：指定角色／物體，讓大家一起產生不同版本的早安封面。</li></ul></section>
+<section class="card"><h2>Prompt 拆解</h2><div class="grid"><div class="mini"><strong>主角公式</strong>真人、擬人化角色、動畫角色、怪獸、動物或任意物體都能代入。</div><div class="mini"><strong>畫面公式</strong>彩虹、晨光、Hero Shot、雜誌封面式排版，加上巨大「早安」標題。</div><div class="mini"><strong>文字公式</strong>祝福語＋人生雞湯＋荒謬建議＋誇張醒目標語，越一本正經越好笑。</div><div class="mini"><strong>梗感來源</strong>用高質感攝影包裝低門檻早安問候，形成反差喜劇。</div></div></section>
+<section class="card"><h2>可直接改寫的 Prompt 範本</h2><div class="prompt"><button class="copy" id="copyBtn" onclick="copyPrompt()">複製</button><code id="promptText">創作圖像：
+一本正經胡說八道的早安貼圖，彩虹光芒普照。
+
+主角：真人／擬人化／動畫角色／名字或物體。
+
+畫面要求：
+加入一個代表性的事件、道具，或第三者陪襯。
+寫實雜誌封面、Hero Shot、超高質感攝影、誇張聳動的中文封面標題。
+
+風格方向：
+早安長輩圖 × 電影海報 × 雜誌封面 × 一本正經胡說八道。
+</code></div></section>
+<section class="card"><h2>圖片重點</h2><div class="gallery"><figure class="fig"><img src="https://drive.google.com/thumbnail?id=1Za16nfi59wr9xNGZdippDw29818j3Cr5&sz=w1400" alt="拳法僧人風早安圖：彩虹佛光、山景晨光與「遇到困難不要怕」等熱血雞湯文字，主角一手合十、一手出拳。" onclick="openLightbox(0)"><figcaption>拳法僧人風早安圖：彩虹佛光、山景晨光與「遇到困難不要怕」等熱血雞湯文字，主角一手合十、一手出拳。</figcaption></figure><figure class="fig"><img src="https://drive.google.com/thumbnail?id=103-WuK1QH4ThdE9YoIFEtSvU35i3WKnk&sz=w1400" alt="哥吉拉早安圖：哥吉拉拿著寫有早安的馬克杯，搭配富士山與城市背景，標語是「遇到問題別怕，用咆哮解決它」。" onclick="openLightbox(1)"><figcaption>哥吉拉早安圖：哥吉拉拿著寫有早安的馬克杯，搭配富士山與城市背景，標語是「遇到問題別怕，用咆哮解決它」。</figcaption></figure><figure class="fig"><img src="https://drive.google.com/thumbnail?id=1vBWHA3QvU3Z0A_Zov6qTZxkQhRO-mxXC&sz=w1400" alt="大白鯊早安圖：戴心形墨鏡的大白鯊比讚、拿粉紅杯子，搭配海面夕陽與愛心特效，文字祝福今天順利、平安、發大財。" onclick="openLightbox(2)"><figcaption>大白鯊早安圖：戴心形墨鏡的大白鯊比讚、拿粉紅杯子，搭配海面夕陽與愛心特效，文字祝福今天順利、平安、發大財。</figcaption></figure></div></section>
+<section class="card"><h2>可轉貼短文</h2><p>「萬物皆可早安 Prompt」的趣味在於，把任何角色或物體套進早安長輩圖的語言，再用寫實雜誌封面、Hero Shot、彩虹光芒和誇張中文標題包裝起來。主角可以是真人、怪獸、動物或擬人化物件，只要再加上一個代表性道具或事件，就能做出一本正經胡說八道、但很適合社群互動的早安圖。</p></section>
+<section class="card"><h2>原文整理</h2><div class="original"><a href="https://www.facebook.com/share/p/19USEbHNyo/" target="_blank" rel="noopener">https://www.facebook.com/share/p/19USEbHNyo/</a>
+
+💖 萬物皆可 早安 Prompt
+靈感來自於 喜多川海夢の創作夥伴 
+
+創作圖像
+一本正經胡說八道的早安貼圖
+彩虹光芒普照
+
+真人／擬人化／動畫角色
+
+(名字或物體）
+
+加入一個代表性的事件、道具，或第三者陪襯。 寫實雜誌封面、Hero Shot、超高質感攝影、誇張聳動的中文封面標題。
+
+#GPT
+#大乘蕉宗影像
+#並沒有販售
+#歡迎共襄盛舉
+</div></section><footer>myHermes shared memo</footer></main>
+<div class="lightbox" id="lb" onclick="if(event.target.id==='lb')closeLightbox()"><button class="lb-btn close" onclick="closeLightbox()">✕</button><button class="lb-btn prev" onclick="moveLightbox(-1)">‹</button><img id="lbImg" alt="早安圖燈箱"><button class="lb-btn next" onclick="moveLightbox(1)">›</button></div></body></html>
