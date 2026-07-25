@@ -1,0 +1,157 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ChatGPT Work 的真正變化：從聊天工具到 AI 工作代理人</title><style>
+:root{font-size:18px;--bg:#f7efe3;--card:#fffaf2;--ink:#3b2a1d;--muted:#7b614e;--line:#ead7bf;--accent:#7d452c;--accent2:#bd7044;--navy:#0e2a46}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f4e7d7,#fffaf2);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Source Han Sans TC","Segoe UI",sans-serif;line-height:1.75}a{color:#8b3f25;text-underline-offset:.18em}.reader-menu{position:fixed;top:1em;left:1em;z-index:20}.reader-menu details{background:rgba(255,250,242,.96);border:1px solid var(--line);border-radius:.9em;box-shadow:0 .5em 1.5em rgba(80,48,25,.12)}.reader-menu summary{cursor:pointer;padding:.55em .75em;font-weight:900}.reader-menu .panel{display:grid;gap:.45em;padding:.45em .8em .8em;min-width:10em}.reader-menu a,.reader-menu button{font:inherit;text-align:left;border:1px solid var(--line);background:#fff6e8;color:var(--ink);border-radius:.65em;padding:.45em .65em;text-decoration:none;cursor:pointer}.wrap{width:min(68em,calc(100% - 2em));margin:0 auto;padding:4.5em 0 3em}.hero,.card{background:rgba(255,250,242,.96);border:1px solid var(--line);border-radius:1.2em;box-shadow:0 1em 2.5em rgba(80,48,25,.08)}.hero{padding:2em}.kicker{font-size:.85em;letter-spacing:.12em;color:var(--accent2);font-weight:900}.meta{color:var(--muted);font-size:.95em}h1{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:2em;line-height:1.25;margin:.25em 0 .6em;color:#5f301f}h2{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:1.35em;color:#6d3924;margin:0 0 .7em}.card{margin-top:1em;padding:1.35em 1.5em}.lead{font-size:1.08em;background:#fff2df;border-left:.35em solid var(--accent2);padding:.85em 1em;border-radius:.7em}.summary-visual{margin:0 0 1.1em}.summary-visual button{display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer}.summary-visual img{width:100%;display:block;border-radius:1em;border:1px solid var(--line);box-shadow:0 .7em 1.6em rgba(86,55,32,.10)}.summary-visual figcaption{text-align:center;color:var(--muted);font-size:.86em;margin-top:.45em}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(18em,1fr));gap:1em}.tag{display:inline-block;border:1px solid #e4c3a5;background:#fff1dd;border-radius:99em;padding:.2em .7em;margin:.15em;color:#70412e;font-size:.88em;font-weight:800}.filebox{display:grid;grid-template-columns:repeat(auto-fit,minmax(14em,1fr));gap:.8em}.filelink{display:block;background:#fff3df;border:1px solid var(--line);border-radius:.85em;padding:.85em 1em;text-decoration:none;font-weight:800}.lightbox{position:fixed;inset:0;background:rgba(30,18,10,.86);display:none;align-items:center;justify-content:center;padding:1.2em;z-index:50}.lightbox.open{display:flex}.lightbox figure{margin:0;max-width:min(96vw,86em);text-align:center}.lightbox img{max-width:100%;max-height:84vh;border-radius:.8em;background:#fff}.lightbox figcaption{color:white;text-align:center;margin-top:.5em}.lightbox>button{position:absolute;top:1em;right:1em;border:1px solid rgba(255,255,255,.5);background:#fff6e8;color:var(--ink);border-radius:.7em;padding:.45em .7em}.original-link{display:inline-block;margin-top:.65em;background:#fff6e8;color:var(--ink);border-radius:.65em;padding:.42em .75em;text-decoration:none;font-weight:800}.source{white-space:pre-wrap;background:#fff7ec;border:1px solid var(--line);border-radius:.9em;padding:1em;max-height:34em;overflow:auto}footer{text-align:center;color:var(--muted);font-size:.9em;margin-top:1.2em}
+</style><script>function adjustReaderFont(delta){const r=document.documentElement,c=parseFloat(localStorage.getItem('readerFont')||'18'),n=Math.max(14,Math.min(26,c+delta));localStorage.setItem('readerFont',n);r.style.fontSize=n+'px'}function resetReaderFont(){localStorage.removeItem('readerFont');document.documentElement.style.fontSize='18px'}document.addEventListener('DOMContentLoaded',()=>{const s=localStorage.getItem('readerFont');if(s)document.documentElement.style.fontSize=s+'px'});const lightboxImages=[{src:"https://drive.google.com/thumbnail?id=1Y-asY1JHbxc-LlUqObC6g1Qoa8k5BbKW&sz=w4000",original:"https://drive.google.com/uc?export=view&id=1Y-asY1JHbxc-LlUqObC6g1Qoa8k5BbKW",caption:"ChatGPT Work 的真正變化：一頁式資訊圖"}];function openLightbox(i){const x=lightboxImages[i],lb=document.getElementById('lightbox'),img=document.getElementById('lightboxImg'),cap=document.getElementById('lightboxCap'),orig=document.getElementById('lightboxOriginal');img.src=x.src;img.alt=x.caption;cap.textContent=x.caption;orig.href=x.original;lb.classList.add('open')}function closeLightbox(){document.getElementById('lightbox').classList.remove('open')}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});</script></head><body>
+<nav class="reader-menu"><details><summary>☰</summary><div class="panel"><a href="https://share.beartolove.com/share.html">回分享目錄</a><button onclick="adjustReaderFont(1)">放大字體</button><button onclick="adjustReaderFont(-1)">縮小字體</button><button onclick="resetReaderFont()">恢復預設</button></div></details></nav>
+<main class="wrap"><section class="hero"><div class="kicker">SHARED MEMO</div><h1>ChatGPT Work 的真正變化：從聊天工具到 AI 工作代理人</h1><h2>一句話總結</h2><p class="lead">ChatGPT Work 的關鍵不是多一個頁籤，而是把 ChatGPT 從聊天工具推向可交辦、可執行、可監督的 AI 工作代理人。</p><p class="meta">建立時間：2026-07-25 14:59:13（Asia/Taipei）｜來源：熊熊提供文字</p><div><span class="tag">#ChatGPTWork</span><span class="tag">#AI代理人</span><span class="tag">#工作流程</span><span class="tag">#科技及AI新知</span></div></section>
+<section class="card"><h2>重點摘要</h2><figure class="summary-visual" data-summary-image="chatgpt-work"><button class="imgBtn" onclick="openLightbox(0)" aria-label="開啟 ChatGPT Work 一頁式資訊圖"><img src="https://drive.google.com/thumbnail?id=1Y-asY1JHbxc-LlUqObC6g1Qoa8k5BbKW&sz=w2000" alt="ChatGPT Work 的真正變化一頁式資訊圖" loading="lazy"></button><figcaption>ChatGPT Work 的真正變化：一頁式資訊圖</figcaption></figure><h2>一句話總結</h2>
+<p>ChatGPT Work 的關鍵，不是手機多一個頁籤，而是把 ChatGPT 從「即問即答」推向「可交辦成果、可持續執行、可由人監督」的工作代理人介面。</p>
+<h2>重點摘要</h2>
+<ol>
+<li><strong>從提示詞到交辦成果</strong>：使用者不必逐步提示研究、整理、製表、簡報與輸出，而是直接描述完成品與驗收標準。</li>
+<li><strong>從產生文字到操作工具</strong>：Work 更像拿到授權的同仁，能跨雲端資料、瀏覽器、文件、試算表、簡報與網站執行工作。</li>
+<li><strong>從單次回應到背景執行</strong>：它可以離開對話後繼續處理，並用排程進行更新、監控與通知。</li>
+<li><strong>手機成為指揮中心</strong>：手機主要負責口頭交辦、補充背景、查看進度、中途改方向、核准與驗收，而不是主要運算設備。</li>
+<li><strong>語音成為即時管理介面</strong>：Live Voice 讓人可以邊討論邊交辦，執行途中也能打斷、修正與追加條件。</li>
+</ol>
+<h2>需要保留的判斷</h2>
+<p>Work 並不是一開啟就自動取得手機所有檔案、電腦終端機、所有帳號內容、密碼或無限制記憶體；實際能力取決於方案、授權 App、管理員政策、雲端或本機執行環境、人工核准與安全限制。</p>
+<h2>對工作流程的啟發</h2>
+<p>未來拉開差距的能力，可能不只是「會寫提示詞」，而是能設計一套可交辦、可監督、可驗收的 AI 工作流程：定義目標、提供資料、設定權限邊界、建立規則，最後由人做判讀與決策。</p></section>
+<section class="card"><h2>資訊圖與摘要檔</h2><div class="filebox"><a class="filelink" href="https://drive.google.com/file/d/1f9ARIAaCYTsjlKUD6NTxU4UUvMZKILL6/view?usp=drivesdk" target="_blank" rel="noopener">Google Drive 圖片檔</a><a class="filelink" href="https://drive.google.com/file/d/1fTMR2u2TzknEB0cAjsg7J2GnjnTmKpuH/view?usp=drivesdk" target="_blank" rel="noopener">摘要與提示詞備份</a></div></section>
+<section class="card"><h2>原文</h2><div class="source">你看到的這波變化，重點不是「手機版多了一個頁籤」，而是 ChatGPT 從回答問題的聊天工具，升級成能持續執行工作的代理人介面。
+一句話理解
+過去：你問一句，ChatGPT 回一句。
+
+現在：你交代一個成果，ChatGPT 自己拆解步驟、操作工具、產出檔案，必要時再回來問你或請你核准。
+
+Chat、過去的 Agent，與現在 Work 的差異
+
+OpenAI 對 Work 的正式定位，就是適合「較長、涉及多個步驟，且需要完成品」的工作；它可以研究、分析並製作文件、試算表、簡報、報告或網站。
+
+真正的突破有五個
+1. 從「提示詞」變成「交辦成果」
+過去你可能要這樣操作：
+幫我找資料
+
+幫我整理
+
+再做成表格
+
+再做成簡報
+
+修改第3頁
+
+最後輸出檔案
+現在可以直接說：
+讀取這批會議資料，找出五項主要風險，製作主管用簡報，引用來源，並附上後續追蹤表。
+Work 會把工作拆成研究、分析、製表、撰寫與輸出等階段，而不是每一步都等你重新提示。OpenAI 稱它可以把目標拆成較小步驟，獨立執行並維持完整脈絡。
+2. 從「產生文字」變成「操作工具」
+以前 ChatGPT 最擅長的是告訴你「應該怎麼做」；現在則更接近直接幫你做。
+例如：
+讀取已授權的 Gmail、Slack、雲端檔案
+使用瀏覽器搜尋與操作網站
+分析試算表並產生圖表
+建立文件、簡報與網站
+依排程定期更新成果
+在電腦版經授權後操作本機檔案與桌面應用程式
+因此差別類似：
+過去：顧問告訴你怎麼做。
+
+現在：同仁拿到權限後直接完成，再交給你驗收。
+OpenAI 表示 Work 能跨應用程式、檔案和工作流程蒐集資訊，製作試算表、簡報、文件及 Web App。
+3. 從「單次回應」變成「長時間背景執行」
+過去使用 ChatGPT 時，人通常必須留在對話旁邊，一步步推動。
+現在 Work 可在你離開手機或電腦後繼續處理，也能透過排程：
+每週整理業務進度
+定期檢查 Slack 或 Teams 的新訊息
+更新文件或簡報
+監控網站變化
+在條件成立時通知你
+這讓 ChatGPT 從「即問即答」變成某種非同步工作系統。
+4. 手機成為指揮中心，而不是主要運算設備
+這是林裕欽現場請大家拿手機體驗的關鍵。
+你不必在手機上寫程式、整理檔案或逐頁製作簡報；手機主要負責：
+口頭交辦
+補充背景
+查看執行進度
+中途改方向
+核准重要操作
+驗收最後成果
+所以手機的角色，從「小螢幕版聊天工具」變成「隨身工作控制台」。
+但貼文中「手機可直接存取終端機與所有檔案」這種說法需要更精確：Work 在網頁版和手機版主要運行於雲端，不能直接任意讀取你電腦裡的檔案；本機檔案與桌面 App 的直接操作，主要是桌面版在你授權後才能使用。
+5. Live Voice 把操作介面從「打字」改成「即時管理」
+GPT-Live 採用全雙工架構，可以同時聽與說，也允許自然插話、暫停及改變方向。較複雜的搜尋或推理工作，可以交給後端模型處理，而語音對話仍能繼續。
+因此以前是：
+語音輸入 → 轉成文字 → 等模型回答。
+現在更像：
+你一邊和它討論，一邊交辦工作；它執行途中，你可以隨時打斷、修正與追加條件。
+不過目前官方文件有一項重要限制：Voice 與 Work、Codex 的深度整合，目前主要是 ChatGPT 的 Windows 與 macOS 桌面版功能；手機 Work 與一般手機語音體驗仍有差異。
+
+這和過去「Projects、Canvas、Deep Research、Agent」有何不同？
+這些舊功能比較像不同零件：
+Projects：整理對話、檔案和指示。
+Canvas：共同編輯一份內容。
+Deep Research：深入蒐集與整理資料。
+Agent：操作瀏覽器，完成特定任務。
+Codex：寫程式、執行指令與處理程式庫。
+Tasks：定時執行工作。
+Work 則像把這些能力整合成一個面向工作成果的入口。
+你不再需要先判斷「這件事應該用 Deep Research、Agent 還是 Codex」，而是先說明想完成什麼，讓 Work 選擇工具並維持整段工作的脈絡。
+
+以你熟悉的工作情境來看
+例如你說：
+每週一讀取各港送來的預算資料，檢查缺漏與異常，和上週版本比較，產生主管摘要簡報，並列出需要催辦的單位。
+過去做法
+自己下載附件
+合併 Excel
+寫 Python 或逐表比對
+請 ChatGPT 協助分析
+再請它寫簡報文字
+自己做成 PowerPoint
+每週重新執行一次
+Work 做法
+連接獲准使用的資料來源
+設定判斷規則及簡報範本
+建立每週排程
+Work 自動讀取、比對、分析與製作
+你在手機查看重點
+高風險或對外動作由你核准
+人的工作從「搬資料與製作格式」，轉成「定義規則、判讀異常與做決策」。
+
+圖片中的說法，哪些正確、哪些需要保留？
+大致正確
+Work 確實可以：
+長時間處理多步驟任務
+使用雲端運算環境
+操作瀏覽器
+整合已連接的應用程式
+建立文件、試算表、簡報與網站
+執行排程或監控型任務
+在不同裝置間同步雲端 Work 對話
+說得太滿
+以下並不是「一開啟就全部自動取得」：
+手機裡所有檔案
+電腦終端機
+所有 Slack、Gmail、GitHub 內容
+個人財務與銀行對帳單
+任意網站帳號及密碼
+永久不受限的 15 GB 記憶體
+實際上仍取決於：
+你的方案與工作區權限
+是否主動連接及授權 App
+管理員是否允許瀏覽器與網路存取
+任務是在雲端還是本機執行
+是否需要登入、接管或人工核准
+用量額度及安全限制
+而且連接電子郵件、檔案或帳戶後，代理人可能接觸敏感資料，也存在提示詞注入等風險。OpenAI 建議只啟用任務必要的 App、不要在訊息中直接輸入密碼，並避免「幫我處理全部郵件」這類過度寬泛的授權。
+最核心的改變
+這不是單純「ChatGPT 更聰明」。
+而是人機關係正在從：
+人操作軟體，AI 提供建議
+變成：
+人描述目標與規則，AI 操作軟體，人負責授權、監督與決策
+所以你感受到的「奇點感」，其實來自三件事同時成熟：
+自然語音成為交辦介面、Agent 成為執行者、手機成為管理控制台。
+但真正能否產生價值，仍取決於使用者是否能清楚定義目標、提供正確資料、設定權限邊界與驗收標準。換句話說，未來拉開差距的可能不再只是「誰比較會寫提示詞」，而是：
+誰比較會設計一套能交給 AI 執行、又能被人監督的工作流程。</div></section>
+<footer>myHermes shared memo</footer></main><div class="lightbox" id="lightbox" onclick="closeLightbox()"><button type="button" onclick="closeLightbox();event.stopPropagation()">關閉</button><figure onclick="event.stopPropagation()"><img id="lightboxImg" alt=""><figcaption id="lightboxCap"></figcaption><a id="lightboxOriginal" class="original-link" href="#" target="_blank" rel="noopener">開啟原解析度圖</a></figure></div></body></html>
