@@ -1,0 +1,38 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>EP144 - AI Agent 真的能幫企業做事了嗎？ | 專訪 Google Cloud 台灣技術總經理 Harry Lin</title><style>:root{font-size:18px;--bg:#f7efe3;--card:#fffaf2;--ink:#3b2a1d;--muted:#7b614e;--line:#ead7bf;--accent:#7d452c;--accent2:#bd7044}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f4e7d7,#fffaf2);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Source Han Sans TC","Segoe UI",sans-serif;line-height:1.75}a{color:#8b3f25;text-underline-offset:.18em}.reader-menu{position:fixed;top:1em;left:1em;z-index:20}.reader-menu details{background:rgba(255,250,242,.96);border:1px solid var(--line);border-radius:.9em;box-shadow:0 .5em 1.5em rgba(80,48,25,.12)}.reader-menu summary{cursor:pointer;padding:.55em .75em;font-weight:900}.reader-menu .panel{display:grid;gap:.45em;padding:.45em .8em .8em;min-width:10em}.reader-menu a,.reader-menu button{font:inherit;text-align:left;border:1px solid var(--line);background:#fff6e8;color:var(--ink);border-radius:.65em;padding:.45em .65em;text-decoration:none;cursor:pointer}.wrap{width:min(66em,calc(100% - 2em));margin:0 auto;padding:4.5em 0 3em}.hero,.card{background:rgba(255,250,242,.96);border:1px solid var(--line);border-radius:1.2em;box-shadow:0 1em 2.5em rgba(80,48,25,.08)}.hero{padding:2em}.kicker{font-size:.85em;letter-spacing:.12em;color:var(--accent2);font-weight:900}.meta{color:var(--muted);font-size:.95em}h1{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:2em;line-height:1.25;margin:.25em 0 .6em;color:#5f301f}h2{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:1.35em;color:#6d3924;margin:0 0 .7em}.card{margin-top:1em;padding:1.35em 1.5em}.lead{font-size:1.08em;background:#fff2df;border-left:.35em solid var(--accent2);padding:.85em 1em;border-radius:.7em}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(18em,1fr));gap:1em}.filebox{display:grid;grid-template-columns:repeat(auto-fit,minmax(14em,1fr));gap:.8em}.filelink{display:block;background:#fff3df;border:1px solid var(--line);border-radius:.85em;padding:.85em 1em;text-decoration:none;font-weight:800}.tag{display:inline-block;border:1px solid #e4c3a5;background:#fff1dd;border-radius:99em;padding:.2em .7em;margin:.15em;color:#70412e;font-size:.88em;font-weight:800}footer{text-align:center;color:var(--muted);font-size:.9em;margin-top:1.2em}.video-description .description-text{white-space:pre-wrap;word-break:break-word;background:#fff6e8;border:1px solid var(--line);border-radius:.85em;padding:1em;color:var(--ink)}.video-description .description-text a{font-weight:700}</style><script>function adjustReaderFont(delta){const r=document.documentElement,c=parseFloat(localStorage.getItem('readerFont')||'18'),n=Math.max(14,Math.min(26,c+delta));localStorage.setItem('readerFont',n);r.style.fontSize=n+'px'}function resetReaderFont(){localStorage.removeItem('readerFont');document.documentElement.style.fontSize='18px'}document.addEventListener('DOMContentLoaded',()=>{const s=localStorage.getItem('readerFont');if(s)document.documentElement.style.fontSize=s+'px'});</script></head><body><nav class="reader-menu"><details><summary>☰</summary><div class="panel"><a href="https://share.beartolove.com/share.html">回分享目錄</a><button onclick="adjustReaderFont(1)">放大字體</button><button onclick="adjustReaderFont(-1)">縮小字體</button><button onclick="resetReaderFont()">恢復預設</button></div></details></nav><main class="wrap"><section class="hero"><div class="kicker">YOUTUBE TRANSCRIPT SHARE</div><h1>EP144 - AI Agent 真的能幫企業做事了嗎？ | 專訪 Google Cloud 台灣技術總經理 Harry Lin</h1><h2>一句話總結</h2><p class="lead">企業 AI 應用正從單純問答型轉向具備執行能力的 AI agent，並需重視資料整合、投資效益與安全治理，搭配適合的平台與工具，才能真正發揮 AI 的價值。</p><p class="meta">建立時間：2026-07-27 21:12:48（Asia/Taipei）｜來源影片：<a href="https://www.youtube.com/watch?v=H09jnKGCEME" target="_blank" rel="noopener">EP144 - AI Agent 真的能幫企業做事了嗎？ | 專訪 Google Cloud 台灣技術總經理 Harry Lin</a></p><div><span class="tag">#YouTube逐字稿</span><span class="tag">#科技及AI新知</span><span class="tag">#AI工具</span></div></section><section class="card"><h2>重點摘要</h2><ol><li>AI agent 從「唯讀」問答型進化到能串接工具、執行任務的「讀寫」型，提升企業自動化與效率。</li><li>AI agent 適合用於跨系統資料整合、高頻率且標準化的流程自動化，但商業決策仍需人類主導。</li><li>企業應以實際效益（如縮短時間、提升產出品質）來評估 AI 投資回報，而非單純追求使用量（Token Maxing）。</li><li>AI agent 平台需具備建置、擴展、治理與監控功能，確保 agent 運作安全且效能可控。</li><li>資料整合與品質是 AI 成敗關鍵，企業須解決資料孤島問題，並利用 AI 協助提升資料品質與一致性。</li></ol></section><div class="grid"><section class="card"><h2>關鍵觀察</h2><ul><li>多代理人（Multi-agent）系統將成為趨勢，不同部門或個人可擁有專屬 agent，分工合作提升效率。</li><li>AI agent 的安全性需從 agent 身份識別、權限控管到使用者權限繼承全面管理，避免資料外洩或誤用。</li></ul></section><section class="card"><h2>適合使用情境／可延伸思考</h2><ol><li>製造業機台維護、客服問題回覆等需跨部門資料整合與高頻率自動化流程。</li><li>企業內部特殊業務流程（如輪班請假管理）需要客製化 AI agent 以符合公司政策與法規。</li></ol></section></div><div class="grid"><section class="card"><h2>對熊熊導入 AI 工具的啟發</h2><p>導入 AI 工具時，應聚焦於提升實際工作流程效率與成果品質，避免盲目追求使用量，並重視資料整合與安全治理，選擇具備完整開發、管理與監控功能的平台，確保 AI agent 能真正成為團隊的得力助手。</p></section><section class="card"><h2>限制與提醒</h2><ul><li>AI agent 尚處於早期階段，部分複雜商業決策不宜完全交由 AI 執行。</li><li>資料品質與定義不清會影響 AI 輸出結果，需先做好資料治理。</li><li>投資 AI 不應只看使用量，需有明確的效益衡量指標。</li></ul></section></div><section class="card"><h2>結論</h2><p>企業 AI 應用正進入以 AI agent 為核心的新階段，成功關鍵在於資料整合與品質、明確的效益評估、完善的安全治理，以及選擇合適的 agent 平台與工具。唯有如此，AI 才能從輔助工具轉變為真正提升企業競爭力的生產力夥伴。</p></section><section class="card video-description"><h2>影片說明欄</h2><div class="description-text">本集筆記與精修逐字稿：<a href="https://open.firstory.me/user/techwav..." target="_blank" rel="noopener">https://open.firstory.me/user/techwav...</a>
+訂閲有問題請來信：support@firstory.me
+商業合作：contact@techwavpod.com（請先參考：<a href="https://www.techwavpod.com/collab）" target="_blank" rel="noopener">https://www.techwavpod.com/collab）</a>
+
+---
+本集節目由【Google Cloud】贊助
+
+立即報名 2026「Google 數位人才探索計畫」!
+👉 <a href="http://g.co/grow/tw" target="_blank" rel="noopener">http://g.co/grow/tw</a>
+
+💡 三大學程，你可自由選擇一門或多門修習：數位行銷、雲端工程
+【AI 職場通識學程】 帶你直擊 Google 專家的 AI 密技，掌握日常工作實務技能！
+【Google Cloud 學程】 學習雲端基礎架構與 AI 開發，了解雲端運算、大數據與機器學習等核心概念！
+
+🎓 完課皆附上官方認證，讓你的職場競爭力一次到位！
+
+----
+
+0:00 來賓介紹
+1:15 從問答型到 Agent
+3:37 企業內 Agent 實務
+6:04 Agent 限制
+8:00 AI 的 ROI 衡量
+11:09 規劃 Agent 平台
+15:37 資料散落問題
+20:35 AI-ready 資料庫
+24:03 客製化 Agent 開發
+32:32 模型選擇與 Open 生態
+37:27 TPU v8
+44:00 AI Security
+50:05 落地策略、人才培育
+
+---
+
+商業合作：contact@techwavpod.com（請先參考：<a href="https://www.techwavpod.com/collab）" target="_blank" rel="noopener">https://www.techwavpod.com/collab）</a>
+哈利的IG：harryspeaks_
+
+---</div></section><section class="card"><h2>逐字稿與摘要檔</h2><div class="filebox"><a class="filelink" href="https://drive.google.com/file/d/1LQp9cF8Zfki7hStfk8y-VWDRFslVrwDh/view?usp=drivesdk" target="_blank" rel="noopener">完整逐字稿 TXT</a><a class="filelink" href="https://drive.google.com/file/d/1SPf51fbukXv6PXRFJ1y6AJJmqW5qeFf5/view?usp=drivesdk" target="_blank" rel="noopener">摘要檔 TXT</a></div></section><section class="card"><h2>來源影片</h2><p><a href="https://www.youtube.com/watch?v=H09jnKGCEME" target="_blank" rel="noopener">EP144 - AI Agent 真的能幫企業做事了嗎？ | 專訪 Google Cloud 台灣技術總經理 Harry Lin</a></p></section><footer>myHermes shared memo</footer></main></body></html>
