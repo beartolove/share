@@ -1,0 +1,55 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MCP 2026 更新：Stateless、Apps、Tasks 與企業級 Agent 標準</title><style>
+:root{--bg:#f6efe4;--card:#fffaf1;--ink:#3b2718;--muted:#7c6656;--accent:#9a6234;--line:#eadbc7;--soft:#f1e1cc;font-size:18px}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f8f0e4,#f3e8d9);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.75}a{color:#8a4d26;font-weight:700}.wrap{max-width:1080px;margin:0 auto;padding:4.2em 1.2em 3em}.hero,.card{background:rgba(255,250,241,.94);border:1px solid var(--line);border-radius:1.35em;box-shadow:0 .8em 2em rgba(76,45,20,.08);padding:1.45em;margin:1em 0}.hero h1{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:2.05em;line-height:1.28;margin:.1em 0 .45em;color:#2f1e13}.meta,.small{color:var(--muted);font-size:.92em}.badge{display:inline-block;background:#efe0ca;border:1px solid #dfc7aa;color:#70431f;border-radius:999px;padding:.22em .7em;margin:.15em .35em .15em 0;font-size:.9em;font-weight:700}h2{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:1.45em;border-left:.35em solid var(--accent);padding-left:.55em;margin:0 0 .7em}h3{font-size:1.08em;margin:.4em 0;color:#5b351d}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.85em}.mini{background:#fbf1e3;border:1px solid #ead7be;border-radius:1em;padding:1em}.mini strong{display:block;color:#70431f;margin-bottom:.25em}.flow{display:flex;gap:.65em;flex-wrap:wrap}.pill{background:#f2dfc6;border:1px solid #dfc4a2;border-radius:999px;padding:.45em .8em;font-weight:800}ul,ol{padding-left:1.4em}.quote{background:#f3e5d1;border-left:.35em solid #a66b3a;border-radius:.8em;padding:1em;white-space:pre-wrap}.menu{position:fixed;left:1em;top:1em;z-index:30}.menu button{background:#6f4323;color:#fff;border:0;border-radius:999px;padding:.55em .8em;font-weight:800;box-shadow:0 .3em 1em rgba(0,0,0,.12)}.panel{display:none;position:absolute;top:2.7em;left:0;background:#fff8ef;border:1px solid var(--line);border-radius:1em;padding:.7em;min-width:13em;box-shadow:0 .5em 1.5em rgba(0,0,0,.12)}.panel a,.panel button{display:block;width:100%;text-align:left;background:transparent;color:var(--ink);box-shadow:none;border:0;padding:.55em;border-radius:.5em;text-decoration:none}.panel a:hover,.panel button:hover{background:#f0dfc8}table{width:100%;border-collapse:collapse;margin:.8em 0}td,th{border:1px solid #e5d2ba;padding:.7em;text-align:left;vertical-align:top}th{background:#f1e1cc}.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1em}.source{font-size:.95em;word-break:break-word}
+</style></head><body>
+<div class="menu"><button onclick="toggleMenu()">☰</button><div id="panel" class="panel"><a href="https://share.beartolove.com/share.html" target="_blank" rel="noopener">回分享目錄</a><button onclick="setFont(1)">放大字體</button><button onclick="setFont(-1)">縮小字體</button><button onclick="resetFont()">恢復預設</button></div></div>
+<main class="wrap">
+<section class="hero"><span class="badge">科技及AI新知</span><span class="badge">MCP</span><span class="badge">AI Agent</span><span class="badge">Enterprise</span><h1>MCP 2026 更新：Stateless、Apps、Tasks 與企業級 Agent 標準</h1><p class="meta">建立時間：2026-07-29 20:41:27（Asia/Taipei）</p><p class="meta source">引用來源：<a href="https://www.facebook.com/share/1EbGUvPtMB/" target="_blank" rel="noopener">Facebook 貼文</a> ｜ <a href="https://claude.com/blog/bringing-mcp-2026-07-28-to-claude" target="_blank" rel="noopener">Claude 官方文章</a> ｜ <a href="https://modelcontextprotocol.io/specification/2026-07-28" target="_blank" rel="noopener">MCP 2026-07-28 規格</a></p></section>
+<section class="card"><h2>重點摘要</h2><ul><li>Anthropic 宣布支援 MCP 2026-07-28 規格，核心方向是把 MCP 從偏 stateful 的連線模式，推向更容易部署與擴充的 stateless request/response 架構。</li><li>Stateless core 讓 MCP Server 更像一般 Web API，可部署在 serverless、edge 或標準 HTTP 基礎設施，降低 session、sticky connection 與斷線恢復的複雜度。</li><li>長時間工作不再硬撐單一連線，而是交給 Tasks：先建立任務、取得任務 ID，再查進度、拿結果或處理失敗。</li><li>MCP Apps 讓工具不只回傳文字或 JSON，而是能在 Claude 對話中呈現互動 UI，例如按鈕、表格、表單、圖表與操作介面。</li><li>OAuth 2.0／OIDC、企業身分系統與 Tunnels 的補齊，代表 MCP 正從本機開發者工具，逐步走向企業級 AI Agent 連接標準。</li></ul></section>
+<section class="card"><h2>這次更新的 5 個模組</h2><div class="grid"><div class="mini"><h3>Stateless Core</h3><p><strong>做什麼</strong>MCP Server 不必維持每條連線狀態；每次請求帶齊需要資訊，處理完就回傳。</p><p><strong>意義</strong>讓 MCP 更容易部署到 serverless、edge 與一般雲端平台。</p></div><div class="mini"><h3>MCP Apps</h3><p><strong>做什麼</strong>工具可在 Claude 視窗裡顯示互動 UI，例如按鈕、表格、表單與圖表。</p><p><strong>意義</strong>讓 Claude 從聊天機器人更像工作流程入口。</p></div><div class="mini"><h3>Tasks</h3><p><strong>做什麼</strong>長時間工作以任務 ID 追蹤，背景執行後再查進度與結果。</p><p><strong>意義</strong>避免一條 HTTP 連線硬撐數十分鐘。</p></div><div class="mini"><h3>OAuth / OIDC</h3><p><strong>做什麼</strong>對接 Entra、Okta 或企業既有帳號與權限系統。</p><p><strong>意義</strong>方便用部門、角色與離職停權管理 MCP 工具權限。</p></div><div class="mini"><h3>Tunnels</h3><p><strong>做什麼</strong>內部服務主動建立安全通道，Claude 透過通道呼叫內部工具。</p><p><strong>意義</strong>降低內部系統直接曝露到公網的風險。</p></div></div></section>
+<section class="card"><h2>架構重整：把不同問題交給不同機制</h2><div class="flow"><span class="pill">Stateless API</span><span class="pill">Tasks</span><span class="pill">MCP Apps</span><span class="pill">OAuth / OIDC</span><span class="pill">Tunnels</span></div><table><thead><tr><th>需求</th><th>新機制</th><th>白話理解</th></tr></thead><tbody><tr><td>簡單快速工具呼叫</td><td>Stateless API</td><td>像一般 HTTP API，一次請求一次回應。</td></tr><tr><td>長時間任務</td><td>Tasks</td><td>適合分析大量文件、跑資料流程、建立專案與測試。</td></tr><tr><td>互動操作</td><td>MCP Apps</td><td>把表單、圖表、按鈕與操作介面帶進 Claude。</td></tr><tr><td>登入與權限</td><td>OAuth 2.0 / OIDC</td><td>接企業身分系統，統一控管誰能用什麼工具。</td></tr><tr><td>內部系統連線</td><td>Tunnels</td><td>讓內網服務安全被 Claude 呼叫，不必直接開公網入口。</td></tr></tbody></table></section>
+<section class="card"><h2>對開發者與企業的意義</h2><div class="two"><div class="mini"><h3>開發者角度</h3><ul><li>寫 MCP Server 會越來越像寫一般 Web API。</li><li>可以少處理 session、sticky connection、斷線恢復與狀態同步。</li><li>更容易把 MCP Server 部署到 Cloudflare Workers、AWS Lambda、Netlify 或一般雲端平台。</li><li>長任務與互動 UI 被拆到 extensions，核心協定反而更簡單。</li></ul></div><div class="mini"><h3>企業角度</h3><ul><li>MCP 開始具備企業正式上線需要的身分驗證、權限控管、內網連線與監控基礎。</li><li>可用既有企業帳號體系控管部門權限，不必為 MCP 另建帳號。</li><li>內部資料庫、ERP、製造系統或私有 API 可透過 Tunnels 連接，降低資安阻力。</li><li>MCP 正在從「開發者本機工具」走向「AI Agent 連接企業系統的共同標準」。</li></ul></div></div></section>
+<section class="card"><h2>官方生態數字</h2><ul><li>MCP SDK 月下載量已超過 4 億次。</li><li>今年下載量成長約 4 倍。</li><li>Claude connectors directory 已列出 950+ MCP servers。</li><li>官方表示 MCP connectors 每天已被數百萬人使用。</li></ul><p class="small">以上數字來自 Claude 官方文章，適合用來理解 MCP 已不只是小眾實驗協定。</p></section>
+<section class="card"><h2>可直接轉貼短文</h2><div class="quote">MCP 2026-07-28 這次更新的重點，不只是多幾個功能，而是把架構拆得更像企業可上線的 Agent 標準。
+
+簡單工具呼叫走 Stateless API；長時間工作交給 Tasks；互動畫面用 MCP Apps；登入與權限接 OAuth/OIDC；內部系統則透過 Tunnels 連線。
+
+這代表未來寫 MCP Server 會更像寫一般 Web API，也代表 MCP 正從開發者本機工具，走向 AI Agent 連接外部工具與企業系統的共同標準。
+
+整理連結：https://share.beartolove.com/20260729_MCP_2026_Stateless_Apps_Tasks_Enterprise_Agent_Standard.html</div></section>
+<section class="card"><h2>參考連結</h2><ul><li><a href="https://claude.com/blog/bringing-mcp-2026-07-28-to-claude" target="_blank" rel="noopener">Claude 官方：Bringing MCP 2026-07-28 to Claude</a></li><li><a href="https://modelcontextprotocol.io/specification/2026-07-28" target="_blank" rel="noopener">MCP 2026-07-28 Specification</a></li><li><a href="https://modelcontextprotocol.io/extensions/apps/overview" target="_blank" rel="noopener">MCP Apps extension</a></li><li><a href="https://modelcontextprotocol.io/extensions/tasks/overview" target="_blank" rel="noopener">MCP Tasks extension</a></li><li><a href="https://www.facebook.com/share/1EbGUvPtMB/" target="_blank" rel="noopener">Facebook 原貼文</a></li></ul></section>
+<section class="card"><h2>原文整理</h2><div class="quote">https://www.facebook.com/share/1EbGUvPtMB/
+
+MCP 標準重大革命，大家都向輕量、Agent 靠攏
+
+MCP 迎來重大革新！最重要的就是
+
+- 狀態變成 Statelsss
+- MCP Apps 功能
+- 加入 OAuth 認證
+- 加入 Tasks 功能
+- 加入 Tunnels 功能
+ 
+這次最核心的改變，是 MCP 底層設計改成 Stateless，也就是「伺服器不用一直記住你前面做過什麼」。以前的做法比較像打電話給客服，電話接通之後，客服會記得你剛才講過哪些內容，整段連線也必須持續維持。如果連線中斷、伺服器重啟，或流量被分到另一台機器，就可能要處理一堆 session、狀態同步和斷線恢復的問題。新版則更像一般網站 API，每次 Claude 發出請求時，都把這次需要的資訊一起帶過去，伺服器處理完就回傳，不需要一直維持一條專屬連線。
+
+這個改變最重要的地方，就是它直接影響 MCP Server 能不能真正大量部署。當伺服器不用記住每一個連線狀態，就可以部署到 AWS Lambda、Cloudflare Workers、Serverless 或一般雲端平台上。使用者從一百人增加到十萬人時，可以直接多開幾台機器分攤流量，不必擔心某個使用者上一個請求在哪一台伺服器，下一個請求是不是又必須回到同一台。對企業來說，這代表 MCP 不再只是開發者在本機玩玩的小工具，而是開始具備正式上線需要的擴充能力。
+
+Stateless 並不代表 Claude 失去記憶，也不代表 Agent 每做一步就忘記前面發生什麼。MCP 最底層的通訊協定不再強迫伺服器維持 session。真正需要長時間執行的工作，例如分析一萬份文件、跑一個需要四十分鐘的資料流程、建立完整專案並測試，會交給新的 Tasks 機制。Claude 先送出工作，伺服器回覆一個任務編號，接著在後台慢慢執行，Claude 之後再查進度、拿結果，或確認任務是否失敗，這樣就不用讓一個 HTTP 連線硬撐幾十分鐘。
+
+另一個重點是 MCP Apps。以前 Claude 呼叫一個工具，通常只會拿回文字、JSON 或一些資料，使用者真正要操作時，還是得切換到外部網站。MCP Apps 想做的，是讓工具可以直接在 Claude 的對話視窗裡顯示按鈕、表格、表單、圖表或其他互動畫面。例如 Claude 連到 Figma 之後，不只是回覆「設計已建立」，而是可以直接把設計結果或操作介面顯示在聊天裡。這會讓 Claude 從單純的聊天機器人，慢慢變成一個可以直接操作各種軟體和工作流程的入口。
+
+企業最在意的登入和權限問題，這次也開始補齊。新版 MCP 對 OAuth 2.0 和 OIDC 的支援更完整，直接接 Microsoft Entra ID、Okta 或公司原本的帳號系統。企業不用另外為 MCP 建一套帳號，也不用讓每個員工手動授權。可以直接規定財務部能使用會計系統，工程部能使用 GitHub 和部署工具，一般員工不能執行管理員操作。員工離職後，只要停用公司帳號，對應的 MCP 權限也會一起失效，整體管理方式會比較接近現在成熟的企業 SaaS。
+
+安全呢？用 Tunnels 解決。公司的內部系統無法上公網，例如內部資料庫、ERP、製造系統或私有 API，但 Claude 如果要使用它們，就必須有一條安全的連線方式。MCP Tunnels 的概念，是讓公司內部的服務主動建立一條安全通道出去，Claude 再透過這條通道呼叫內部工具。這樣公司不需要把內部系統直接暴露在網路上，也不需要為了 Claude 特別開防火牆入口，對資安部門來說會比較容易接受。
+
+所以這次 MCP 更新真正重要的地方，不是多了幾個新功能，而是 Anthropic 正在重新整理整套架構。簡單、快速的工具呼叫，就走普通的 Stateless API。需要跑很久的工作，就交給 Tasks。需要互動畫面，就用 MCP Apps。登入和權限，直接接企業原本的身分系統。內部網路連線，則透過 MCP Tunnels 處理。每一個功能都拆開處理，核心反而變得比較簡單，整套系統也更容易維護。
+
+從開發者角度來看，未來寫 MCP Server 會越來越像寫一般 Web API，不需要一直煩惱 session、sticky connection、斷線恢復和狀態同步。從企業角度來看，MCP 也開始補上權限控管、身分驗證、內網連線和監控這些正式上線一定會遇到的問題。這代表 MCP 正在從一個很有趣的開發者協定，慢慢走向 AI Agent 連接外部工具和企業系統的共同標準。
+
+參考網址：
+https://claude.com/blog/bringing-mcp-2026-07-28-to-claude</div></section>
+</main><script>
+function toggleMenu(){const p=document.getElementById('panel');p.style.display=p.style.display==='block'?'none':'block'}
+function setFont(delta){const r=document.documentElement;const cur=parseFloat(getComputedStyle(r).fontSize);const next=Math.max(15,Math.min(24,cur+delta));r.style.fontSize=next+'px';localStorage.setItem('shareFont',next)}
+function resetFont(){document.documentElement.style.fontSize='18px';localStorage.setItem('shareFont',18)}
+(function(){const f=localStorage.getItem('shareFont');if(f)document.documentElement.style.fontSize=f+'px'})()
+</script></body></html>
