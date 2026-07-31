@@ -1,0 +1,93 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Claude Code 摘要很順卻沒用？先用 Guideline 固定你要看的重點｜EP.33</title><style>
+:root{font-size:18px;--bg:#f7efe3;--card:#fffaf2;--ink:#3b2a1d;--muted:#7b614e;--line:#ead7bf;--accent:#8b4a2f;--accent2:#bd7044}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f4e7d7,#fffaf2);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Source Han Sans TC","Segoe UI",sans-serif;line-height:1.75}a{color:#8b3f25;text-underline-offset:.18em;word-break:break-word}.reader-menu{position:fixed;top:1em;left:1em;z-index:20}.reader-menu details{background:rgba(255,250,242,.96);border:1px solid var(--line);border-radius:.9em;box-shadow:0 .5em 1.5em rgba(80,48,25,.12)}.reader-menu summary{cursor:pointer;padding:.55em .75em;font-weight:900}.reader-menu .panel{display:grid;gap:.45em;padding:.45em .8em .8em;min-width:10em}.reader-menu a,.reader-menu button{font:inherit;text-align:left;border:1px solid var(--line);background:#fff6e8;color:var(--ink);border-radius:.65em;padding:.45em .65em;text-decoration:none;cursor:pointer}.wrap{width:min(64em,calc(100% - 2em));margin:0 auto;padding:4.5em 0 3em}.hero,.card{background:rgba(255,250,242,.95);border:1px solid var(--line);border-radius:1.2em;box-shadow:0 1em 2.5em rgba(80,48,25,.08)}.hero{padding:2em}.kicker{font-size:.85em;letter-spacing:.12em;color:var(--accent2);font-weight:900}.meta{color:var(--muted);font-size:.95em}.tag{display:inline-block;margin:.2em .35em .2em 0;padding:.25em .6em;border-radius:99em;background:#f2dfc6;color:#6d3924;font-size:.85em;font-weight:800}h1{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:2em;line-height:1.25;margin:.25em 0 .6em;color:#5f301f}h2{font-family:"Noto Serif TC","Source Han Serif TC",serif;font-size:1.35em;color:#6d3924;margin:0 0 .7em}.card{margin-top:1em;padding:1.35em 1.5em}.lead{font-size:1.08em;background:#fff2df;border-left:.35em solid var(--accent2);padding:.85em 1em;border-radius:.7em}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(18em,1fr));gap:1em}.filebox{display:grid;gap:.7em}.filelink{display:block;background:#fff3df;border:1px solid var(--line);border-radius:.85em;padding:.85em 1em;text-decoration:none;font-weight:800}.description{white-space:pre-wrap}.source{word-break:break-word}footer{text-align:center;color:var(--muted);margin:2em 0 0;font-size:.9em}li{margin:.35em 0}code{background:#f2dfc6;border-radius:.35em;padding:.05em .25em}
+.summary-visual{margin:0 0 1.1em}.summary-visual .imgBtn{display:block;width:100%;border:0;background:transparent;padding:0;cursor:zoom-in}.summary-visual img{width:100%;display:block;border-radius:1em;border:1px solid var(--line);box-shadow:0 .7em 1.6em rgba(86,55,32,.10);background:#fff}.summary-visual figcaption{text-align:center;color:var(--muted);font-size:.86em;margin-top:.45em}.summary-visual-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(18em,1fr));gap:1em;margin:0 0 1.1em}.lightbox{position:fixed;inset:0;background:rgba(27,18,12,.88);z-index:99;display:none;align-items:center;justify-content:center;padding:1.2em}.lightbox.open{display:flex}.lightbox-inner{max-width:min(96vw,76em);max-height:94vh;text-align:center}.lightbox img{max-width:100%;max-height:82vh;border-radius:.7em;background:#fff}.lightbox-caption{color:#fff6e8;margin:.5em 0}.lightbox-actions{display:flex;gap:.6em;justify-content:center;flex-wrap:wrap}.lightbox button,.lightbox a{font:inherit;border:1px solid rgba(255,255,255,.35);background:#fff6e8;color:#3b2a1d;border-radius:.6em;padding:.45em .8em;text-decoration:none;cursor:pointer}</style><script>function adjustReaderFont(delta){const r=document.documentElement,c=parseFloat(localStorage.getItem('readerFont')||'18'),n=Math.max(14,Math.min(26,c+delta));localStorage.setItem('readerFont',n);r.style.fontSize=n+'px'}function resetReaderFont(){localStorage.removeItem('readerFont');document.documentElement.style.fontSize='18px'}document.addEventListener('DOMContentLoaded',()=>{const s=localStorage.getItem('readerFont');if(s)document.documentElement.style.fontSize=s+'px'});</script></head><body>
+<nav class="reader-menu"><details><summary>☰</summary><div class="panel"><a href="https://share.beartolove.com/share.html" target="_blank" rel="noopener">回分享目錄</a><button onclick="adjustReaderFont(1)">放大字體</button><button onclick="adjustReaderFont(-1)">縮小字體</button><button onclick="resetReaderFont()">恢復預設</button></div></details></nav>
+<main class="wrap"><section class="hero"><div class="kicker">YOUTUBE TRANSCRIPT SHARE</div><h1>Claude Code 摘要很順卻沒用？先用 Guideline 固定你要看的重點｜EP.33</h1><h2>一句話總結</h2><p class="lead">這集提醒：AI 摘要是否有用，關鍵不在模型多強，而在你有沒有先把「我要看什麼」整理成 Guideline／Skill，讓 AI 依固定切面閱讀、驗證與迭代。</p><p class="meta">來源影片：<a href="https://youtu.be/d5Ipmp6RSJ0?si=gkBLeNp7EWiad_wr" target="_blank" rel="noopener">https://youtu.be/d5Ipmp6RSJ0?si=gkBLeNp7EWiad_wr</a><br>建立時間：2026-07-31 22:17:42（Asia/Taipei）</p><div><span class="tag">#YouTube逐字稿</span><span class="tag">#ClaudeCode</span><span class="tag">#Skill</span><span class="tag">#科技及AI新知</span></div></section>
+<section class="card"><h2>重點摘要</h2>
+<div class="summary-visual-grid">
+<figure class="summary-visual" data-summary-image="d5Ipmp6RSJ0_guideline_skill_cards-01">
+  <button class="imgBtn" type="button" onclick="openLightbox(0)" aria-label="開啟 摘要很順，不等於有用 1/5">
+    <img src="https://drive.google.com/thumbnail?id=125jUg50FkC7YC7CpTlqbFSheuW__riwl&amp;sz=w2000" alt="摘要很順，不等於有用 1/5" loading="lazy">
+  </button>
+  <figcaption>摘要很順，不等於有用 1/5</figcaption>
+</figure>
+<figure class="summary-visual" data-summary-image="d5Ipmp6RSJ0_guideline_skill_cards-02">
+  <button class="imgBtn" type="button" onclick="openLightbox(1)" aria-label="開啟 先決定閱讀切面 2/5">
+    <img src="https://drive.google.com/thumbnail?id=1PFtg-61jiOlWK5aZxpT1we5shJi53g1w&amp;sz=w2000" alt="先決定閱讀切面 2/5" loading="lazy">
+  </button>
+  <figcaption>先決定閱讀切面 2/5</figcaption>
+</figure>
+<figure class="summary-visual" data-summary-image="d5Ipmp6RSJ0_guideline_skill_cards-03">
+  <button class="imgBtn" type="button" onclick="openLightbox(2)" aria-label="開啟 把 Guideline 變成 Skill 3/5">
+    <img src="https://drive.google.com/thumbnail?id=124aAlPgc2gjK6YgwRojdRkb2Qu-opwRz&amp;sz=w2000" alt="把 Guideline 變成 Skill 3/5" loading="lazy">
+  </button>
+  <figcaption>把 Guideline 變成 Skill 3/5</figcaption>
+</figure>
+<figure class="summary-visual" data-summary-image="d5Ipmp6RSJ0_guideline_skill_cards-04">
+  <button class="imgBtn" type="button" onclick="openLightbox(3)" aria-label="開啟 用 subagent 分工與驗證 4/5">
+    <img src="https://drive.google.com/thumbnail?id=1slncN_VkKWJVZhYUIoTFg7kGKidSK3rl&amp;sz=w2000" alt="用 subagent 分工與驗證 4/5" loading="lazy">
+  </button>
+  <figcaption>用 subagent 分工與驗證 4/5</figcaption>
+</figure>
+<figure class="summary-visual" data-summary-image="d5Ipmp6RSJ0_guideline_skill_cards-05">
+  <button class="imgBtn" type="button" onclick="openLightbox(4)" aria-label="開啟 AI 放大思考，不取代思考 5/5">
+    <img src="https://drive.google.com/thumbnail?id=1Qncjj9aOBQUGhSgsuR82P5q7evjtsM_l&amp;sz=w2000" alt="AI 放大思考，不取代思考 5/5" loading="lazy">
+  </button>
+  <figcaption>AI 放大思考，不取代思考 5/5</figcaption>
+</figure>
+</div>
+<ol><li>只丟一句「幫我摘要」，AI 通常會給出四平八穩、看起來通順但不一定有用的平均摘要。</li><li>同一份檔案可以有不同切面：核心主張、可立即採用的做法、與既有框架的衝突、證據邊界與反例等；切面不同，摘要價值就不同。</li><li>Guideline 的目的，是把自己的品味、判斷、know-how 與固定閱讀需求明文化，讓 AI 不再每次自行決定摘要重點。</li><li>Claude Code／Agent 工作環境適合處理一整疊檔案，因為可以把規則、資料夾與輸出格式放在同一個工作流程裡。</li><li>大量檔案閱讀可以交給 subagent 分工：一份檔案一個 subagent，可降低上下文混雜，也能用獨立 subagent 做查核。</li><li>第一版 Skill 不會完美；要透過實際摘要、人工回饋、矛盾標註與幻覺驗證，把規則逐步修到更符合自己的判斷。</li><li>AI 可以協助整理、篩選與補盲點，但不應代替學生或專業工作者完成真正需要思考的分析與作業。</li></ol></section>
+<div class="grid"><section class="card"><h2>關鍵觀察</h2><ul><li>摘要品質不是由「AI 是否寫得順」決定，而是由「它是否抓到你真正關心的切面」決定。</li><li>Guideline 決定品質；沒有方向，AI 只能給平均值。</li><li>Skill 的價值在於累積：每一次修正，都讓下一次的起點更接近你的思路。</li><li>subagent 適合大量檔案閱讀與獨立驗證，但會增加 token 成本，要用在值得分工的任務上。</li></ul></section><section class="card"><h2>適合熊熊／TIPC 的行動建議</h2><ol><li>把常見閱讀任務先分成類型，例如政策檔案、法規條文、產業報告、會議資料與系統規格。</li><li>每一類建立一份 Guideline：固定要看「主張、證據、風險、可執行建議、與 TIPC 現況的關聯」。</li><li>讓 AI 先依 Guideline 產出摘要，再用獨立查核步驟檢查是否腦補、是否漏掉反例、是否誤讀原文。</li><li>把每次人工修正寫回 Skill，建立團隊自己的閱讀與摘要標準。</li><li>對學習或決策任務保留人類判斷：AI 先整理材料，人再做取捨、分析與結論。</li></ol></section></div>
+<section class="card"><h2>5 頁摘要圖內容規劃</h2><ol><li>Page 1：為什麼「幫我摘要」常常沒用。</li><li>Page 2：摘要品質取決於閱讀切面。</li><li>Page 3：把 Guideline 包成可重複的 Skill。</li><li>Page 4：用 subagent 分工閱讀與獨立驗證。</li><li>Page 5：企業與學習者要守住思考主導權。</li></ol></section>
+<section class="card"><h2>影片說明欄</h2><div class="description">把一疊檔案全丟給 AI，摘要看起來完整又通順，卻不一定抓到你真正要的重點。這集我會示範怎麼從課堂追問、老師回饋與過去筆記裡整理出固定切面，再把它寫成 Claude Code Skill。
+
+做法很具體：先想清楚同一份檔案到底要看核心主張、可執行做法，還是和既有框架的衝突。接著把這套切面寫成 Guideline，讓 Skill 每次照同一個標準工作。檔案很多時，再交給多個 subagent 分頭讀，避免上下文互相干擾；查核抓到的錯誤也要寫回 Skill。
+
+後段我也會談一件更重要的事。AI 可以幫你收集、整理與篩選材料，但該由你親自經歷的思考，不能外包。
+
+章節
+00:00 一疊檔案，先別急著丟給 AI
+01:47 錯誤示範：七份檔案一起摘要
+03:04 關鍵不是模型，而是切面
+04:54 從過去資料提煉 Guideline
+06:42 把 Guideline 寫進 Skill
+08:44 用獨立 subagent 驗證
+09:29 一份檔案一個 subagent
+11:49 把查核發現寫回 Skill
+13:18 持續提煉你的使用習慣
+15:16 AI 可以整理，但不能代替思考
+16:45 Guideline → Skill → subagent
+17:21 下次先問：我到底要看什麼？
+
+個人或企業想把 AI 真正接進工作流程，可以預約 30 分鐘線上交流：
+<a href="https://agentcrew.cc/l3/connect" target="_blank" rel="noopener">https://agentcrew.cc/l3/connect</a>
+
+完整 Claude Code 教學系列：
+   / @agentcrewacademy  
+
+加入免費社團「Dustin &amp; Gino 的 AI 學習社團」：
+  / dustingino  
+
+#ClaudeCode #AI摘要 #Guideline #Skill #Subagent</div></section>
+<section class="card"><h2>逐字稿與摘要檔</h2><div class="filebox"><a class="filelink" href="https://drive.google.com/file/d/1w7inxMPR2PufhzgE-ctqp01-45OqmjXn/view?usp=drivesdk" target="_blank" rel="noopener">完整逐字稿</a><a class="filelink" href="https://drive.google.com/file/d/1eEqQhkWyTc66xCzbKR7rLkT-NOYVpypK/view?usp=drivesdk" target="_blank" rel="noopener">摘要檔</a></div></section>
+<section class="card"><h2>來源影片</h2><p class="source"><a href="https://youtu.be/d5Ipmp6RSJ0?si=gkBLeNp7EWiad_wr" target="_blank" rel="noopener">https://youtu.be/d5Ipmp6RSJ0?si=gkBLeNp7EWiad_wr</a></p></section>
+<footer>myHermes shared memo</footer></main>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="圖片燈箱">
+  <div class="lightbox-inner">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+    <div class="lightbox-actions"><button type="button" onclick="prevLightbox()">上一張</button><button type="button" onclick="nextLightbox()">下一張</button><a id="lightboxOriginal" href="https://drive.google.com/uc?export=view&amp;id=125jUg50FkC7YC7CpTlqbFSheuW__riwl" target="_blank" rel="noopener">開啟原解析度圖</a><button type="button" onclick="closeLightbox()">關閉</button></div>
+  </div>
+</div>
+<script>
+const lightboxImages=[{"src": "https://drive.google.com/thumbnail?id=125jUg50FkC7YC7CpTlqbFSheuW__riwl&sz=w4000", "original": "https://drive.google.com/uc?export=view&id=125jUg50FkC7YC7CpTlqbFSheuW__riwl", "caption": "摘要很順，不等於有用 1/5"}, {"src": "https://drive.google.com/thumbnail?id=1PFtg-61jiOlWK5aZxpT1we5shJi53g1w&sz=w4000", "original": "https://drive.google.com/uc?export=view&id=1PFtg-61jiOlWK5aZxpT1we5shJi53g1w", "caption": "先決定閱讀切面 2/5"}, {"src": "https://drive.google.com/thumbnail?id=124aAlPgc2gjK6YgwRojdRkb2Qu-opwRz&sz=w4000", "original": "https://drive.google.com/uc?export=view&id=124aAlPgc2gjK6YgwRojdRkb2Qu-opwRz", "caption": "把 Guideline 變成 Skill 3/5"}, {"src": "https://drive.google.com/thumbnail?id=1slncN_VkKWJVZhYUIoTFg7kGKidSK3rl&sz=w4000", "original": "https://drive.google.com/uc?export=view&id=1slncN_VkKWJVZhYUIoTFg7kGKidSK3rl", "caption": "用 subagent 分工與驗證 4/5"}, {"src": "https://drive.google.com/thumbnail?id=1Qncjj9aOBQUGhSgsuR82P5q7evjtsM_l&sz=w4000", "original": "https://drive.google.com/uc?export=view&id=1Qncjj9aOBQUGhSgsuR82P5q7evjtsM_l", "caption": "AI 放大思考，不取代思考 5/5"}];
+let lightboxIndex=0;
+function renderLightbox(){const item=lightboxImages[lightboxIndex]||lightboxImages[0];document.getElementById('lightboxImg').src=item.src;document.getElementById('lightboxImg').alt=item.caption;document.getElementById('lightboxCaption').textContent=item.caption;document.getElementById('lightboxOriginal').href=item.original||item.src;}
+function openLightbox(i){lightboxIndex=i||0;renderLightbox();document.getElementById('lightbox').classList.add('open');}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+function nextLightbox(){lightboxIndex=(lightboxIndex+1)%lightboxImages.length;renderLightbox();}
+function prevLightbox(){lightboxIndex=(lightboxIndex-1+lightboxImages.length)%lightboxImages.length;renderLightbox();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowRight')nextLightbox();if(e.key==='ArrowLeft')prevLightbox();});
+document.addEventListener('click',e=>{if(e.target&&e.target.id==='lightbox')closeLightbox();});
+</script>
+</body></html>
