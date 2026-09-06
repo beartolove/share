@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Claude Code 畫圖 Skill：diagram-design 憑什麼沒有 AI 味</title><style>body{margin:0;background:#f6efe4;color:#402b1c;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.75}.wrap{max-width:66em;margin:auto;padding:2em 1em 4em;overflow-x:hidden}header,section{background:rgba(255,253,248,.96);border:1px solid #ead8be;border-radius:1.25em;padding:1.35em;margin:1em 0;box-shadow:0 .4em 1.3em rgba(82,53,32,.08);max-width:100%;overflow:hidden}h1{font-size:2em;line-height:1.25;margin:.2em 0;color:#3a2517}h2{color:#6a3b1f;margin-top:.2em}.meta,.note{color:#74675c}.reader-menu{position:fixed;left:.8em;top:.8em;z-index:20}.reader-menu button,.btn{border:1px solid #d8c2a0;background:#fff8ea;border-radius:.8em;padding:.55em .8em;color:#5d351a;font-weight:800;text-decoration:none;display:inline-block;margin:.25em;cursor:pointer}.reader-panel{display:none;position:absolute;top:2.6em;left:0;background:#fffdf8;border:1px solid #ead8be;border-radius:1em;padding:.5em;box-shadow:0 .4em 1.2em rgba(82,53,32,.18);min-width:10em}.reader-menu.open .reader-panel{display:block}.download-grid,.statgrid{display:grid;grid-template-columns:minmax(0,1fr);gap:.9em;width:100%;max-width:100%}.download,.stat{background:#fff8ec;border:1px solid #ead8be;border-radius:1em;padding:1em;min-width:0;max-width:100%;overflow-wrap:anywhere;text-decoration:none;color:#402b1c}.download strong{display:block;color:#9b341f;font-size:1.08em}.hero{font-size:1.08em}.sourcebox{white-space:pre-wrap;background:#fff8ec;border:1px solid #ead8be;border-radius:1em;padding:1em}.warning{background:#fff4df;border-left:.35em solid #bf7a2c}a{color:#7b431d;font-weight:700}strong{color:#9b341f}.summary-visual-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1em;margin:1em 0 1.25em;max-width:100%}.summary-visual{margin:0;background:#fff8ec;border:1px solid #ead8be;border-radius:1em;padding:.75em;max-width:100%;overflow:hidden}.summary-visual-button{display:block;width:100%;border:0;background:transparent;padding:0;cursor:zoom-in}.summary-visual img{display:block;width:100%;height:auto;border-radius:.75em;border:1px solid #ead8be}.summary-visual figcaption{font-size:.92em;color:#74675c;margin-top:.5em}.lightbox{position:fixed;inset:0;background:rgba(28,19,13,.86);z-index:50;display:none;align-items:center;justify-content:center;padding:1em}.lightbox.open{display:flex}.lightbox-inner{max-width:min(96vw,90em);max-height:92vh;text-align:center;color:#fff}.lightbox img{max-width:100%;max-height:78vh;border-radius:.8em;background:#fff}.lightbox-controls{margin-top:.6em}.lightbox button,.lightbox a{background:#fff8ea;color:#402b1c;border:0;border-radius:.7em;padding:.55em .8em;margin:.2em;text-decoration:none;font-weight:800}.code-card code,pre code{background:transparent;border:0;padding:0;color:inherit}@media(max-width:48em){.wrap{padding:1.4em .7em 3em}header,section{padding:1em;border-radius:1em}h1{font-size:1.55em}}</style></head><body><div class="reader-menu" id="readerMenu"><button onclick="toggleReaderMenu()">☰</button><div class="reader-panel"><a class="btn" href="https://share.beartolove.com/share.html">回目錄</a><button onclick="adjustReaderFont(.08)">放大字體</button><button onclick="adjustReaderFont(-.08)">縮小字體</button><button onclick="resetReaderFont()">恢復預設</button></div></div><main class="wrap"><header><p class="meta">YouTube 逐字稿整理｜Claude Code Skill｜diagram-design</p><h1>Claude Code 畫圖 Skill：diagram-design 憑什麼沒有 AI 味</h1><p class="hero">diagram-design 不是靠更強模型讓圖變好，而是把「刪除、留白、品牌色、節點密度、連線規則、taste gate」這些設計判斷寫進 Claude Code Skill，讓 AI 畫圖不再像通用模板。</p><p>來源影片：<a href="https://youtu.be/rq4EHbqaaAk?si=qnW2C-qNtTSwViqJ" target="_blank" rel="noopener">https://youtu.be/rq4EHbqaaAk?si=qnW2C-qNtTSwViqJ</a></p><p>GitHub repo：<a href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener">https://github.com/cathrynlavery/diagram-design</a></p></header>
+<section><h2>重點摘要</h2><div class="summary-visual-grid" data-summary-cards="5" data-visual-version="gpt-image-2-20260906"><figure class="summary-visual"><button class="summary-visual-button" onclick="openLightbox(0)" aria-label="開啟摘要圖 1/5｜20260906_rq4EHbqaaAk_diagram_design_page_01_of_05.png"><img src="https://drive.google.com/thumbnail?id=1yMMfSCOkDVfSZluF4_a596CXJs5HpnBo&amp;sz=w2000" alt="摘要圖 1/5｜20260906_rq4EHbqaaAk_diagram_design_page_01_of_05.png" loading="lazy"></button><figcaption>摘要圖 1/5｜20260906_rq4EHbqaaAk_diagram_design_page_01_of_05.png</figcaption></figure><figure class="summary-visual"><button class="summary-visual-button" onclick="openLightbox(1)" aria-label="開啟摘要圖 2/5｜20260906_rq4EHbqaaAk_diagram_design_page_02_of_05.png"><img src="https://drive.google.com/thumbnail?id=1F6eYgf6UhV81h-ixVo0uVZ2sPKflNAdS&amp;sz=w2000" alt="摘要圖 2/5｜20260906_rq4EHbqaaAk_diagram_design_page_02_of_05.png" loading="lazy"></button><figcaption>摘要圖 2/5｜20260906_rq4EHbqaaAk_diagram_design_page_02_of_05.png</figcaption></figure><figure class="summary-visual"><button class="summary-visual-button" onclick="openLightbox(2)" aria-label="開啟摘要圖 3/5｜20260906_rq4EHbqaaAk_diagram_design_page_03_of_05.png"><img src="https://drive.google.com/thumbnail?id=1cn2bI3Ku36elnWSMagdpJAuIXJGoGcar&amp;sz=w2000" alt="摘要圖 3/5｜20260906_rq4EHbqaaAk_diagram_design_page_03_of_05.png" loading="lazy"></button><figcaption>摘要圖 3/5｜20260906_rq4EHbqaaAk_diagram_design_page_03_of_05.png</figcaption></figure><figure class="summary-visual"><button class="summary-visual-button" onclick="openLightbox(3)" aria-label="開啟摘要圖 4/5｜20260906_rq4EHbqaaAk_diagram_design_page_04_of_05.png"><img src="https://drive.google.com/thumbnail?id=1fPaiYmBTR_xsiZM8zcQEwXGqTwYPpFuF&amp;sz=w2000" alt="摘要圖 4/5｜20260906_rq4EHbqaaAk_diagram_design_page_04_of_05.png" loading="lazy"></button><figcaption>摘要圖 4/5｜20260906_rq4EHbqaaAk_diagram_design_page_04_of_05.png</figcaption></figure><figure class="summary-visual"><button class="summary-visual-button" onclick="openLightbox(4)" aria-label="開啟摘要圖 5/5｜20260906_rq4EHbqaaAk_diagram_design_page_05_of_05.png"><img src="https://drive.google.com/thumbnail?id=1CTx0Yj7XvE7e7VlWBA4OOZB_sGaTmg4y&amp;sz=w2000" alt="摘要圖 5/5｜20260906_rq4EHbqaaAk_diagram_design_page_05_of_05.png" loading="lazy"></button><figcaption>摘要圖 5/5｜20260906_rq4EHbqaaAk_diagram_design_page_05_of_05.png</figcaption></figure></div><ul>
+<li><strong>同樣提示詞，Skill 規則會改變輸出品質。</strong> 影片用兩張 AI 生成圖對比：差別不是模型，而是 diagram-design 讀懂程式碼、取捨節點、套用品牌視覺與品味檢查。</li>
+<li><strong>它會先讀程式碼再畫架構圖。</strong> 例如 Express 入口、下單路由、email 是否真的寄出、await 呼叫順序等，Skill 會把程式碼關係轉成圖面重點。</li>
+<li><strong>品牌化不是手動挑色，而是從網站萃取設計 token。</strong> 影片示範用網站取得紙底、墨色、次要文字、強調色、連線色等角色，並把它存成 profile，方便不同客戶／專案切換。</li>
+<li><strong>Mermaid 舊圖可以被翻新。</strong> Skill 會先解析 Mermaid，建立節點、邊、入口、終點與中心節點的檢查表，再重繪成更有編輯品質的圖。</li>
+<li><strong>它不只給工程師用。</strong> 影片也示範產品經理用四象限圖開會，把七個功能放進優先級視覺，並把最值得先做的專案用單一強調色凸顯。</li>
+<li><strong>沒有 AI 味的核心是不可談判規則。</strong> 例如「最高品質的動作通常是刪除」、強調色最多用在 1–2 個元素、目標密度 4/10、連線不能斜、座標與間距要對齊 4px 網格、輸出前跑 taste gate。</li>
+<li><strong>工具邊界清楚。</strong> HTML/SVG 可直接在瀏覽器看；PNG 匯出需要 Playwright。當依賴未安裝時，Skill 會提供安裝方式，但不會自動替你動系統環境。</li>
+</ul></section>
+<section><h2>一句話總結</h2><p>diagram-design 不是靠更強模型讓圖變好，而是把「刪除、留白、品牌色、節點密度、連線規則、taste gate」這些設計判斷寫進 Claude Code Skill，讓 AI 畫圖不再像通用模板。</p></section>
+<section><h2>關鍵觀察</h2><ul>
+<li>影片真正值得學的不是「裝一個畫圖工具」，而是 Skill 怎麼把作者的設計 taste 變成可執行規則。</li>
+<li>對企業或團隊來說，這類 Skill 的價值在於把「怎麼畫才不醜」從個人經驗變成可複用流程。</li>
+<li>好的 Agent Skill 不是只堆功能，而是明確寫出不可妥協的品質門檻與輸出邊界。</li>
+</ul>
+<p>## 5 頁摘要圖規劃</p>
+<p>### Page 1/5：不是模型變強，是規則變清楚</p>
+<p>畫面文字：</p>
+<ul>
+<li>同一句提示詞</li>
+<li>兩種輸出品質</li>
+<li>差別在 Skill 規則</li>
+<li>1/5</li>
+</ul>
+<p>### Page 2/5：先讀懂，再決定畫什麼</p>
+<p>畫面文字：</p>
+<ul>
+<li>讀程式碼</li>
+<li>找入口與路由</li>
+<li>分辨真正重點</li>
+<li>2/5</li>
+</ul>
+<p>### Page 3/5：品牌色變成可重用 profile</p>
+<p>畫面文字：</p>
+<ul>
+<li>網站取色</li>
+<li>設計 token</li>
+<li>profile 存檔</li>
+<li>3/5</li>
+</ul>
+<p>### Page 4/5：taste gate 擋掉 AI 味</p>
+<p>畫面文字：</p>
+<ul>
+<li>刪除多餘節點</li>
+<li>強調只留 1–2 個</li>
+<li>連線不走斜線</li>
+<li>4/5</li>
+</ul>
+<p>### Page 5/5：導入提醒</p>
+<p>畫面文字：</p>
+<ul>
+<li>先定義圖的目的</li>
+<li>保留品牌規則</li>
+<li>PNG 需 Playwright</li>
+<li>5/5</li>
+</ul></section>
+<section><h2>適合使用情境</h2><ul>
+<li>技術架構圖、流程圖、時序圖、狀態機、資料流圖需要快速變成可讀又有設計感的視覺稿。</li>
+<li>團隊有固定品牌色，希望 AI 產圖不要每次都像不同模板。</li>
+<li>需要把舊 Mermaid 檔案翻新成可放簡報或檔案的圖。</li>
+<li>想研究如何寫高品質 Claude Code Skill，把 taste、品質規則與工具邊界寫清楚。</li>
+</ul></section>
+<section><h2>導入提醒</h2><ul>
+<li>不要把它當成「一鍵生圖魔法」。它比較像把設計規範、圖型選擇與品質檢查流程交給 Agent 執行。</li>
+<li>圖面越複雜，越需要先說清楚讀者要看什麼；若節點超過 9 個，應考慮拆成兩張圖。</li>
+<li>若要匯出 PNG，需先處理 Playwright / Chromium 依賴；不要讓 Agent 未確認就自動修改系統環境。</li>
+</ul></section>
+<section><h2>Repo 補充資訊</h2><ul>
+<li>repo：<a href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener">https://github.com/cathrynlavery/diagram-design</a></li>
+<li>授權：MIT</li>
+<li>定位：Agent Skill / plugin，產出自包含 HTML + SVG editorial diagrams。</li>
+<li>公開資料顯示支援 Claude Code、Codex、Pi、Factory Droid、Kiro、OpenCode 等 Agent Skills-compatible hosts。</li>
+<li>GitHub / SkillsLLM / 說明欄對圖型數與 stars 有時間差；本頁避免把 stars 當固定事實，只保留「熱門開源 Skill」的脈絡。</li>
+</ul></section>
+<section><h2>影片說明欄重點與連結</h2><div class="sourcebox"><p>影片說明欄指出，本集實測 diagram-design 的五種場景：讀專案程式碼生成架構圖、從網站提取品牌色、用 import-mermaid 翻新舊 Mermaid 流程圖／時序圖／狀態機、畫產品經理開會用的四象限優先級圖，以及用 export-diagram 匯出 SVG / PNG。</p>
+<ul>
+<li>diagram-design：<a href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener">https://github.com/cathrynlavery/diagram-design</a></li>
+<li>安裝：`/plugin marketplace add cathrynlavery/diagram-design` → `/plugin install diagram-design@diagram-design`</li>
+<li>Claude Code：<a href="https://claude.com/claude-code" target="_blank" rel="noopener">https://claude.com/claude-code</a></li>
+<li>Playwright：PNG 匯出使用，需另行安裝相關依賴。</li>
+</ul></div></section>
+<section class="warning"><h2>風險提醒</h2><p>本頁整理的是工具展示與開源專案資訊；安裝第三方 plugin / Skill 前，仍應檢查 repo 來源、授權、更新狀態、依賴與安全性。若在公司環境導入，建議先在測試專案驗證輸出品質、權限邊界與匯出流程。</p></section>
+<section><h2>逐字稿與摘要檔</h2><div class="download-grid"><a class="download" href="https://drive.google.com/file/d/1rZN3j0nxI4Ahr-SVpZLQ1BpvehxYIpl1/view?usp=drivesdk" target="_blank" rel="noopener"><strong>完整逐字稿 TXT</strong>已上傳 Google Drive，整理為正體中文與臺灣用語。</a><a class="download" href="https://drive.google.com/file/d/10bqQrZdGtS6tvgbbj2wdLRG-VEpdHNjs/view?usp=drivesdk" target="_blank" rel="noopener"><strong>重點摘要 TXT</strong>含摘要、Repo 補充資訊與 5 頁圖卡規劃。</a></div></section>
+<section><h2>來源影片</h2><p><a href="https://youtu.be/rq4EHbqaaAk?si=qnW2C-qNtTSwViqJ" target="_blank" rel="noopener">GitHub 衝榜第一的 Claude Code 畫圖 Skill，翻開原始碼才知道它憑什麼沒有 AI 味｜架構圖、流程圖一句話出圖</a></p></section></main><div class="lightbox" id="lightbox" onclick="if(event.target.id==='lightbox') closeLightbox()"><div class="lightbox-inner"><img id="lightboxImg" alt=""><p id="lightboxCaption"></p><div class="lightbox-controls"><button onclick="prevSlide();event.stopPropagation()">上一張</button><button onclick="nextSlide();event.stopPropagation()">下一張</button><a id="originalLink" href="#" target="_blank" rel="noopener">開啟原解析度圖</a><button onclick="closeLightbox();event.stopPropagation()">關閉</button></div></div></div><script>const root=document.documentElement;function applyReaderFont(){const v=localStorage.getItem('readerFontScale')||'1';root.style.fontSize=(parseFloat(v)*100)+'%';}function adjustReaderFont(delta){const cur=parseFloat(localStorage.getItem('readerFontScale')||'1');const next=Math.min(1.45,Math.max(.8,cur+delta));localStorage.setItem('readerFontScale',String(next));applyReaderFont();}function resetReaderFont(){localStorage.removeItem('readerFontScale');applyReaderFont();}function toggleReaderMenu(){document.getElementById('readerMenu').classList.toggle('open');}applyReaderFont();const slides=[{"src": "https://drive.google.com/thumbnail?id=1yMMfSCOkDVfSZluF4_a596CXJs5HpnBo&sz=w4000", "original": "https://drive.google.com/uc?export=view&id=1yMMfSCOkDVfSZluF4_a596CXJs5HpnBo", "caption": "摘要圖 1/5"}, {"src": "https://drive.google.com/thumbnail?id=1F6eYgf6UhV81h-ixVo0uVZ2sPKflNAdS&sz=w4000", "original": "https://drive.google.com/uc?export=view&id=1F6eYgf6UhV81h-ixVo0uVZ2sPKflNAdS", "caption": "摘要圖 2/5"}, {"src": "https://drive.google.com/thumbnail?id=1cn2bI3Ku36elnWSMagdpJAuIXJGoGcar&sz=w4000", "original": "https://drive.google.com/uc?export=view&id=1cn2bI3Ku36elnWSMagdpJAuIXJGoGcar", "caption": "摘要圖 3/5"}, {"src": "https://drive.google.com/thumbnail?id=1fPaiYmBTR_xsiZM8zcQEwXGqTwYPpFuF&sz=w4000", "original": "https://drive.google.com/uc?export=view&id=1fPaiYmBTR_xsiZM8zcQEwXGqTwYPpFuF", "caption": "摘要圖 4/5"}, {"src": "https://drive.google.com/thumbnail?id=1CTx0Yj7XvE7e7VlWBA4OOZB_sGaTmg4y&sz=w4000", "original": "https://drive.google.com/uc?export=view&id=1CTx0Yj7XvE7e7VlWBA4OOZB_sGaTmg4y", "caption": "摘要圖 5/5"}];let currentSlide=0;function openLightbox(i){currentSlide=i;renderSlide();document.getElementById('lightbox').classList.add('open');}function renderSlide(){const s=slides[currentSlide];document.getElementById('lightboxImg').src=s.src;document.getElementById('lightboxCaption').textContent=s.caption;document.getElementById('originalLink').href=s.original;}function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}function prevSlide(){currentSlide=(currentSlide+slides.length-1)%slides.length;renderSlide();}function nextSlide(){currentSlide=(currentSlide+1)%slides.length;renderSlide();}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')prevSlide();if(e.key==='ArrowRight')nextSlide();});</script></body></html>
