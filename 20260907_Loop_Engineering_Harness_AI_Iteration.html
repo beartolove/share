@@ -1,0 +1,64 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Loop Engineering 是什麼？用目標、回饋與 Harness 控制 AI 迭代</title><style>body{margin:0;background:#f6efe4;color:#402b1c;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.75}.wrap{max-width:66em;margin:auto;padding:2em 1em 4em;overflow-x:hidden}header,section{background:rgba(255,253,248,.96);border:1px solid #ead8be;border-radius:1.25em;padding:1.35em;margin:1em 0;box-shadow:0 .4em 1.3em rgba(82,53,32,.08);max-width:100%;overflow:hidden}h1{font-size:2em;line-height:1.25;margin:.2em 0;color:#3a2517}h2{color:#6a3b1f;margin-top:.2em}.meta,.note{color:#74675c}.hero{font-size:1.08em}.reader-menu{position:fixed;left:.8em;top:.8em;z-index:20}.reader-menu button,.btn{border:1px solid #d8c2a0;background:#fff8ea;border-radius:.8em;padding:.55em .8em;color:#5d351a;font-weight:800;text-decoration:none;display:inline-block;margin:.25em;cursor:pointer}.reader-panel{display:none;position:absolute;top:2.6em;left:0;background:#fffdf8;border:1px solid #ead8be;border-radius:1em;padding:.5em;box-shadow:0 .4em 1.2em rgba(82,53,32,.18);min-width:10em}.reader-menu.open .reader-panel{display:block}.download-grid,.cardgrid{display:grid;grid-template-columns:minmax(0,1fr);gap:.9em;width:100%;max-width:100%}.download,.card{background:#fff8ec;border:1px solid #ead8be;border-radius:1em;padding:1em;min-width:0;max-width:100%;overflow-wrap:anywhere;text-decoration:none;color:#402b1c}.download strong,.card strong{display:block;color:#9b341f;font-size:1.08em}.sourcebox{white-space:pre-wrap;background:#fff8ec;border:1px solid #ead8be;border-radius:1em;padding:1em}.warning{background:#fff4df;border-left:.35em solid #bf7a2c}a{color:#7b431d;font-weight:700}strong{color:#9b341f}.code-card code,pre code{background:transparent;border:0;padding:0;color:inherit}@media(max-width:48em){.wrap{padding:1.4em .7em 3em}header,section{padding:1em;border-radius:1em}h1{font-size:1.55em}}</style></head><body><div class="reader-menu" id="readerMenu"><button onclick="toggleReaderMenu()">☰</button><div class="reader-panel"><a class="btn" href="https://share.beartolove.com/share.html">回目錄</a><button onclick="adjustReaderFont(.08)">放大字體</button><button onclick="adjustReaderFont(-.08)">縮小字體</button><button onclick="resetReaderFont()">恢復預設</button></div></div><main class="wrap"><header><p class="meta">YouTube 逐字稿整理｜AI Agent｜Loop Engineering</p><h1>Loop Engineering 是什麼？用目標、回饋與 Harness 控制 AI 迭代</h1><p class="hero">Loop Engineering 的重點不是把 Prompt 寫得更漂亮，而是設計一個能「設定目標、觀察結果、取得回饋、修正下一輪」的 AI 迭代系統；再搭配 Harness，把大任務拆成可控的小步驟，讓較便宜的模型也能穩定完成工作。</p><p>來源影片：<a href="https://youtu.be/Lglem0O9mjQ?si=B4AdjA3p4MxbC2qp" target="_blank" rel="noopener">https://youtu.be/Lglem0O9mjQ?si=B4AdjA3p4MxbC2qp</a></p></header>
+<section><h2>重點摘要</h2><ul>
+<li><strong>Loop Engineering 是 Mindset 轉換。</strong> 過去常對 AI 說「幫我做 A、B、C」，但 Loop Engineering 更像是先講清楚「我要的目標是什麼」，再讓 AI 在循環中自己嘗試、評估、修正。</li>
+<li><strong>目標要能被衡量。</strong> 最容易 loop 的任務通常有明確數字、格式或檢查條件；例如 Excel 有 row、欄位、格式。如果是客服回覆這種難量化的成果，就要拆成事實正確性、語氣、是否解決問題等評分面向。</li>
+<li><strong>Feedback Loop 是核心。</strong> 系統必須能知道上一輪結果更好或更差，才能決定下一輪往哪裡修正；沒有可觀察的回饋，Loop 就只是反覆亂跑。</li>
+<li><strong>AI 可以自己修 Prompt。</strong> 講者提到，過去人類可能手動調 50 次、100 次 Prompt；現在可以讓 AI 自己產生、評估、修改 Prompt，半小時內跑出過去幾週甚至一個月才做得到的迭代次數。</li>
+<li><strong>Loop 要有「眼睛」與「手腳」。</strong> AI 需要能進入目標系統、取得 log、讀取結果、執行下一步；例如客服 Agent 可以把問題與回應輸出到 Spreadsheet 或 Excel，再讓另一個 Agent 評估品質。</li>
+<li><strong>Harness Engineering 是控制 AI 的馬具。</strong> Harness 不是讓模型更聰明，而是設計邊界、步驟、工具與限制，讓模型在較小、較明確的範圍裡工作。</li>
+<li><strong>便宜模型也能透過拆步驟變好用。</strong> 如果聰明模型負責拆解步驟與評估策略，便宜模型負責執行被拆細的小步驟，就可能用更低 API 成本達到接近的效果。</li>
+<li><strong>成本最佳化也可以交給 AI。</strong> 講者的做法是讓聰明 AI 不斷觀察：哪些步驟能換成較便宜模型、哪些步驟仍需要較強模型，讓整體流程更省。</li>
+<li><strong>護欄比一次性聰明更重要。</strong> 較弱模型一次做太多事容易失誤；但如果每個步驟都清楚、邊界明確、驗收條件具體，就能降低走偏機率。</li>
+</ul></section>
+<section><h2>一句話總結</h2><p>Loop Engineering 的重點不是把 Prompt 寫得更漂亮，而是設計一個能「設定目標、觀察結果、取得回饋、修正下一輪」的 AI 迭代系統；再搭配 Harness，把大任務拆成可控的小步驟，讓較便宜的模型也能穩定完成工作。</p></section>
+<section><h2>關鍵觀察</h2><ol>
+<li>Loop Engineering 不只是「讓 AI 多跑幾輪」，而是把每一輪的成功條件、失敗回饋與下一步修正方式設計出來。</li>
+<li>Prompt Engineering 關心的是單次輸入怎麼寫；Loop Engineering 關心的是整個系統如何自我迭代。</li>
+<li>Harness Engineering 像是替 AI 上馬具：限制活動範圍、拆細任務、設工具權限與驗收方式。</li>
+<li>「最強模型」不一定永遠最划算；當任務被拆得夠清楚，便宜模型可能已經足夠。</li>
+<li>真正難的是把模糊目標轉成可評分、可觀察、可重跑的流程。</li>
+</ol></section>
+<section><h2>實作流程</h2><ol>
+<li><strong>定義目標</strong>：說清楚最終成功狀態，例如格式、分數、測試通過、使用者滿意度或特定輸出。</li>
+<li><strong>拆成評估面向</strong>：把模糊品質拆成事實正確、語氣、完整度、是否解決問題等指標。</li>
+<li><strong>建立回饋來源</strong>：讓 AI 能取得結果、log、Spreadsheet、測試輸出或使用者回饋。</li>
+<li><strong>設計迭代規則</strong>：讓 AI 依照回饋修改 Prompt、策略或下一步行動。</li>
+<li><strong>加上 Harness</strong>：把任務拆成小步驟，限制工具、權限、上下文與可走的路徑。</li>
+<li><strong>做成本最佳化</strong>：嘗試用較便宜模型跑部分步驟，但保留較強模型處理評估、拆解或高風險決策。</li>
+</ol></section>
+<section><h2>適合使用情境</h2><ul>
+<li>客服 Agent 品質優化：用事實性、語氣、解決問題程度等指標自動評分與修正。</li>
+<li>Prompt 自動迭代：讓 AI 產生多版 Prompt、測試、評估，再挑出表現較好的版本。</li>
+<li>開發 Agent：把大任務拆成多個 phase，每步都有明確輸出與驗收條件。</li>
+<li>成本控制：用強模型做規劃與評估，用便宜模型執行清楚的小步驟。</li>
+<li>內部 AI 平台設計：替不同任務建立可監控、可重試、可驗收的工作流。</li>
+</ul></section>
+<section class="warning"><h2>風險提醒</h2><ul>
+<li>不能衡量的目標很難真正 loop；若沒有評分標準，AI 只是在反覆產出，不一定會變好。</li>
+<li>便宜模型不是萬用解；高風險、模糊、需要判斷責任的步驟仍應使用較強模型或保留人工審核。</li>
+<li>讓 AI 能讀 log、執行工具與操作系統時，要設定權限邊界，避免過度授權。</li>
+<li>Loop 需要停止條件；如果沒有「什麼情況算完成」與「失敗幾次要停下來」，可能會浪費成本或產生錯誤自信。</li>
+</ul></section>
+<section><h2>影片說明欄</h2><div class="sourcebox">歡迎加入頻道會員 ➤    / @panscischool  
+
+Loop Engineering 是什麼？現在連 Prompt 都能讓 AI 自己修正自己了。
+
+這集泛科學院首次與泛科學聯手直播，邀請 AI 界知名的海總理，帶你搞懂當紅新名詞 Loop Engineering。從「叫 AI 做 A 做 B 做 C」到「只設定目標讓 AI 自己迭代」，中間差在哪裡？看完這支影片，你會知道怎麼設計可量化的目標、怎麼建立 Feedback Loop，還有為什麼現在改 Prompt 這件事，最懂 AI 的其實是 AI 自己——甚至能用便宜模型也達到跟聰明模型一樣的效果。
+
+00:00 開場：兩頻道首次聯手直播
+00:40 從下指令到設定目標的心法轉換
+01:22 目標要能衡量，Loop 才跑得動
+02:45 實驗一人公司：AI 分身當老闆與員工
+05:32 換個玩法：讓 Agent 每晚自動開發上線
+07:38 核心關鍵：Feedback Loop 到底多重要
+08:19 改用 AI 修 Prompt，效率暴增數十倍
+09:44 想跑 Loop 前，你得先準備這些
+11:10 新名詞 Harness Engineering 是什麼
+13:17 實測：模型降級到 mini，成本砍十分之一
+15:24 總結：聰明 AI 拆步驟、便宜 AI 做事
+
+主編：柯雅芸
+主持人：鄭國威
+剪接：麥智成</div></section>
+<section><h2>逐字稿與摘要檔</h2><div class="download-grid"><a class="download" href="https://drive.google.com/file/d/13CElw0gjWl6HUlWyYrUceDSsicDGgd98/view?usp=drivesdk" target="_blank" rel="noopener"><strong>完整逐字稿 TXT</strong>已上傳 Google Drive，整理為正體中文與臺灣用語。</a><a class="download" href="https://drive.google.com/file/d/1xmM25oH2VaSgKgRNog8r3paaBnMSa_VK/view?usp=drivesdk" target="_blank" rel="noopener"><strong>重點摘要 TXT</strong>含 Loop Engineering 重點、實作流程與風險提醒。</a></div></section>
+<section><h2>來源影片</h2><p><a href="https://youtu.be/Lglem0O9mjQ?si=B4AdjA3p4MxbC2qp" target="_blank" rel="noopener">Loop Engineering 是什麼？開發人員居然不愛最強模型？｜泛科學院</a></p></section></main><script>const root=document.documentElement;function applyReaderFont(){const v=localStorage.getItem('readerFontScale')||'1';root.style.fontSize=(parseFloat(v)*100)+'%';}function adjustReaderFont(delta){const cur=parseFloat(localStorage.getItem('readerFontScale')||'1');const next=Math.min(1.45,Math.max(.8,cur+delta));localStorage.setItem('readerFontScale',String(next));applyReaderFont();}function resetReaderFont(){localStorage.removeItem('readerFontScale');applyReaderFont();}function toggleReaderMenu(){document.getElementById('readerMenu').classList.toggle('open');}applyReaderFont();</script></body></html>
