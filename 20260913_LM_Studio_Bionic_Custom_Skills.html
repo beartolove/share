@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用 LM Studio Bionic 打造自訂 Skill，讓 AI 代理人自動化你的任務</title>
+  <style>
+    :root {
+      --bg: #faf6f0;
+      --card: #fffdf8;
+      --brown-dark: #3d2b1f;
+      --brown-mid: #7a5c40;
+      --brown-light: #c9a87c;
+      --accent: #8b4513;
+      --text: #3d2b1f;
+      --text-sub: #6b4c35;
+      --border: #e8d8c4;
+      --code-bg: #2d1f0e;
+      --code-text: #f0d8b0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans TC', 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1em;
+      line-height: 1.75;
+    }
+    /* Hamburger menu */
+    #menu-toggle { position: fixed; top: 0.8em; left: 0.8em; z-index: 100; background: var(--brown-dark); border: none; color: #fff; border-radius: 6px; padding: 0.4em 0.7em; font-size: 1.1em; cursor: pointer; }
+    #side-menu { position: fixed; top: 0; left: -260px; width: 250px; height: 100vh; background: var(--brown-dark); color: #fff; padding: 3em 1.2em 1.5em; transition: left 0.25s; z-index: 99; overflow-y: auto; }
+    #side-menu.open { left: 0; }
+    #side-menu a { display: block; color: #f0d8b0; text-decoration: none; padding: 0.45em 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.95em; }
+    #side-menu a:hover { color: #fff; }
+    .menu-section { margin-top: 1em; color: var(--brown-light); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+    .font-controls { margin-top: 1em; display: flex; gap: 0.5em; flex-wrap: wrap; }
+    .font-controls button { background: var(--brown-mid); color: #fff; border: none; border-radius: 4px; padding: 0.3em 0.7em; font-size: 0.9em; cursor: pointer; }
+    #overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 98; }
+    #overlay.open { display: block; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #3d2b1f 0%, #7a5c40 100%);
+      color: #fff;
+      padding: 3.5em 1.5em 2.5em;
+      text-align: center;
+    }
+    .hero .tag { display: inline-block; background: rgba(255,255,255,0.15); border-radius: 2em; padding: 0.2em 0.9em; font-size: 0.8em; letter-spacing: 0.05em; margin-bottom: 0.9em; }
+    .hero h1 { font-size: 1.6em; font-weight: 700; line-height: 1.35; max-width: 700px; margin: 0 auto 0.7em; }
+    .hero .subtitle { color: rgba(255,255,255,0.8); font-size: 0.95em; margin-bottom: 1.4em; }
+    .hero-buttons { display: flex; gap: 0.8em; justify-content: center; flex-wrap: wrap; }
+    .hero-buttons a {
+      display: inline-flex; align-items: center; gap: 0.4em;
+      background: rgba(255,255,255,0.15); color: #fff; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.3); border-radius: 2em;
+      padding: 0.5em 1.2em; font-size: 0.9em; transition: background 0.2s;
+    }
+    .hero-buttons a:hover { background: rgba(255,255,255,0.25); }
+    .download-links { margin-top: 1em; display: flex; gap: 0.7em; justify-content: center; flex-wrap: wrap; }
+    .download-links a {
+      display: inline-flex; align-items: center; gap: 0.35em;
+      color: #f0d8b0; text-decoration: none; font-size: 0.85em;
+      border-bottom: 1px solid rgba(240,216,176,0.5); padding-bottom: 0.1em;
+      transition: color 0.2s;
+    }
+    .download-links a:hover { color: #fff; }
+
+    /* Main content */
+    main { max-width: 800px; margin: 0 auto; padding: 1.5em 1.2em 3em; }
+    section { margin-bottom: 2em; }
+    h2 { font-size: 1.15em; font-weight: 700; color: var(--brown-dark); border-left: 4px solid var(--brown-light); padding-left: 0.65em; margin-bottom: 0.9em; }
+    h3 { font-size: 1em; font-weight: 700; color: var(--accent); margin: 0.8em 0 0.4em; }
+    p { margin-bottom: 0.8em; color: var(--text-sub); }
+    ul, ol { padding-left: 1.4em; margin-bottom: 0.8em; color: var(--text-sub); }
+    li { margin-bottom: 0.4em; }
+
+    /* Summary card */
+    .summary-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.2em 1.4em; margin-bottom: 1em; }
+    .one-liner { font-size: 1.05em; color: var(--brown-dark); font-weight: 600; line-height: 1.5; border-left: 3px solid var(--accent); padding-left: 0.8em; margin-bottom: 0.6em; }
+
+    /* Key points list */
+    .key-points { list-style: none; padding: 0; }
+    .key-points li { display: flex; gap: 0.6em; align-items: flex-start; margin-bottom: 0.7em; padding: 0.7em 0.9em; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text-sub); }
+    .key-points li .num { flex-shrink: 0; background: var(--brown-dark); color: #fff; border-radius: 50%; width: 1.5em; height: 1.5em; display: flex; align-items: center; justify-content: center; font-size: 0.75em; font-weight: 700; margin-top: 0.1em; }
+
+    /* Benefit table */
+    .benefit-table { width: 100%; border-collapse: collapse; margin: 0.5em 0 1em; font-size: 0.9em; }
+    .benefit-table th { background: var(--brown-dark); color: #fff; padding: 0.5em 0.8em; text-align: left; }
+    .benefit-table td { padding: 0.5em 0.8em; border-bottom: 1px solid var(--border); color: var(--text-sub); }
+    .benefit-table tr:nth-child(even) td { background: var(--bg); }
+
+    /* Description box */
+    .description-box { background: #f5ede0; border: 1px solid var(--border); border-radius: 8px; padding: 1em 1.2em; font-size: 0.88em; color: var(--text-sub); white-space: pre-wrap; word-break: break-word; }
+    .description-box a { color: var(--accent); text-decoration: underline; word-break: break-all; }
+
+    /* Transcript file links */
+    .file-links { display: flex; gap: 0.8em; flex-wrap: wrap; margin-top: 0.5em; }
+    .file-link {
+      display: inline-flex; align-items: center; gap: 0.4em;
+      background: var(--brown-dark); color: #fff; text-decoration: none;
+      border-radius: 2em; padding: 0.5em 1.1em; font-size: 0.88em; transition: background 0.2s;
+    }
+    .file-link:hover { background: var(--accent); }
+
+    /* Source */
+    .source-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 0.9em 1.1em; display: flex; align-items: center; gap: 0.6em; }
+    .source-box a { color: var(--accent); text-decoration: none; word-break: break-all; font-size: 0.9em; }
+    .source-box a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer { text-align: center; color: var(--brown-light); font-size: 0.8em; padding: 1.5em 1em 2em; }
+
+    /* Lightbox */
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 200; justify-content: center; align-items: center; padding: 1em; }
+    #lightbox.open { display: flex; flex-direction: column; }
+    #lightbox img { max-width: 90vw; max-height: 80vh; border-radius: 6px; object-fit: contain; }
+    #lightbox-close { position: absolute; top: 1em; right: 1em; background: none; border: none; color: #fff; font-size: 2em; cursor: pointer; }
+    #lightbox-prev, #lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); border: none; color: #fff; font-size: 1.8em; padding: 0.3em 0.6em; cursor: pointer; border-radius: 6px; }
+    #lightbox-prev { left: 0.5em; }
+    #lightbox-next { right: 0.5em; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.3em; }
+      main { padding: 1em 0.9em 2em; }
+    }
+  </style>
+</head>
+<body>
+
+<button id="menu-toggle" aria-label="選單">☰</button>
+<nav id="side-menu" aria-label="側邊選單">
+  <div class="menu-section">導覽</div>
+  <a href="https://share.beartolove.com/share.html">← 回分享目錄</a>
+  <div class="menu-section">字體大小</div>
+  <div class="font-controls">
+    <button onclick="adjustFont(1)">放大 A+</button>
+    <button onclick="adjustFont(-1)">縮小 A-</button>
+    <button onclick="resetFont()">預設</button>
+  </div>
+</nav>
+<div id="overlay"></div>
+
+<header class="hero">
+  <div class="tag">🤖 科技及AI新知</div>
+  <h1>用 LM Studio Bionic 打造自訂 Skill，讓 AI 代理人自動化你的任務</h1>
+  <p class="subtitle">How to Create LM Studio Bionic CUSTOM Skills That Automates Your Task</p>
+  <div class="hero-buttons">
+    <a href="https://www.youtube.com/watch?v=is_owIXK0Ws" target="_blank" rel="noopener">▶ 前往原始影片</a>
+  </div>
+  <div class="download-links">
+    <a href="https://drive.google.com/file/d/1Zu0L4RUyFIOVNcWFXzkfTasX64opZQGQ/view" target="_blank" rel="noopener">📄 完整逐字稿下載</a>
+    <a href="https://drive.google.com/file/d/1Sn4dXa-18JfSZPO2rh_i_HwHpli28Uby/view" target="_blank" rel="noopener">📋 重點摘要下載</a>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>重點摘要</h2>
+    <div class="summary-card">
+      <div class="one-liner">LM Studio Bionic 的 Skills 功能讓你用自然語言描述任務，由本機 AI 自動生成可重複使用的指令集，搭配弱一點的模型執行，達到速度更快、Token 更省、可靠性更高的自動化效果。</div>
+    </div>
+    <ul class="key-points">
+      <li><span class="num">1</span><span><strong>LM Studio Bionic 是全新 Agentic AI 工具</strong>：與原本的 LM Studio 完全不同，主打 AI 代理人工作流程；可至 lmstudio.ai 下載，確認選 Bionic 版本。</span></li>
+      <li><span class="num">2</span><span><strong>Skill 是可重複使用的指令集</strong>：可包含文件、程式碼、命令提示詞；儲存在全域資料夾，可在任何聊天視窗用 <code>@技能名稱</code> 呼叫。</span></li>
+      <li><span class="num">3</span><span><strong>建立方式簡單</strong>：輸入 <code>@</code> → 選「Create Skill」→ 用自然語言描述需求 → AI 自動生成並全域安裝。</span></li>
+      <li><span class="num">4</span><span><strong>Demo 1 — PNG 批次轉 WebP</strong>：描述需求後，AI 建立「image to WebP」技能；轉換後圖片縮小至原本的 1/10 大小。</span></li>
+      <li><span class="num">5</span><span><strong>Demo 2 — 呼叫外部 API 生成圖片</strong>：透過 fal.ai + Gemini Imagen 2，本機模型負責協調，圖片由雲端 API 實際生成；展示 Skill 整合外部服務的能力。</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Skills 的核心優勢</h2>
+    <table class="benefit-table">
+      <thead>
+        <tr><th>優點</th><th>說明</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>執行更快</td><td>AI 不需每次重新生成腳本</td></tr>
+        <tr><td>更可靠</td><td>固定的預先定義指令集，行為一致</td></tr>
+        <tr><td>省 Token</td><td>每次任務使用更少 Token</td></tr>
+        <tr><td>弱模型也能用</td><td>小模型擅長「照指令執行」；可用強模型建立 Skill、弱模型執行</td></tr>
+      </tbody>
+    </table>
+    <p>建立 Skill 時使用較智慧的模型（如 Gemma 4 12B），執行時可換成更輕量的模型，兼顧品質與速度。</p>
+  </section>
+
+  <section>
+    <h2>注意事項</h2>
+    <ul>
+      <li>如在描述 Skill 時直接貼入 API Key，務必使用一次性或已廢棄的金鑰，避免外洩風險。</li>
+      <li>LM Studio Bionic 目前為測試版，功能仍在快速演進，建議追蹤官方更新。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>影片說明欄</h2>
+    <div class="description-box">In this video, I'm going to show you how to build custom Skills using LM Studio Bionic.
+
+LM Studio Bionic is a new Agentic AI tool from LM Studio — different from the regular version. Skills are reusable instruction sets (with documents, code, and command prompts) that AI agents can follow to automate tasks on your computer.
+
+Two demos covered:
+1. Image → WebP batch converter (local skill, ~1/10 file size)
+2. Text-to-image via fal.ai + Gemini Imagen 2 (external API integration)
+
+Skills are stored globally and accessible in any chat window. You can build them with a smart model and run them with a lighter one.
+
+Subscribe for more AI tutorials and use cases!</div>
+  </section>
+
+  <section>
+    <h2>逐字稿與摘要檔</h2>
+    <p>以下為本影片的整理檔案，可下載閱讀：</p>
+    <div class="file-links">
+      <a class="file-link" href="https://drive.google.com/file/d/1Zu0L4RUyFIOVNcWFXzkfTasX64opZQGQ/view" target="_blank" rel="noopener">📄 完整逐字稿 TXT</a>
+      <a class="file-link" href="https://drive.google.com/file/d/1Sn4dXa-18JfSZPO2rh_i_HwHpli28Uby/view" target="_blank" rel="noopener">📋 重點摘要 TXT</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>來源影片</h2>
+    <div class="source-box">
+      <span>🎬</span>
+      <a href="https://www.youtube.com/watch?v=is_owIXK0Ws" target="_blank" rel="noopener">https://www.youtube.com/watch?v=is_owIXK0Ws</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>整理自 YouTube 影片逐字稿 · 2026-09-13</p>
+</footer>
+
+<!-- Lightbox (no images this version) -->
+<div id="lightbox" role="dialog" aria-modal="true">
+  <button id="lightbox-close" aria-label="關閉">✕</button>
+  <button id="lightbox-prev" aria-label="上一張">&#8249;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button id="lightbox-next" aria-label="下一張">&#8250;</button>
+</div>
+
+<script>
+  // Hamburger
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('side-menu');
+  const overlay = document.getElementById('overlay');
+  toggle.addEventListener('click', () => { menu.classList.toggle('open'); overlay.classList.toggle('open'); });
+  overlay.addEventListener('click', () => { menu.classList.remove('open'); overlay.classList.remove('open'); });
+
+  // Font size
+  const BASE = 16;
+  let fontSize = parseInt(localStorage.getItem('fontSize') || BASE);
+  document.body.style.fontSize = fontSize + 'px';
+  function adjustFont(delta) { fontSize = Math.min(24, Math.max(12, fontSize + delta)); document.body.style.fontSize = fontSize + 'px'; localStorage.setItem('fontSize', fontSize); }
+  function resetFont() { fontSize = BASE; document.body.style.fontSize = fontSize + 'px'; localStorage.setItem('fontSize', fontSize); }
+
+  // Lightbox (no slides for this page)
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  document.getElementById('lightbox-close').addEventListener('click', () => lb.classList.remove('open'));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+</script>
+</body>
+</html>
