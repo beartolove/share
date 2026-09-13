@@ -157,6 +157,18 @@
 
   <section>
     <h2>重點摘要</h2>
+
+    <!-- Summary cards gallery (4/4) -->
+    <div class="summary-cards-gallery" data-summary-cards="true" style="margin-bottom:1.4em;">
+      <div style="display:flex;gap:0.6em;flex-wrap:wrap;justify-content:center;">
+        <img src="https://drive.google.com/thumbnail?id=1fX-8Dijh9g-UxAGstonB3gRRKSeAtunb&sz=w2000" alt="摘要圖 1/4" style="width:100%;max-width:680px;border-radius:10px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.15);" onclick="openLightbox(0)">
+        <img src="https://drive.google.com/thumbnail?id=1r-rmm80GMiYFYZ8fa-iKdDH_wr-d1m95&sz=w2000" alt="摘要圖 2/4" style="width:100%;max-width:680px;border-radius:10px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.15);" onclick="openLightbox(1)">
+        <img src="https://drive.google.com/thumbnail?id=1hkLZAmt-TURP2HEtPJCo8NSEgF6zIGVF&sz=w2000" alt="摘要圖 3/4" style="width:100%;max-width:680px;border-radius:10px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.15);" onclick="openLightbox(2)">
+        <img src="https://drive.google.com/thumbnail?id=1Vs0K9SfYsve2KDbTJ9qhuKA7W1eD_00D&sz=w2000" alt="摘要圖 4/4" style="width:100%;max-width:680px;border-radius:10px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.15);" onclick="openLightbox(3)">
+      </div>
+      <p style="text-align:center;font-size:0.82em;color:#8b7355;margin-top:0.5em;">點擊圖片可放大查看 · 共 4 張</p>
+    </div>
+
     <div class="summary-card">
       <div class="one-liner">LM Studio Bionic 的 Skills 功能讓你用自然語言描述任務，由本機 AI 自動生成可重複使用的指令集，搭配弱一點的模型執行，達到速度更快、Token 更省、可靠性更高的自動化效果。</div>
     </div>
@@ -236,6 +248,7 @@ Subscribe for more AI tutorials and use cases!</div>
   <button id="lightbox-close" aria-label="關閉">✕</button>
   <button id="lightbox-prev" aria-label="上一張">&#8249;</button>
   <img id="lightbox-img" src="" alt="">
+  <a id="lb-orig-link" href="#" target="_blank" rel="noopener" style="position:absolute;bottom:1.2em;left:50%;transform:translateX(-50%);color:#f0d8b0;font-size:0.8em;text-decoration:underline;">開啟原解析度圖</a>
   <button id="lightbox-next" aria-label="下一張">&#8250;</button>
 </div>
 
@@ -254,11 +267,32 @@ Subscribe for more AI tutorials and use cases!</div>
   function adjustFont(delta) { fontSize = Math.min(24, Math.max(12, fontSize + delta)); document.body.style.fontSize = fontSize + 'px'; localStorage.setItem('fontSize', fontSize); }
   function resetFont() { fontSize = BASE; document.body.style.fontSize = fontSize + 'px'; localStorage.setItem('fontSize', fontSize); }
 
-  // Lightbox (no slides for this page)
+  // Lightbox
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lightbox-img');
+  const slides = [
+    { src: 'https://drive.google.com/thumbnail?id=1fX-8Dijh9g-UxAGstonB3gRRKSeAtunb&sz=w4000', alt: '摘要圖 1/4', orig: 'https://drive.google.com/uc?export=view&id=1fX-8Dijh9g-UxAGstonB3gRRKSeAtunb' },
+    { src: 'https://drive.google.com/thumbnail?id=1r-rmm80GMiYFYZ8fa-iKdDH_wr-d1m95&sz=w4000', alt: '摘要圖 2/4', orig: 'https://drive.google.com/uc?export=view&id=1r-rmm80GMiYFYZ8fa-iKdDH_wr-d1m95' },
+    { src: 'https://drive.google.com/thumbnail?id=1hkLZAmt-TURP2HEtPJCo8NSEgF6zIGVF&sz=w4000', alt: '摘要圖 3/4', orig: 'https://drive.google.com/uc?export=view&id=1hkLZAmt-TURP2HEtPJCo8NSEgF6zIGVF' },
+    { src: 'https://drive.google.com/thumbnail?id=1Vs0K9SfYsve2KDbTJ9qhuKA7W1eD_00D&sz=w4000', alt: '摘要圖 4/4', orig: 'https://drive.google.com/uc?export=view&id=1Vs0K9SfYsve2KDbTJ9qhuKA7W1eD_00D' },
+  ];
+  let curSlide = 0;
+  function openLightbox(n) {
+    curSlide = n;
+    lb.classList.add('open');
+    lbImg.src = slides[n].src;
+    lbImg.alt = slides[n].alt;
+    document.getElementById('lb-orig-link').href = slides[n].orig;
+  }
   document.getElementById('lightbox-close').addEventListener('click', () => lb.classList.remove('open'));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+  document.getElementById('lightbox-prev').addEventListener('click', () => openLightbox((curSlide - 1 + slides.length) % slides.length));
+  document.getElementById('lightbox-next').addEventListener('click', () => openLightbox((curSlide + 1) % slides.length));
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') lb.classList.remove('open');
+    if (e.key === 'ArrowLeft') openLightbox((curSlide - 1 + slides.length) % slides.length);
+    if (e.key === 'ArrowRight') openLightbox((curSlide + 1) % slides.length);
+  });
 </script>
 </body>
 </html>
