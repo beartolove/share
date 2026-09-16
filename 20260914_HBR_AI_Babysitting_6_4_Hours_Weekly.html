@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每週花6.4小時幫AI擦屁股？你是在自動化，還是當「AI 保姆」手動推骨牌？</title>
+  <style>
+    :root {
+      --bg: #faf6f0;
+      --card: #fffdf8;
+      --brown-dark: #3d2b1f;
+      --brown-mid: #7a5c40;
+      --brown-light: #c9a87c;
+      --accent: #8b4513;
+      --text: #3d2b1f;
+      --text-sub: #6b4c35;
+      --border: #e8d8c4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans TC', 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); font-size: 1em; line-height: 1.75; }
+
+    #menu-toggle { position: fixed; top: 0.8em; left: 0.8em; z-index: 100; background: var(--brown-dark); border: none; color: #fff; border-radius: 6px; padding: 0.4em 0.7em; font-size: 1.1em; cursor: pointer; }
+    #side-menu { position: fixed; top: 0; left: -260px; width: 250px; height: 100vh; background: var(--brown-dark); color: #fff; padding: 3em 1.2em 1.5em; transition: left 0.25s; z-index: 99; overflow-y: auto; }
+    #side-menu.open { left: 0; }
+    #side-menu a { display: block; color: #f0d8b0; text-decoration: none; padding: 0.45em 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.95em; }
+    #side-menu a:hover { color: #fff; }
+    .menu-section { margin-top: 1em; color: var(--brown-light); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; }
+    .font-controls { margin-top: 1em; display: flex; gap: 0.5em; flex-wrap: wrap; }
+    .font-controls button { background: var(--brown-mid); color: #fff; border: none; border-radius: 4px; padding: 0.3em 0.7em; font-size: 0.9em; cursor: pointer; }
+    #overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 98; }
+    #overlay.open { display: block; }
+
+    .hero { background: linear-gradient(135deg, #3d2b1f 0%, #7a5c40 100%); color: #fff; padding: 3.5em 1.5em 2.5em; text-align: center; }
+    .hero .tag { display: inline-block; background: rgba(255,255,255,0.15); border-radius: 2em; padding: 0.2em 0.9em; font-size: 0.8em; letter-spacing: 0.05em; margin-bottom: 0.9em; }
+    .hero h1 { font-size: 1.55em; font-weight: 700; line-height: 1.35; max-width: 720px; margin: 0 auto 0.6em; }
+    .hero .subtitle { color: rgba(255,255,255,0.75); font-size: 0.9em; margin-bottom: 1.4em; }
+    .hero-buttons { display: flex; gap: 0.8em; justify-content: center; flex-wrap: wrap; }
+    .hero-buttons a { display: inline-flex; align-items: center; gap: 0.4em; background: rgba(255,255,255,0.15); color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); border-radius: 2em; padding: 0.5em 1.2em; font-size: 0.9em; transition: background 0.2s; }
+    .hero-buttons a:hover { background: rgba(255,255,255,0.25); }
+    .download-links { margin-top: 1em; display: flex; gap: 0.7em; justify-content: center; flex-wrap: wrap; }
+    .download-links a { display: inline-flex; align-items: center; gap: 0.35em; color: #f0d8b0; text-decoration: none; font-size: 0.85em; border-bottom: 1px solid rgba(240,216,176,0.5); padding-bottom: 0.1em; transition: color 0.2s; }
+    .download-links a:hover { color: #fff; }
+
+    main { max-width: 800px; margin: 0 auto; padding: 1.5em 1.2em 3em; }
+    section { margin-bottom: 2em; }
+    h2 { font-size: 1.15em; font-weight: 700; color: var(--brown-dark); border-left: 4px solid var(--brown-light); padding-left: 0.65em; margin-bottom: 0.9em; }
+    h3 { font-size: 1em; font-weight: 700; color: var(--accent); margin: 0.9em 0 0.4em; }
+    p { margin-bottom: 0.8em; color: var(--text-sub); }
+    ul, ol { padding-left: 1.4em; margin-bottom: 0.8em; color: var(--text-sub); }
+    li { margin-bottom: 0.5em; }
+
+    .one-liner { font-size: 1.05em; color: var(--brown-dark); font-weight: 600; line-height: 1.55; border-left: 3px solid var(--accent); padding: 0.5em 0.8em; background: var(--card); border-radius: 0 8px 8px 0; margin-bottom: 1em; }
+
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.8em; margin: 0.8em 0 1.2em; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 0.9em 1em; text-align: center; }
+    .stat-card .num { font-size: 1.8em; font-weight: 800; color: var(--accent); line-height: 1.1; }
+    .stat-card .label { font-size: 0.78em; color: var(--text-sub); margin-top: 0.3em; line-height: 1.4; }
+
+    .q-list { list-style: none; padding: 0; }
+    .q-list li { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 0.9em 1em; margin-bottom: 0.7em; display: flex; gap: 0.8em; align-items: flex-start; color: var(--text-sub); }
+    .q-list li .qnum { flex-shrink: 0; background: var(--brown-dark); color: #fff; border-radius: 50%; width: 1.7em; height: 1.7em; display: flex; align-items: center; justify-content: center; font-size: 0.78em; font-weight: 700; margin-top: 0.1em; }
+
+    .file-links { display: flex; gap: 0.8em; flex-wrap: wrap; margin-top: 0.5em; }
+    .file-link { display: inline-flex; align-items: center; gap: 0.4em; background: var(--brown-dark); color: #fff; text-decoration: none; border-radius: 2em; padding: 0.5em 1.1em; font-size: 0.88em; transition: background 0.2s; }
+    .file-link:hover { background: var(--accent); }
+
+    .source-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 0.9em 1.1em; display: flex; align-items: center; gap: 0.6em; }
+    .source-box a { color: var(--accent); text-decoration: none; word-break: break-all; font-size: 0.9em; }
+    .source-box a:hover { text-decoration: underline; }
+
+    footer { text-align: center; color: var(--brown-light); font-size: 0.8em; padding: 1.5em 1em 2em; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.25em; }
+      main { padding: 1em 0.9em 2em; }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<button id="menu-toggle" aria-label="選單">☰</button>
+<nav id="side-menu" aria-label="側邊選單">
+  <div class="menu-section">導覽</div>
+  <a href="https://share.beartolove.com/share.html">← 回分享目錄</a>
+  <div class="menu-section">字體大小</div>
+  <div class="font-controls">
+    <button onclick="adjustFont(1)">放大 A+</button>
+    <button onclick="adjustFont(-1)">縮小 A-</button>
+    <button onclick="resetFont()">預設</button>
+  </div>
+</nav>
+<div id="overlay"></div>
+
+<header class="hero">
+  <div class="tag">🤖 科技及AI新知</div>
+  <h1>每週花6.4小時幫AI擦屁股？你是在自動化，還是當「AI 保姆」手動推骨牌？</h1>
+  <p class="subtitle">哈佛商業評論《週三編輯室》EP102 ✦ 哈佛商業評論全球繁體中文版</p>
+  <div class="hero-buttons">
+    <a href="https://youtu.be/CpSDTaKqAnc?si=aw3T_dPY3iTqUgAe" target="_blank" rel="noopener">▶ 前往原始影片</a>
+  </div>
+  <div class="download-links">
+    <a href="https://drive.google.com/file/d/1jmTkL-XDz9cDDjKLJGNOuYmmyt7r0EKe/view" target="_blank" rel="noopener">📄 完整逐字稿下載</a>
+    <a href="https://drive.google.com/file/d/1RsBO8Yn3M4lP1woIVdBJRZANjeJh-kBH/view" target="_blank" rel="noopener">📋 重點摘要下載</a>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>重點摘要</h2>
+    <div class="one-liner">平均每個數位工作者每週要花 6.4 小時「當 AI 保姆」做補丁與善後，真正的問題不是 AI 不夠好，而是你是否正在建立可複用的人機協作流程、成為真正的 AI 主管。</div>
+
+    <h3>關鍵數據</h3>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="num">6.4<span style="font-size:0.55em">小時</span></div><div class="label">每週平均當 AI 保姆的時間</div></div>
+      <div class="stat-card"><div class="num">37%</div><div class="label">善後時間佔所有 AI 相關時間（多於實際使用的 36%）</div></div>
+      <div class="stat-card"><div class="num">75%</div><div class="label">工作者認為 AI 提高了個人生產力</div></div>
+      <div class="stat-card"><div class="num">13%</div><div class="label">組織績效真正獲得改善的比例</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>一句話總結</h2>
+    <p>AI 工作指數研究調查歐美近 6,000 名數位工作者，發現使用 AI 每週工作 11 小時的同時，得花 6.4 小時做補丁善後；真正讓組織績效提升的只有 13%。三個工作階段（事前準備／執行／事後檢查），AI 只幫了中間那段，兩頭的隱形成本卻被嚴重低估。</p>
+  </section>
+
+  <section>
+    <h2>三個工作階段的隱形成本</h2>
+    <p>吳相勳老師（元大學終身教育部主任）提出「AI 補丁」概念：整個工作流程可分成三個階段：</p>
+    <ol>
+      <li><strong>事前準備</strong>：寫詳盡提示、備妥脈絡資料、確保 AI 理解需求</li>
+      <li><strong>中途執行</strong>：AI 實際執行工作（大部分節省的時間都在這裡）</li>
+      <li><strong>事後檢查</strong>：驗證資料來源、修正錯誤、反覆調整、全體驗收</li>
+    </ol>
+    <p>我們常說「AI 節省時間」，但大多只發生在中間的執行階段；事前與事後的成本往往大幅增加，卻容易被忽視。</p>
+  </section>
+
+  <section>
+    <h2>AI 主管 vs. AI 保姆</h2>
+    <p><strong>AI 保姆</strong>：一直打補丁、當救火隊，每次都重新解釋、重新修改，時間換不回可複用的成果，就像自己用手推每一塊骨牌。</p>
+    <p><strong>AI 主管</strong>：補充脈絡與修改的過程，會逐漸整理成 skill、標準流程或內隱知識，讓整個團隊都受益，下次不需要從零開始。</p>
+  </section>
+
+  <section>
+    <h2>三個關鍵判斷問題</h2>
+    <ul class="q-list">
+      <li><span class="qnum">Q1</span><span><strong>完整工時省了多少？</strong> 從事前準備、工作執行到事後驗收的整個工作流程，AI 究竟幫我省了多少總時數？不是只算執行這個階段。</span></li>
+      <li><span class="qnum">Q2</span><span><strong>這些投入可以固定下來嗎？</strong> 我現在花精力補充、修改、幫 AI 檢查的這些流程，下次還需要重來，還是可以變成 skill 或模板，讓它固定下來？</span></li>
+      <li><span class="qnum">Q3</span><span><strong>人工監督的比例是多少？</strong> AI 做 80%、我只要查 20%，還是 AI 做 20%、我要查 80%？如果後者，交給 AI 做不一定划算。</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>AI 剪片的血淚教訓</h2>
+    <p>AI 剪片工具聲稱一鍵生成字幕、初剪、文案，乍聽很吸引人。但剪輯師分享：</p>
+    <ul>
+      <li>「今天可能第三版才可以用，然而明天發現改到第十版還出不來你要的。」</li>
+      <li>好不容易剪好了，還要一個一個查錯字、補漏剪的片段、修正跑版的畫面。</li>
+      <li>最後甚至找另一個 AI 工具幫第一個 AI 工具擦屁股。</li>
+      <li>修了半天發現：「還不如自己剪比較快。」</li>
+    </ul>
+    <p>原本以為可以省時，結果管理多個 AI 工具的隱形工時大幅增加。</p>
+  </section>
+
+  <section>
+    <h2>給主管的建議</h2>
+    <p>AI 保姆現象不只是個人問題，更牽涉整個組織流程設計。導入 AI 時，比起一直喊「速度快、效率好」，更應該重視：</p>
+    <ul>
+      <li>工作資訊的透明共享</li>
+      <li>真正計算 AI 吃掉的隱形成本（不只看省了多少執行時間）</li>
+      <li>顧及員工從事前準備到事後檢查的完整工作成本</li>
+      <li>避免只設定虛榮指標（用了多少 token、導入了幾個工具）</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>逐字稿與摘要檔</h2>
+    <div class="file-links">
+      <a class="file-link" href="https://drive.google.com/file/d/1jmTkL-XDz9cDDjKLJGNOuYmmyt7r0EKe/view" target="_blank" rel="noopener">📄 完整逐字稿 TXT</a>
+      <a class="file-link" href="https://drive.google.com/file/d/1RsBO8Yn3M4lP1woIVdBJRZANjeJh-kBH/view" target="_blank" rel="noopener">📋 重點摘要 TXT</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>來源影片</h2>
+    <div class="source-box">
+      <span>🎬</span>
+      <a href="https://youtu.be/CpSDTaKqAnc?si=aw3T_dPY3iTqUgAe" target="_blank" rel="noopener">https://youtu.be/CpSDTaKqAnc?si=aw3T_dPY3iTqUgAe</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>整理自 YouTube 影片逐字稿 · 哈佛商業評論《週三編輯室》EP102 · 2026-09-14</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('side-menu');
+  const overlay = document.getElementById('overlay');
+  toggle.addEventListener('click', () => { menu.classList.toggle('open'); overlay.classList.toggle('open'); });
+  overlay.addEventListener('click', () => { menu.classList.remove('open'); overlay.classList.remove('open'); });
+
+  const BASE = 16;
+  let fontSize = parseInt(localStorage.getItem('fontSize') || BASE);
+  document.body.style.fontSize = fontSize + 'px';
+  function adjustFont(delta) { fontSize = Math.min(24, Math.max(12, fontSize + delta)); document.body.style.fontSize = fontSize + 'px'; localStorage.setItem('fontSize', fontSize); }
+  function resetFont() { fontSize = BASE; document.body.style.fontSize = fontSize + 'px'; localStorage.setItem('fontSize', fontSize); }
+</script>
+</body>
+</html>
