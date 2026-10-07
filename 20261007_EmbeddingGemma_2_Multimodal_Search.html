@@ -1,0 +1,269 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EmbeddingGemma 2：一個模型理解多種資料</title><style>:root{font-size:18px;--bg:#f7f3ec;--card:#fffdf8;--ink:#2f2923;--muted:#756b60;--brown:#75401e;--line:#e7d9ca}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.8}.wrap{max-width:48em;margin:auto;padding:1.5em 1em 4em}header{padding:2em;border:1px solid var(--line);border-radius:1.4em;background:linear-gradient(135deg,#fff8ec,#f3e2ce);box-shadow:0 .5em 1.5em #6b482015}.tag{font-weight:800;color:var(--brown);letter-spacing:.08em}.hero h1{font-size:2em;line-height:1.32;margin:.25em 0}.hero p{color:var(--muted);margin:.4em 0 0}.buttons{display:flex;gap:.6em;flex-wrap:wrap;margin-top:1.25em}.btn{display:inline-block;border-radius:.75em;padding:.65em .9em;background:var(--brown);color:#fff;text-decoration:none;font-weight:800}.btn.alt{background:#fff8ef;color:var(--brown);border:1px solid #c99570}section{background:var(--card);margin-top:1.15em;padding:1.45em;border:1px solid var(--line);border-radius:1.1em}h2{font-family:"Noto Serif TC",serif;color:var(--brown);margin:0 0 .7em;font-size:1.4em}h3{margin:1em 0 .35em;font-size:1em}p{margin:.45em 0}ul{padding-left:1.25em;margin:.45em 0}.notice{color:var(--muted);background:#f5eee5;padding:.8em;border-radius:.6em}a{color:#75401e}footer{color:var(--muted);font-size:.88em;text-align:center;margin-top:1.5em}.reader-controls{position:fixed;top:1em;left:1em;z-index:9}.reader-menu-button{border:1px solid var(--line);border-radius:.7em;background:#fffaf2;color:var(--brown);font-size:1.35em;padding:.32em .56em;box-shadow:0 .25em .75em #6b482020;cursor:pointer}.reader-menu-panel{display:none;margin-top:.45em;background:#fffdf8;border:1px solid var(--line);border-radius:.8em;overflow:hidden;box-shadow:0 .45em 1em #6b482020;min-width:10em}.reader-controls.open .reader-menu-panel{display:block}.reader-menu-panel a,.reader-menu-panel button{display:block;width:100%;border:0;background:transparent;padding:.65em .8em;text-align:left;color:var(--brown);font:inherit;cursor:pointer;text-decoration:none}.reader-menu-panel a:hover,.reader-menu-panel button:hover{background:#f5e7d7}@media(max-width:600px){:root{font-size:16px}.wrap{padding:.9em .7em 3em}header{padding:1.35em}.hero h1{font-size:1.65em}section{padding:1.15em}}.md-strong-red{color:#a1362c;font-weight:800}.md-em-blue-chip{background:#eee;color:#245880;font-style:normal}table{border-collapse:collapse;width:100%;font-size:.95em}td,th{border:1px solid var(--line);padding:.55em;text-align:left}th{background:#f5e7d7}blockquote{border-left:.25em solid #ba8964;margin:1em 0;padding:.5em 1em;background:#faf1e6}section{overflow-wrap:anywhere}header{margin-top:2em}</style></head><body><div class="reader-controls" id="readerControls"><button class="reader-menu-button" type="button" aria-label="開啟選單" onclick="toggleReaderMenu()">☰</button><div class="reader-menu-panel" role="menu"><a href="https://share.beartolove.com/share.html">回分享目錄</a><button type="button" onclick="adjustReaderFont(.1)">放大字體 ＋</button><button type="button" onclick="adjustReaderFont(-.1)">縮小字體 －</button><button type="button" onclick="resetReaderFont()">恢復預設</button></div></div><main class="wrap"><header class="hero"><div class="tag">AI · MULTIMODAL SEARCH</div><h1>EmbeddingGemma 2：一個模型理解多種資料</h1><p>文字、圖片、聲音、影片，都能放進同一個向量空間搜尋。</p></header><section><h2>重點摘要</h2><ul><li>用共同向量空間理解文字、圖片、音訊與影片，支援跨模態檢索。</li><li>依需求載入模組，探索筆電與端側裝置上的本機搜尋。</li><li>768 維向量可縮減；256 維的品質與成本取捨仍需依資料驗證。</li><li>附件所述小型測試呈現良好效果，但不能直接外推企業環境。</li><li>結合生成模型，有機會形成多模態 RAG 與 Agent 的本機檢索層。</li></ul><p class="notice">本頁依熊熊提供的兩支影片整合筆記與附件整理。模型規格、示範能力及測試數字為附件轉述，未於本次重新實測或獨立查證；小型乾淨資料集的結果不代表企業資料效能保證。</p></section><section><h2>完整內容｜9 頁簡報規劃</h2><p>我已把兩份逐字稿整合，主軸聚焦在 <strong class="md-strong-red">EmbeddingGemma 2 是什麼、為什麼重要、可做什麼，以及實測效果與企業應用價值</strong>。以下規劃成 <strong class="md-strong-red">9 頁簡報</strong>，適合下一步直接做成 16:9 圖片簡報。</p>
+<h2>第 1 頁｜EmbeddingGemma 2：一個模型理解多種資料</h2>
+<p><strong class="md-strong-red">一句話：文字、圖片、聲音、影片，都能放進同一個向量空間搜尋</strong></p>
+<ul>
+<li>Google 推出輕量級、開放的多模態 Embedding 模型</li>
+<li>支援：<ul>
+<li>文字 Text</li>
+<li>圖片 Image</li>
+<li>音訊 Audio</li>
+<li>影片 Video</li>
+</ul>
+</li>
+<li>不需要每種資料各自準備一套 Embedding 模型</li>
+<li>不同模態之間，可以直接比較「語意相似度」</li>
+</ul>
+<p><strong class="md-strong-red">視覺重點：</strong><br />
+中央放 EmbeddingGemma 2，四周由「文字、圖片、聲音、影片」匯入同一個向量空間。</p>
+<hr />
+<h2>第 2 頁｜過去的問題：每種資料都要一套模型</h2>
+<p><strong class="md-strong-red">一句話：傳統跨模態搜尋，系統架構複雜、模型也很多</strong></p>
+<h3>傳統作法</h3>
+<ul>
+<li>文字 → Text Embedding Model</li>
+<li>圖片 → Vision Model</li>
+<li>聲音 → Audio Model</li>
+<li>影片 → Video / Vision Model</li>
+<li>不同模型輸出的向量空間未必能直接比較</li>
+</ul>
+<h3>EmbeddingGemma 2</h3>
+<p>只需要：</p>
+<blockquote>
+<p>一個模型 → 一個共同 Embedding Space</p>
+</blockquote>
+<p>例如：</p>
+<ul>
+<li>「貓」這個文字</li>
+<li>一張貓的照片</li>
+<li>貓叫的聲音</li>
+</ul>
+<p>都會被放到彼此接近的位置。</p>
+<p><strong class="md-strong-red">視覺重點：</strong><br />
+左邊「4 種資料 → 4 套模型」，右邊「4 種資料 → EmbeddingGemma 2 → 同一空間」。</p>
+<hr />
+<h2>第 3 頁｜核心突破：跨模態可以直接搜尋</h2>
+<p><strong class="md-strong-red">一句話：搜尋條件和搜尋結果，不需要是同一種資料</strong></p>
+<p>EmbeddingGemma 2 可以支援：</p>
+<ul>
+<li>文字 → 找圖片</li>
+<li>文字 → 找影片</li>
+<li>文字 → 找音訊</li>
+<li>音訊 → 找圖片</li>
+<li>影片 → 找圖片</li>
+<li>不同資料混合搜尋</li>
+</ul>
+<p>例如輸入：</p>
+<blockquote>
+<p>「一張馬的照片」</p>
+</blockquote>
+<p>可以同時找出：</p>
+<ul>
+<li>馬的照片</li>
+<li>談論馬的語音</li>
+<li>出現馬的影片</li>
+</ul>
+<h3>核心能力</h3>
+<p><strong class="md-strong-red">不同媒體格式 → 相同語意 → 相近向量</strong></p>
+<hr />
+<h2>第 4 頁｜模型不大：最高約 7.4 億參數</h2>
+<p><strong class="md-strong-red">一句話：它的重要特色不是只有多模態，而是能在端側設備執行</strong></p>
+<p>模型最高約：</p>
+<p><strong class="md-strong-red">740M parameters</strong></p>
+<p>逐字稿提到模組包含：</p>
+<ul>
+<li>約 270M：文字模型</li>
+<li>約 170M：視覺 Encoder</li>
+<li>約 300M：音訊 Encoder</li>
+</ul>
+<p>而且可以依需求只載入需要的部分。</p>
+<p>例如：</p>
+<ul>
+<li>只有文字搜尋 → 不載入影像、音訊</li>
+<li>圖文搜尋 → 只載入文字＋影像</li>
+<li>完整多模態 → 全部載入</li>
+</ul>
+<p><strong class="md-strong-red">意義：</strong></p>
+<blockquote>
+<p>不一定需要大型 GPU 或雲端服務，筆電、手機等 Edge Device 也有機會執行。</p>
+</blockquote>
+<hr />
+<h2>第 5 頁｜一個共同的 768 維向量空間</h2>
+<p><strong class="md-strong-red">一句話：不同資料最後都轉成可直接比較的數字座標</strong></p>
+<p>官方介紹：</p>
+<p><strong class="md-strong-red">768 dimensions</strong></p>
+<p>而且使用 <strong class="md-strong-red">Matryoshka Representation Learning</strong>，可以縮減為：</p>
+<ul>
+<li>768</li>
+<li>512</li>
+<li>256</li>
+<li>128 dimensions</li>
+</ul>
+<h3>好處</h3>
+<p>向量越小：</p>
+<ul>
+<li>儲存空間越少</li>
+<li>Vector Database 越省</li>
+<li>搜尋速度可能更快</li>
+</ul>
+<p>實測中：</p>
+<ul>
+<li>768 維：表現佳</li>
+<li>256 維：仍維持相同的 Top-8 95% Precision</li>
+<li>儲存量僅約 1/3</li>
+<li>128 維開始出現較明顯下降</li>
+</ul>
+<p><strong class="md-strong-red">簡報可強調：</strong></p>
+<blockquote>
+<p>256 維可能是「品質 × 儲存成本」的甜蜜點，但仍須依實際資料驗證。</p>
+</blockquote>
+<hr />
+<h2>第 6 頁｜實測：8GB GPU 筆電就能跑</h2>
+<p><strong class="md-strong-red">一句話：完整多模態模型實測約占 1.5GB VRAM</strong></p>
+<p>實測環境：</p>
+<p><strong class="md-strong-red">RTX 4060／8GB GPU Laptop</strong></p>
+<p>約使用：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>VRAM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>只有文字</td>
+<td>351 MB</td>
+</tr>
+<tr>
+<td>文字＋圖片</td>
+<td>899 MB</td>
+</tr>
+<tr>
+<td>文字＋音訊</td>
+<td>1,163 MB</td>
+</tr>
+<tr>
+<td>完整模型</td>
+<td>約 1,510 MB</td>
+</tr>
+</tbody>
+</table>
+<p>模型載入時間約：</p>
+<p><strong class="md-strong-red">13～16 秒</strong></p>
+<p>因此即使完整模型：</p>
+<blockquote>
+<p>約 1.5GB VRAM，仍遠低於 8GB GPU 的容量。</p>
+</blockquote>
+<h3>代表意義</h3>
+<p>Embedding 不一定只能放在：</p>
+<p><strong class="md-strong-red">Cloud</strong></p>
+<p>也可能移往：</p>
+<p><strong class="md-strong-red">Laptop / Phone / Edge Device</strong></p>
+<hr />
+<h2>第 7 頁｜跨模態搜尋實測效果</h2>
+<p><strong class="md-strong-red">一句話：小型測試中，文字、圖片、聲音與影片已能互相搜尋</strong></p>
+<p>測試資料：</p>
+<ul>
+<li>80 張圖片</li>
+<li>20 段音訊</li>
+<li>10 段影片</li>
+<li>10 種物件類別</li>
+</ul>
+<h3>測試結果</h3>
+<p><strong class="md-strong-red">圖片搜尋</strong></p>
+<ul>
+<li>10 種類別 Top-1：10 / 10 正確</li>
+<li>Top-8 Precision：約 95%</li>
+</ul>
+<p><strong class="md-strong-red">文字 → 音訊</strong></p>
+<ul>
+<li>10 / 10 正確</li>
+</ul>
+<p><strong class="md-strong-red">音訊 → 圖片</strong></p>
+<ul>
+<li>20 / 20 正確</li>
+</ul>
+<p><strong class="md-strong-red">文字 → 影片</strong></p>
+<ul>
+<li>10 / 10 正確</li>
+</ul>
+<p><strong class="md-strong-red">影片 → 圖片</strong></p>
+<ul>
+<li>10 / 10 正確</li>
+</ul>
+<p>但逐字稿也特別提醒：</p>
+<blockquote>
+<p>這些是小型、相對乾淨的測試資料，不能直接等同真實企業環境。</p>
+</blockquote>
+<hr />
+<h2>第 8 頁｜更重要的是：資料可以不離開設備</h2>
+<p><strong class="md-strong-red">一句話：Embedding 與搜尋可以完全在本機完成</strong></p>
+<p>Google 展示的應用包含：</p>
+<h3>Instant Media Search</h3>
+<p>直接使用自然語言找：</p>
+<ul>
+<li>照片</li>
+<li>圖片素材</li>
+</ul>
+<h3>Video Moment Finder</h3>
+<p>例如輸入：</p>
+<blockquote>
+<p>「吹生日蠟燭」</p>
+</blockquote>
+<p>直接找到影片中對應的時間片段。</p>
+<p>而且：</p>
+<ul>
+<li>不需要先轉錄成文字</li>
+<li>不需要呼叫外部 API</li>
+<li>可以完全 Offline</li>
+<li>資料可以保留在本機</li>
+</ul>
+<h3>這使它特別適合</h3>
+<ul>
+<li>隱私資料</li>
+<li>企業內部資料</li>
+<li>機敏檔案</li>
+<li>本地端 AI</li>
+</ul>
+<hr />
+<h2>第 9 頁｜從搜尋模型，進一步變成本地 RAG 與 Agent 基礎</h2>
+<p><strong class="md-strong-red">一句話：EmbeddingGemma 2 的真正價值，是讓「所有企業資料」都有機會進入同一個 AI 檢索層</strong></p>
+<p>搭配輕量生成模型，可以形成：</p>
+<p><strong class="md-strong-red">本地資料</strong><br />
+↓<br />
+<strong class="md-strong-red">EmbeddingGemma 2</strong><br />
+↓<br />
+<strong class="md-strong-red">跨模態 Vector Search</strong><br />
+↓<br />
+<strong class="md-strong-red">RAG</strong><br />
+↓<br />
+<strong class="md-strong-red">LLM / Agent</strong></p>
+<p>未來 Agent 可以同時找：</p>
+<ul>
+<li>Word / PDF 檔案</li>
+<li>圖片</li>
+<li>系統架構圖</li>
+<li>會議錄音</li>
+<li>教學影片</li>
+<li>現場照片</li>
+</ul>
+<p>Google 示範甚至可以：</p>
+<blockquote>
+<p>持續聆聽音訊 → 辨識問題 → 搜尋本機資料 → 找到相關架構圖 → 由生成式模型整理答案</p>
+</blockquote>
+<h3>最值得注意的轉變</h3>
+<p>過去：</p>
+<blockquote>
+<p>RAG ≈ 找文字</p>
+</blockquote>
+<p>未來可能變成：</p>
+<blockquote>
+<p><strong class="md-strong-red">RAG = 搜尋整個企業的多媒體知識</strong></p>
+</blockquote>
+<hr />
+<h3>我建議這份簡報的主線</h3>
+<p>可以把整份簡報濃縮成一句話：</p>
+<blockquote>
+<p><strong class="md-strong-red">EmbeddingGemma 2 的重點，不只是 Google 又推出一個 Embedding 模型，而是讓「文字、圖片、錄音、影片」第一次更容易以同一套小型模型，在本機建立企業級多模態搜尋與 RAG。</strong></p>
+</blockquote>
+<p>另外有一個逐字稿差異我已幫你處理：第一份影片口述一度寫成 <strong class="md-strong-red">「1768 維」</strong>，但同一影片後段以及 Google 官方介紹逐字稿都明確使用 <strong class="md-strong-red">768 維</strong>，因此簡報採用 <strong class="md-strong-red">768 維</strong>，避免把疑似轉錄錯誤帶進簡報。</p></section><section><h2>來源影片</h2><p><a href="https://www.youtube.com/watch?v=anPsS6huQk0" target="_blank" rel="noopener">來源影片 1：https://www.youtube.com/watch?v=anPsS6huQk0</a></p><p><a href="https://www.youtube.com/watch?v=32Ib62NkJ3k" target="_blank" rel="noopener">來源影片 2：https://www.youtube.com/watch?v=32Ib62NkJ3k</a></p></section><footer>依提供的整合筆記整理｜保留測試條件與限制</footer></main><script>const k='myhermes-reader-font-scale';function toggleReaderMenu(){document.getElementById('readerControls').classList.toggle('open')}function setFont(v){document.documentElement.style.fontSize=v+'px'}function adjustReaderFont(d){let v=+localStorage.getItem(k)||18;v=Math.max(14,Math.min(26,v+d*2));localStorage.setItem(k,v);setFont(v)}function resetReaderFont(){localStorage.removeItem(k);setFont(18)}setFont(+localStorage.getItem(k)||18);document.addEventListener('click',e=>{const c=document.getElementById('readerControls');if(c&&!c.contains(e.target))c.classList.remove('open')});</script></body></html>
